@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaV_shiftlFun函数用于执行左移或右移操作，根据输入的y值决定移位方向。",
+    "api": {
+        "apiDescription": "luaV_shiftlFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "x",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "移位操作的输入数值"
+                },
+                {
+                    "name": "y",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "决定移位方向和位数的参数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Integer*",
+                    "dimensionality": "pointer",
+                    "meaning": "移位操作的结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

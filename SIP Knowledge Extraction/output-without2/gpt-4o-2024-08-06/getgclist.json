@@ -1,0 +1,27 @@
+{
+    "functionDescription": "getgclistFun函数用于根据不同的Lua对象类型返回其关联的GC列表。",
+    "api": {
+        "apiDescription": "getgclistFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua对象的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "返回的GC列表指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

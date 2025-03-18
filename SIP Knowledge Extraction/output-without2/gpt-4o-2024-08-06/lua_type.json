@@ -1,0 +1,33 @@
+{
+    "functionDescription": "lua_typeFun函数用于确定Lua值的类型。",
+    "api": {
+        "apiDescription": "lua_typeFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "idx",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "输入端口，用于指定Lua值的索引"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出端口，表示Lua的状态"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "输出端口，用于存储Lua值的类型"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

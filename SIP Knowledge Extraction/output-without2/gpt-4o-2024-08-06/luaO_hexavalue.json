@@ -1,0 +1,41 @@
+{
+    "functionDescription": "该函数用于将输入字符转换为对应的十六进制值。",
+    "api": {
+        "apiDescription": "luaO_hexavalueFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaO_hexavalue结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "1",
+                    "meaning": "存储转换后的十六进制值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "c",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "输入的字符"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "fun",
+                "type": "Fun",
+                "dimensionality": "1",
+                "meaning": "接口函数"
+            }
+        ]
+    }
+}

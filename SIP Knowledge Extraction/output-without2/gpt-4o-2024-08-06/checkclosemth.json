@@ -1,0 +1,33 @@
+{
+    "functionDescription": "检查并关闭方法的功能",
+    "api": {
+        "apiDescription": "checkclosemthFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向checkclosemth结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单一",
+                "meaning": "Lua状态机指针"
+            },
+            {
+                "name": "level",
+                "type": "StkId",
+                "dimensionality": "单一",
+                "meaning": "栈级别指针"
+            }
+        ],
+        "parameters": []
+    }
+}

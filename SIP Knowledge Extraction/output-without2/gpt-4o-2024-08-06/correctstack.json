@@ -1,0 +1,33 @@
+{
+    "functionDescription": "调整 Lua 栈的指针位置，以确保正确的栈操作。",
+    "api": {
+        "apiDescription": "correctstackFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一指针",
+                    "meaning": "指向 correctstack 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一指针",
+                    "meaning": "Lua 状态结构体，包含栈信息"
+                },
+                {
+                    "name": "oldstack",
+                    "type": "StkId",
+                    "dimensionality": "单一指针",
+                    "meaning": "旧栈的基地址"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

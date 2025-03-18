@@ -1,0 +1,33 @@
+{
+    "functionDescription": "reinserthashFun函数用于在给定的表中重新插入哈希节点，确保键值对的正确性。",
+    "api": {
+        "apiDescription": "reinserthashFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ot",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入的旧表，包含需要重新插入的节点"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态，用于获取节点键"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "目标表，将重新插入的键值对存储于此"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

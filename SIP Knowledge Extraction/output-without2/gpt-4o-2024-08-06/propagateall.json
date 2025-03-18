@@ -1,0 +1,27 @@
+{
+    "functionDescription": "该功能用于在垃圾回收过程中遍历灰色对象列表，并调用标记函数。",
+    "api": {
+        "apiDescription": "void propagateallFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向propagateall结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "1",
+                "meaning": "全局状态，包含垃圾回收相关信息"
+            }
+        ],
+        "parameters": []
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "functionDescription": "该函数用于计数整数，判断输入的key是否为数组索引，并根据结果更新计数器。",
+    "api": {
+        "apiDescription": "countintFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Integer",
+                    "dimensionality": "单值",
+                    "meaning": "输入的整数键，用于判断是否为数组索引"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "ct",
+                    "type": "Counters*",
+                    "dimensionality": "结构体指针",
+                    "meaning": "计数器结构体，用于存储计数结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "functionDescription": "该函数根据格式字符串和参数列表生成格式化字符串。",
+    "api": {
+        "apiDescription": "luaO_pushvfstringFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态信息"
+                },
+                {
+                    "name": "fmt",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "格式字符串"
+                },
+                {
+                    "name": "argp",
+                    "type": "struct __va_list_tag*",
+                    "dimensionality": "单一",
+                    "meaning": "参数列表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "返回的格式化字符串"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "functionDescription": "luaD_closeprotectedFun函数用于关闭保护的Lua状态，确保在没有错误的情况下关闭所有upvalues。",
+    "api": {
+        "apiDescription": "luaD_closeprotectedFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "level",
+                    "type": "ptrdiff_t",
+                    "dimensionality": "scalar",
+                    "meaning": "堆栈级别"
+                },
+                {
+                    "name": "status",
+                    "type": "TStatus",
+                    "dimensionality": "scalar",
+                    "meaning": "当前状态"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "TStatus*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回状态"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "allowhook",
+                "type": "lu_byte",
+                "dimensionality": "scalar",
+                "meaning": "允许钩子状态"
+            },
+            {
+                "name": "ci",
+                "type": "CallInfo*",
+                "dimensionality": "pointer",
+                "meaning": "当前函数调用信息"
+            }
+        ],
+        "parameters": []
+    }
+}

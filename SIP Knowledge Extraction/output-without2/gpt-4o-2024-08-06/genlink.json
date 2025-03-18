@@ -1,0 +1,27 @@
+{
+    "functionDescription": "处理垃圾回收对象的链接和年龄更新",
+    "api": {
+        "apiDescription": "void genlinkFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向genlink结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "垃圾收集器的状态"
+            }
+        ],
+        "parameters": []
+    }
+}

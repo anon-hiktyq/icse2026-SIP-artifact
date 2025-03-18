@@ -1,0 +1,47 @@
+{
+    "functionDescription": "knameFun函数用于检查输入指针p指向的对象的某个值是否为字符串，并根据结果设置name和ret的值。",
+    "api": {
+        "apiDescription": "knameFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向kname结构体的指针"
+                },
+                {
+                    "name": "index",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "用于访问k数组的索引"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "返回值，用于表示结果的类型"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "单一",
+                    "meaning": "返回字符串的名称"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "k",
+                "type": "TValue*",
+                "dimensionality": "数组",
+                "meaning": "常量数组，用于存储函数使用的值"
+            }
+        ],
+        "parameters": []
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "functionDescription": "此函数负责垃圾收集器的状态转换和对象清理。",
+    "api": {
+        "apiDescription": "sweepstepFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "nextstate",
+                    "type": "lu_byte",
+                    "dimensionality": "scalar",
+                    "meaning": "下一个垃圾收集器状态"
+                },
+                {
+                    "name": "fast",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "快速模式标志"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "全局状态"
+                },
+                {
+                    "name": "nextlist",
+                    "type": "GCObject**",
+                    "dimensionality": "pointer",
+                    "meaning": "下一个对象列表"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "scalar",
+                "meaning": "垃圾收集器的当前状态"
+            },
+            {
+                "name": "sweepgc",
+                "type": "GCObject**",
+                "dimensionality": "pointer",
+                "meaning": "当前清理对象的位置"
+            }
+        ],
+        "parameters": []
+    }
+}

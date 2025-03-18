@@ -1,0 +1,40 @@
+{
+    "functionDescription": "此函数执行原子操作以管理垃圾收集器状态，确保所有强可访问对象被标记并处理弱表和待终结对象。",
+    "api": {
+        "apiDescription": "atomicFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向原子结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态，用于垃圾收集器操作"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "垃圾收集器的当前状态"
+            },
+            {
+                "name": "currentwhite",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "当前白色位，用于标记对象"
+            }
+        ],
+        "parameters": []
+    }
+}

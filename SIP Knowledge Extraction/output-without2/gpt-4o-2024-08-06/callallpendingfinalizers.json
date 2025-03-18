@@ -1,0 +1,34 @@
+{
+    "functionDescription": "调用所有待处理的终结器",
+    "api": {
+        "apiDescription": "callallpendingfinalizersFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向callallpendingfinalizers结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "tobefnz",
+                "type": "GCObject*",
+                "dimensionality": "单一",
+                "meaning": "待处理的终结器对象列表"
+            }
+        ],
+        "parameters": []
+    }
+}

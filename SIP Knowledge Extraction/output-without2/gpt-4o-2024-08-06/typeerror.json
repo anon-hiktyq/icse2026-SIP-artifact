@@ -1,0 +1,45 @@
+{
+    "functionDescription": "此函数用于处理类型错误，根据对象类型和错误信息生成特定错误信息。",
+    "api": {
+        "apiDescription": "typeerrorFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向类型错误处理结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua 状态结构，包含当前执行环境"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "指向值的指针，用于错误处理"
+                },
+                {
+                    "name": "op",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "操作符字符串，用于描述错误操作"
+                },
+                {
+                    "name": "extra",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "额外的错误信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

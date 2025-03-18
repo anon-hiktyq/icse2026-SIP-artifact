@@ -1,0 +1,65 @@
+{
+    "functionDescription": "该功能尝试连接两个值，如果无法连接则调用错误处理。",
+    "api": {
+        "apiDescription": "luaT_tryconcatTMFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入的指针参数，指向luaT_tryconcatTM结构体"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态，包含堆栈和其他运行时信息"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "allowhook",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "指示是否允许钩子函数"
+            },
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "1",
+                "meaning": "Lua状态机的当前状态"
+            },
+            {
+                "name": "top",
+                "type": "StkIdRel",
+                "dimensionality": "1",
+                "meaning": "堆栈的第一个空闲槽"
+            },
+            {
+                "name": "ci",
+                "type": "CallInfo*",
+                "dimensionality": "1",
+                "meaning": "当前函数的调用信息"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "hookmask",
+                "type": "volatile l_signalT",
+                "dimensionality": "1",
+                "meaning": "钩子函数的掩码"
+            },
+            {
+                "name": "errfunc",
+                "type": "ptrdiff_t",
+                "dimensionality": "1",
+                "meaning": "当前错误处理函数的堆栈索引"
+            }
+        ]
+    }
+}

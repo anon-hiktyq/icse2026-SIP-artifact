@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaV_tointegernsFun函数用于将给定对象转换为整数，如果对象为浮点数则进行相应的转换操作。",
+    "api": {
+        "apiDescription": "luaV_tointegernsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "obj",
+                    "type": "const TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "输入对象，可能是浮点数或整数"
+                },
+                {
+                    "name": "mode",
+                    "type": "F2Imod",
+                    "dimensionality": "单值",
+                    "meaning": "转换模式，决定如何处理浮点数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单值",
+                    "meaning": "转换结果，表示是否成功转换为整数"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "p",
+                    "type": "lua_Integer*",
+                    "dimensionality": "单值",
+                    "meaning": "存储转换后的整数值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

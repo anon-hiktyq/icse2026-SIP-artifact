@@ -1,0 +1,33 @@
+{
+    "functionDescription": "hashintFun函数用于计算哈希值并返回相应的节点。",
+    "api": {
+        "apiDescription": "hashintFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "",
+                    "meaning": "哈希表"
+                },
+                {
+                    "name": "i",
+                    "type": "lua_Integer",
+                    "dimensionality": "",
+                    "meaning": "输入整数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "Node *",
+                    "dimensionality": "",
+                    "meaning": "返回节点"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

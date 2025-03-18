@@ -1,0 +1,46 @@
+{
+    "functionDescription": "该功能用于确定调用信息的状态，并根据调用上下文设置返回值。",
+    "api": {
+        "apiDescription": "void funcnamefromcallFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向funcnamefromcall结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "返回的调用状态"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "调用信息指针"
+                },
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "1",
+                    "meaning": "函数名称指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

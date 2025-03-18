@@ -1,0 +1,39 @@
+{
+    "functionDescription": "计算两个程序计数器之间的行差异，如果它们不太远且没有绝对行信息阻碍，则计算行差异。",
+    "api": {
+        "apiDescription": "void changedlineFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "1",
+                    "meaning": "函数的原型信息，包含调试信息和其他元数据。"
+                },
+                {
+                    "name": "oldpc",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "旧的程序计数器位置。"
+                },
+                {
+                    "name": "newpc",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "新的程序计数器位置。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果指针，指示行差异是否成功计算。"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

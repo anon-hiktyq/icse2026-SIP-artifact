@@ -1,0 +1,47 @@
+{
+    "functionDescription": "luaD_poscallFun 函数用于处理 Lua 调用的返回过程，涉及结果移动和状态检查。",
+    "api": {
+        "apiDescription": "luaD_poscallFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入指针，指向 luaD_poscall 结构体"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "调用信息"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "callstatus",
+                "type": "l_uint32",
+                "dimensionality": "1",
+                "meaning": "调用状态标志"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "nres",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "结果数量"
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaF_findupvalFun函数用于在给定的lua_State中查找或创建一个新的UpVal。",
+    "api": {
+        "apiDescription": "luaF_findupvalFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaF_findupval结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "UpVal*",
+                    "dimensionality": "1",
+                    "meaning": "找到或创建的UpVal"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "lua状态机"
+                },
+                {
+                    "name": "level",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "堆栈级别"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

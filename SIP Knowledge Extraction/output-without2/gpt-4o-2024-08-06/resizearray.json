@@ -1,0 +1,45 @@
+{
+    "functionDescription": "调整数组大小的功能",
+    "api": {
+        "apiDescription": "resizearrayFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "oldasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "旧数组大小"
+                },
+                {
+                    "name": "newasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "新数组大小"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "数组表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "Value*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

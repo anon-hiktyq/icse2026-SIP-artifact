@@ -1,0 +1,33 @@
+{
+    "functionDescription": "遍历并标记强表中的对象。",
+    "api": {
+        "apiDescription": "traversestrongtableFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向traversestrongtable结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "1",
+                "meaning": "全局状态"
+            },
+            {
+                "name": "h",
+                "type": "Table*",
+                "dimensionality": "1",
+                "meaning": "哈希表"
+            }
+        ]
+    }
+}

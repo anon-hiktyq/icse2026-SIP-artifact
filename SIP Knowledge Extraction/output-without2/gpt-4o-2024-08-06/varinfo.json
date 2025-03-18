@@ -1,0 +1,40 @@
+{
+    "functionDescription": "varinfoFun函数用于从给定变量信息指针中提取变量的名称和类型，并格式化输出。",
+    "api": {
+        "apiDescription": "varinfoFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向varinfo结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "格式化后的变量信息字符串"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态结构体指针"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "变量的值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

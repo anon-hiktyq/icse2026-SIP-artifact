@@ -1,0 +1,40 @@
+{
+    "functionDescription": "完成节点获取操作",
+    "api": {
+        "apiDescription": "finishnodegetFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向finishnodeget结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "单值",
+                    "meaning": "存储操作结果的字节"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "val",
+                    "type": "const TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "输入值"
+                },
+                {
+                    "name": "res",
+                    "type": "TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "结果值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

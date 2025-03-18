@@ -1,0 +1,33 @@
+{
+    "functionDescription": "此函数用于判断代码是否在条件跳转内，并根据判断结果设置寄存器值。",
+    "api": {
+        "apiDescription": "filterpcFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "pc",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "当前代码位置"
+                },
+                {
+                    "name": "jmptarget",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "跳转目标位置"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "用于设置寄存器的值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

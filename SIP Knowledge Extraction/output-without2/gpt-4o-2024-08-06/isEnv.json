@@ -1,0 +1,40 @@
+{
+    "functionDescription": "isEnvFun函数用于判断给定变量是否为全局变量或字段。",
+    "api": {
+        "apiDescription": "void isEnvFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "i",
+                    "type": "Instruction",
+                    "dimensionality": "",
+                    "meaning": "指令参数"
+                },
+                {
+                    "name": "isup",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "判断是否为upvalue"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "",
+                    "meaning": "返回变量类型：global或field"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "",
+                    "meaning": "函数原型信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

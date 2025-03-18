@@ -1,0 +1,39 @@
+{
+    "functionDescription": "该函数用于在表中插入一个键值对，确保键值对不与已有键冲突。",
+    "api": {
+        "apiDescription": "insertkeyFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出端口，表示要插入键值对的表"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出端口，表示要插入的键"
+                },
+                {
+                    "name": "value",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出端口，表示要插入的值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "输出端口，表示插入操作的结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

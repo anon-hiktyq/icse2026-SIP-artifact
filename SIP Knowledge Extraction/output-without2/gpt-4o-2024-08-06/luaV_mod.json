@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaV_modFun函数用于计算两个整数m和n的模运算，并处理特殊情况。",
+    "api": {
+        "apiDescription": "luaV_modFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "m",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "用于模运算的被除数"
+                },
+                {
+                    "name": "n",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "用于模运算的除数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Integer*",
+                    "dimensionality": "scalar",
+                    "meaning": "存储模运算结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua状态结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "functionDescription": "设置次要债务的功能。",
+    "api": {
+        "apiDescription": "luaE_setdebt",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入指针，指向setminordebt结构体"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态指针，用于垃圾回收和内存管理"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

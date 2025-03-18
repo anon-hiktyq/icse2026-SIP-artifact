@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaD_hookFun函数用于在Lua状态中执行钩子函数，确保钩子存在并且允许调用。它在调用钩子前后保存和恢复栈顶，并处理转移信息。",
+    "api": {
+        "apiDescription": "luaD_hookFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向luaD_hook结构的指针"
+                },
+                {
+                    "name": "event",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "事件类型"
+                },
+                {
+                    "name": "line",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "当前行号"
+                },
+                {
+                    "name": "ftransfer",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "转移的第一个值的偏移量"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua状态"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "ntransfer",
+                "type": "int",
+                "dimensionality": "scalar",
+                "meaning": "转移的值的数量"
+            }
+        ]
+    }
+}

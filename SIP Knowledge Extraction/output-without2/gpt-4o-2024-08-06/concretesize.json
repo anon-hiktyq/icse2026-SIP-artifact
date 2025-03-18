@@ -1,0 +1,27 @@
+{
+    "functionDescription": "此函数用于根据结构体中的大小计算并设置返回值。",
+    "api": {
+        "apiDescription": "concretesizeFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "size",
+                    "type": "unsigned int",
+                    "dimensionality": "1",
+                    "meaning": "输入大小，用于计算返回值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "size_t*",
+                    "dimensionality": "1",
+                    "meaning": "计算后的返回值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

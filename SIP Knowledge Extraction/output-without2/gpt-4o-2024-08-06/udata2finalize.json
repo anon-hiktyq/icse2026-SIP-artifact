@@ -1,0 +1,34 @@
+{
+    "functionDescription": "将一个对象从待终结列表移动到所有可回收对象列表，并根据垃圾回收阶段调整对象状态。",
+    "api": {
+        "apiDescription": "udata2finalizeFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向需要处理的udata2finalize结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "返回处理后的GC对象"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态结构体，用于管理垃圾回收的状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

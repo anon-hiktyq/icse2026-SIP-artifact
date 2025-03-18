@@ -1,0 +1,26 @@
+{
+    "functionDescription": "fullgenFun 函数用于调用两个 IP 模块：minor2inc 和 entergen，通过传递 lua_State 和 global_State 结构体指针来执行相应的功能。",
+    "api": {
+        "apiDescription": "fullgenFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua 状态结构体指针"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单一",
+                    "meaning": "全局状态结构体指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaF_getlocalnameFun函数用于获取指定程序计数器下活动的局部变量名称。",
+    "api": {
+        "apiDescription": "luaF_getlocalnameFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "f",
+                    "type": "const Proto*",
+                    "dimensionality": "",
+                    "meaning": "函数原型信息，包含局部变量信息"
+                },
+                {
+                    "name": "local_number",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "要查找的局部变量序号"
+                },
+                {
+                    "name": "pc",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "程序计数器，用于确定变量是否活跃"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "",
+                    "meaning": "找到的局部变量的名称，若未找到则为NULL"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

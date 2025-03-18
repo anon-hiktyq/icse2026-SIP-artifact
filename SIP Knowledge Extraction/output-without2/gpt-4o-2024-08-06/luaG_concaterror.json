@@ -1,0 +1,32 @@
+{
+    "functionDescription": "该功能处理字符串连接错误。",
+    "api": {
+        "apiDescription": "luaG_concaterrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "第一个值"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "第二个值"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

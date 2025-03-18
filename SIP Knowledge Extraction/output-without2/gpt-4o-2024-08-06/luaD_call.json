@@ -1,0 +1,51 @@
+{
+    "functionDescription": "luaD_callFun函数用于调用特定的Lua函数。",
+    "api": {
+        "apiDescription": "luaD_callFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaD_call结构体的指针"
+                },
+                {
+                    "name": "nResults",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "期望的返回结果数量"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "指向Lua状态的指针"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "要调用的函数在栈中的位置"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "1",
+                "meaning": "Lua状态的当前状态"
+            },
+            {
+                "name": "nCcalls",
+                "type": "l_uint32",
+                "dimensionality": "1",
+                "meaning": "嵌套的非可挂起调用或C调用的数量"
+            }
+        ],
+        "parameters": []
+    }
+}

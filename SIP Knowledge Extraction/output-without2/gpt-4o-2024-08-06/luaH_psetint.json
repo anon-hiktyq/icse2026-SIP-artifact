@@ -1,0 +1,39 @@
+{
+    "functionDescription": "设置整数值到哈希表中",
+    "api": {
+        "apiDescription": "luaH_psetintFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Integer",
+                    "dimensionality": "",
+                    "meaning": "哈希表中的键"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "",
+                    "meaning": "要设置的值"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "",
+                    "meaning": "目标哈希表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "",
+                    "meaning": "操作结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

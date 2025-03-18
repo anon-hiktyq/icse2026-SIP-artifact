@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaT_trybinTMFun函数用于尝试二进制运算处理，通过调用callbinTM函数进行运算，如果运算失败则根据事件类型进行错误处理。",
+    "api": {
+        "apiDescription": "luaT_trybinTMFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单变量",
+                    "meaning": "指向luaT_trybinTM结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单变量",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "单变量",
+                    "meaning": "第一个操作数"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "单变量",
+                    "meaning": "第二个操作数"
+                },
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "单变量",
+                    "meaning": "结果存储位置"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "event",
+                "type": "TMS",
+                "dimensionality": "单变量",
+                "meaning": "事件类型，指示操作类型"
+            }
+        ],
+        "parameters": []
+    }
+}

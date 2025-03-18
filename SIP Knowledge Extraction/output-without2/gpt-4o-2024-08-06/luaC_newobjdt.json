@@ -1,0 +1,51 @@
+{
+    "functionDescription": "luaC_newobjdtFun函数用于创建一个新的GC对象，并将其添加到全局状态的GC列表中。",
+    "api": {
+        "apiDescription": "luaC_newobjdtFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "tt",
+                    "type": "lu_byte",
+                    "dimensionality": "1",
+                    "meaning": "对象类型标识"
+                },
+                {
+                    "name": "sz",
+                    "type": "size_t",
+                    "dimensionality": "1",
+                    "meaning": "对象大小"
+                },
+                {
+                    "name": "offset",
+                    "type": "size_t",
+                    "dimensionality": "1",
+                    "meaning": "偏移量，用于计算对象在内存中的位置"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态结构体指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "新创建的GC对象"
+                },
+                {
+                    "name": "ret",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "返回的GC对象"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

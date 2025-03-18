@@ -1,0 +1,45 @@
+{
+    "functionDescription": "调用关闭方法的功能实现",
+    "api": {
+        "apiDescription": "callclosemethodFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向callclosemethod结构体的指针"
+                },
+                {
+                    "name": "yy",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "用于控制调用方式的标志"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "obj",
+                    "type": "TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "对象指针，用于调用方法"
+                },
+                {
+                    "name": "err",
+                    "type": "TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "错误对象指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "functionDescription": "luaG_tracecallFun函数用于跟踪Lua调用，确保钩子被检查并设置陷阱。",
+    "api": {
+        "apiDescription": "luaG_tracecallFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaG_tracecall结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态结构体"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "ret",
+                "type": "int*",
+                "dimensionality": "单值",
+                "meaning": "返回值指针，指示是否保持陷阱"
+            }
+        ]
+    }
+}

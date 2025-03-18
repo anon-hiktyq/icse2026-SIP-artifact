@@ -1,0 +1,39 @@
+{
+    "functionDescription": "prepcallclosemthFun 函数用于准备关闭方法的调用，处理不同状态下的错误对象设置。",
+    "api": {
+        "apiDescription": "prepcallclosemthFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "TStatus",
+                    "dimensionality": "标量",
+                    "meaning": "表示当前状态"
+                },
+                {
+                    "name": "yy",
+                    "type": "int",
+                    "dimensionality": "标量",
+                    "meaning": "用于某些内部逻辑处理"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "level",
+                    "type": "StkId",
+                    "dimensionality": "指针",
+                    "meaning": "栈中的某个位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

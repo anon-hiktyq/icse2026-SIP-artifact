@@ -1,0 +1,32 @@
+{
+    "functionDescription": "luaG_typeerrorFun函数用于处理类型错误。",
+    "api": {
+        "apiDescription": "luaG_typeerrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "值对象指针"
+                },
+                {
+                    "name": "op",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "操作符字符串"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

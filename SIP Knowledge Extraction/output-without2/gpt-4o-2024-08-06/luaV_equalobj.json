@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaV_equalobjFun函数用于比较两个TValue类型的对象是否相等，支持多种数据类型的比较，包括整数、浮点数、字符串、用户数据等。",
+    "api": {
+        "apiDescription": "luaV_equalobjFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "存储比较结果，1表示相等，0表示不相等"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态，用于获取元表和快速访问tag方法"
+                },
+                {
+                    "name": "t1",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第一个比较对象"
+                },
+                {
+                    "name": "t2",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第二个比较对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

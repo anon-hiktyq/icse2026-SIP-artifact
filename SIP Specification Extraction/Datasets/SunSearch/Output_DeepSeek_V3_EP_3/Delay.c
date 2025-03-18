@@ -1,0 +1,23 @@
+
+#include "Delay.h"
+
+/*@ 
+  requires \valid(pIp);
+  assigns \nothing;
+*/
+void DelayFun(Delay *pIp)
+{
+    unint16 uidt;
+
+    /*@ 
+      loop invariant 0 <= uidt <= pIp->delaytime;
+      loop assigns uidt;
+      loop variant pIp->delaytime - uidt;
+    */
+    for (uidt = 0; uidt < pIp->delaytime; uidt++)
+    {
+        ;
+    }
+
+    return;
+}

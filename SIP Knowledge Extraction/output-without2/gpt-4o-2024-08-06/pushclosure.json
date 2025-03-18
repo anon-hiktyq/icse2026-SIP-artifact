@@ -1,0 +1,44 @@
+{
+    "functionDescription": "该函数用于创建一个新的 Lua 闭包，并将其推入栈中，同时处理闭包的上值。",
+    "api": {
+        "apiDescription": "pushclosureFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua 状态机指针"
+                },
+                {
+                    "name": "p",
+                    "type": "Proto*",
+                    "dimensionality": "单一",
+                    "meaning": "函数原型指针"
+                },
+                {
+                    "name": "encup",
+                    "type": "UpVal**",
+                    "dimensionality": "数组",
+                    "meaning": "上值指针数组"
+                },
+                {
+                    "name": "base",
+                    "type": "StkId",
+                    "dimensionality": "单一",
+                    "meaning": "栈基指针"
+                },
+                {
+                    "name": "ra",
+                    "type": "StkId",
+                    "dimensionality": "单一",
+                    "meaning": "结果指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

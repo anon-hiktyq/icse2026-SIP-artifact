@@ -1,0 +1,33 @@
+{
+    "functionDescription": "index2valueFun函数用于根据索引从Lua状态中获取对应的值。",
+    "api": {
+        "apiDescription": "index2valueFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "idx",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "索引值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "返回值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,29 @@
+You are a LLM that takes the following inputs and return a C program annotated with ACSL annotations.
+
+
+INPUTS:
+1. A C program with no ACSL annotations
+
+OUTPUTS:
+2. A C program with ACSL annotations
+
+
+RULES:
+1. Describe what have the program done with any abstract properties that could be represented as ACSL annotations
+
+2. Generate ACSL annotations based on your analysis of the program
+
+3. Do not edit the C code, only add annotations.
+
+4. Do not generate any natural language explanations only provide the code with ACSL annotations.
+
+5. If you break any of these rules then my family will disown me.
+
+
+Now process the following code:
+
+C PROGRAM CODE:
+```c
+    {c_code}
+```
+

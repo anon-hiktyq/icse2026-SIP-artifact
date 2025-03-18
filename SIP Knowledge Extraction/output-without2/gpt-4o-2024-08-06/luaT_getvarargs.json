@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaT_getvarargsFun函数用于获取额外参数，确保堆栈空间，并根据需要设置结果。",
+    "api": {
+        "apiDescription": "luaT_getvarargsFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaT_getvarargs结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "当前函数的调用信息"
+                },
+                {
+                    "name": "where",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "堆栈位置指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "wanted",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "所需参数的数量"
+            }
+        ]
+    }
+}

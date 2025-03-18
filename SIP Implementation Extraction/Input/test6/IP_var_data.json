@@ -1,0 +1,54 @@
+{
+    "main": {
+        "input": {
+            "global_var2": "int"
+        },
+        "output": {
+            "volatile_global_var": "volatile int",
+            "global_var2": "int",
+            "global_var": "int"
+        },
+        "stateVar": {
+            "global_var2": "int"
+        },
+        "argVar": {}
+    },
+    "set_global_var": {
+        "input": {
+            "value": "int",
+            "global_var": "int"
+        },
+        "output": {
+            "global_var": "int"
+        },
+        "stateVar": {},
+        "argVar": {}
+    },
+    "get_global_var": {
+        "input": {
+            "global_var": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "set_volatile_global_var": {
+        "input": {
+            "value": "int",
+            "volatile_global_var": "volatile int"
+        },
+        "output": {
+            "volatile_global_var": "volatile int"
+        },
+        "stateVar": {},
+        "argVar": {}
+    },
+    "get_volatile_global_var": {
+        "input": {
+            "volatile_global_var": "volatile int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

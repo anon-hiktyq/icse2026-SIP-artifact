@@ -1,0 +1,45 @@
+{
+    "functionDescription": "该函数用于计算字符串的哈希值。",
+    "api": {
+        "apiDescription": "luaS_hashFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "str",
+                    "type": "const char*",
+                    "dimensionality": "1D",
+                    "meaning": "待计算哈希值的字符串"
+                },
+                {
+                    "name": "l",
+                    "type": "size_t",
+                    "dimensionality": "1D",
+                    "meaning": "字符串长度"
+                },
+                {
+                    "name": "seed",
+                    "type": "unsigned int",
+                    "dimensionality": "1D",
+                    "meaning": "用于哈希计算的初始种子值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "h",
+                    "type": "unsigned int",
+                    "dimensionality": "1D",
+                    "meaning": "计算得到的哈希值"
+                },
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "1D",
+                    "meaning": "存储计算结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

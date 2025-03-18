@@ -1,0 +1,39 @@
+{
+    "functionDescription": "这个函数负责调整 Lua 表的大小，创建新的哈希部分，并重新插入旧的切片和哈希部分。",
+    "api": {
+        "apiDescription": "luaH_resizeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "newasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "新的数组大小"
+                },
+                {
+                    "name": "nhsize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "新的哈希大小"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "表结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

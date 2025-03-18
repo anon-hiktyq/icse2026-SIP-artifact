@@ -1,0 +1,27 @@
+{
+    "functionDescription": "luaD_shrinkstackFun函数用于缩小Lua状态的栈空间，确保栈的大小在合理范围内。",
+    "api": {
+        "apiDescription": "luaD_shrinkstackFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaD_shrinkstack结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机，包含栈和其他状态信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

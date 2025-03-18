@@ -1,0 +1,39 @@
+{
+    "functionDescription": "internshrstrFun函数用于在字符串表中查找或创建一个短字符串，并返回该字符串的指针。",
+    "api": {
+        "apiDescription": "internshrstrFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单个",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "str",
+                    "type": "const char*",
+                    "dimensionality": "单个",
+                    "meaning": "要查找或创建的字符串"
+                },
+                {
+                    "name": "l",
+                    "type": "size_t",
+                    "dimensionality": "单个",
+                    "meaning": "字符串长度"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "TString*",
+                    "dimensionality": "单个",
+                    "meaning": "查找到或创建的字符串对象"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

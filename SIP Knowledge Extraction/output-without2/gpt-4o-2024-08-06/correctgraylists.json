@@ -1,0 +1,34 @@
+{
+    "functionDescription": "correctgraylistsFun 函数用于纠正灰色对象列表的状态。",
+    "api": {
+        "apiDescription": "correctgraylistsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向 correctgraylists 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "单值",
+                "meaning": "垃圾回收状态的全局结构体"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "fun",
+                "type": "Fun",
+                "dimensionality": "单值",
+                "meaning": "接口函数"
+            }
+        ]
+    }
+}

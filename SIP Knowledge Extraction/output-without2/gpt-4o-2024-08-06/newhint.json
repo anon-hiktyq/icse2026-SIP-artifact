@@ -1,0 +1,33 @@
+{
+    "functionDescription": "newhintFun函数用于处理newhint结构体中的数据，将hint值赋给目标位置。",
+    "api": {
+        "apiDescription": "newhintFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "hint",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "输入的提示值，用于设置目标位置的值"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "包含目标位置的表结构"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Unsigned*",
+                    "dimensionality": "pointer",
+                    "meaning": "用于存储结果的输出位置"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

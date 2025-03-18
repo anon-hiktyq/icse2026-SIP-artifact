@@ -1,0 +1,65 @@
+{
+    "functionDescription": "luaG_addinfoFun函数用于添加信息到luaG_addinfo结构体中，根据提供的源信息生成格式化字符串。",
+    "api": {
+        "apiDescription": "luaG_addinfoFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaG_addinfo结构体的指针"
+                },
+                {
+                    "name": "line",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "行号信息"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "msg",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "消息字符串"
+                },
+                {
+                    "name": "src",
+                    "type": "TString*",
+                    "dimensionality": "1",
+                    "meaning": "源信息字符串"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "格式化后的字符串"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "",
+                "type": "",
+                "dimensionality": "",
+                "meaning": ""
+            }
+        ],
+        "parameters": [
+            {
+                "name": "",
+                "type": "",
+                "dimensionality": "",
+                "meaning": ""
+            }
+        ]
+    }
+}

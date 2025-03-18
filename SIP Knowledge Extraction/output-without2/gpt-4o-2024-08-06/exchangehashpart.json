@@ -1,0 +1,33 @@
+{
+    "functionDescription": "交换两个哈希表部分的函数。",
+    "api": {
+        "apiDescription": "exchangehashpartFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向exchangehashpart结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "t1",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "第一个哈希表部分"
+                },
+                {
+                    "name": "t2",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "第二个哈希表部分"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

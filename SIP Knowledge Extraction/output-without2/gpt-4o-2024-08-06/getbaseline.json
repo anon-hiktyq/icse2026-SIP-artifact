@@ -1,0 +1,40 @@
+{
+    "functionDescription": "getbaselineFun 函数用于获取代码的基线信息。",
+    "api": {
+        "apiDescription": "getbaselineFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "f",
+                    "type": "const Proto*",
+                    "dimensionality": "单一",
+                    "meaning": "函数相关的原型信息"
+                },
+                {
+                    "name": "pc",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "程序计数器"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "返回的行号信息"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "basepc",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "基线程序计数器"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

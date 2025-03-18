@@ -1,0 +1,40 @@
+{
+    "functionDescription": "此函数用于扩展 Lua 栈的大小，以便处理错误消息并避免栈溢出。",
+    "api": {
+        "apiDescription": "luaD_growstackFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "请求扩展的栈大小"
+                },
+                {
+                    "name": "raiseerror",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "是否引发错误的标志"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "指针",
+                    "meaning": "返回扩展操作的结果"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua 状态结构体"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

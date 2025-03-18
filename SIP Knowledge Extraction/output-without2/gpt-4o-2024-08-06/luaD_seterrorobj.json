@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaD_seterrorobjFun函数用于处理Lua错误对象，根据错误代码设置适当的错误信息。",
+    "api": {
+        "apiDescription": "luaD_seterrorobjFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "errcode",
+                    "type": "TStatus",
+                    "dimensionality": "scalar",
+                    "meaning": "错误代码，指示发生的错误类型"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态，包含当前执行上下文"
+                },
+                {
+                    "name": "oldtop",
+                    "type": "StkId",
+                    "dimensionality": "pointer",
+                    "meaning": "旧栈顶位置，用于错误对象的处理"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

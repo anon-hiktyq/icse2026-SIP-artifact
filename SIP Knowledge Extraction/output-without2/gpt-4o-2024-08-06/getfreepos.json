@@ -1,0 +1,27 @@
+{
+    "functionDescription": "getfreeposFun函数用于在表的节点数组中查找一个空闲位置，如果存在'lastfree'信息，则在'lastfree'之前查找一个位置并更新'lastfree'；否则，进行线性搜索。",
+    "api": {
+        "apiDescription": "getfreeposFun(p)",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "Node *",
+                    "dimensionality": "单一",
+                    "meaning": "返回找到的空闲节点的位置"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table *",
+                    "dimensionality": "单一",
+                    "meaning": "需要查找空闲位置的表"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

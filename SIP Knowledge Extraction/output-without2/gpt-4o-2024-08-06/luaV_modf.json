@@ -1,0 +1,45 @@
+{
+    "functionDescription": "luaV_modfFun函数用于计算两个数字的浮点数余数，并将结果存储在指定位置。",
+    "api": {
+        "apiDescription": "luaV_modfFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "m",
+                    "type": "lua_Number",
+                    "dimensionality": "单值",
+                    "meaning": "被除数"
+                },
+                {
+                    "name": "n",
+                    "type": "lua_Number",
+                    "dimensionality": "单值",
+                    "meaning": "除数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "r",
+                    "type": "lua_Number",
+                    "dimensionality": "单值",
+                    "meaning": "余数结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "lua_Number*",
+                    "dimensionality": "单值",
+                    "meaning": "存储余数结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

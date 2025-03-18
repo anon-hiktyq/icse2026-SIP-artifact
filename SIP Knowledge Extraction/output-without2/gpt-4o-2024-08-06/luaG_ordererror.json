@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该功能用于比较两个值，并在值类型相同时运行错误处理。",
+    "api": {
+        "apiDescription": "luaG_ordererrorFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单个",
+                    "meaning": "指向luaG_ordererror结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单个",
+                "meaning": "Lua状态机"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "p1",
+                "type": "const TValue*",
+                "dimensionality": "单个",
+                "meaning": "第一个值"
+            },
+            {
+                "name": "p2",
+                "type": "const TValue*",
+                "dimensionality": "单个",
+                "meaning": "第二个值"
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "functionDescription": "此函数执行垃圾收集器的原子生成操作。",
+    "api": {
+        "apiDescription": "atomic2genFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向atomic2gen结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

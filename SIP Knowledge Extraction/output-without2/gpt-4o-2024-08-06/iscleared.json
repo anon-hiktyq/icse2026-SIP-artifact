@@ -1,0 +1,33 @@
+{
+    "functionDescription": "检查对象是否被标记为白色或不可回收。",
+    "api": {
+        "apiDescription": "isclearedFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果，指示对象是否白色或不可回收"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态，用于垃圾回收的上下文"
+                },
+                {
+                    "name": "o",
+                    "type": "const GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "要检查的对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

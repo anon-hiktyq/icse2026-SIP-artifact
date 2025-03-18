@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数用于处理和格式化源代码字符串，生成适合显示的块标识符。",
+    "api": {
+        "apiDescription": "luaO_chunkidFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaO_chunkid结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "out",
+                    "type": "char*",
+                    "dimensionality": "1",
+                    "meaning": "格式化后的块标识符输出"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "source",
+                "type": "const char*",
+                "dimensionality": "1",
+                "meaning": "源代码字符串"
+            },
+            {
+                "name": "srclen",
+                "type": "size_t",
+                "dimensionality": "1",
+                "meaning": "源代码字符串的长度"
+            }
+        ],
+        "parameters": []
+    }
+}

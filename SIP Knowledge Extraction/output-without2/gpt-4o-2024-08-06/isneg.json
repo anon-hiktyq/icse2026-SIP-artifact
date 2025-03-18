@@ -1,0 +1,27 @@
+{
+    "functionDescription": "检查输入字符串是否表示负数，并根据符号调整输出值。",
+    "api": {
+        "apiDescription": "isnegFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "s",
+                    "type": "const char**",
+                    "dimensionality": "pointer",
+                    "meaning": "输入字符串指针，用于检查符号"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "输出结果指针，存储函数结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

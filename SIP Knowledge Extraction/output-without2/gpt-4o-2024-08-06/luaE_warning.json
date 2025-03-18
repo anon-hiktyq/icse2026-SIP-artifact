@@ -1,0 +1,39 @@
+{
+    "functionDescription": "此函数用于发出警告，调用指定的警告函数。",
+    "api": {
+        "apiDescription": "luaE_warningFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaE_warning结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "tocont",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "控制是否继续的标志"
+            },
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单值",
+                "meaning": "Lua状态"
+            },
+            {
+                "name": "msg",
+                "type": "const char*",
+                "dimensionality": "单值",
+                "meaning": "警告信息"
+            }
+        ]
+    }
+}

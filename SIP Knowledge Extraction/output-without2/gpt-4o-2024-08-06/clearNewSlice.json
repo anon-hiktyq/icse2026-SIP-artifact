@@ -1,0 +1,32 @@
+{
+    "functionDescription": "清除新的切片功能",
+    "api": {
+        "apiDescription": "clearNewSliceFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "oldasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "旧数组大小"
+                },
+                {
+                    "name": "newasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "新数组大小"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "object",
+                    "meaning": "表结构"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "functionDescription": "luaG_runerrorFun函数用于处理Lua运行时错误，格式化错误信息并抛出异常。",
+    "api": {
+        "apiDescription": "luaG_runerrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaG_runerror结构体的指针"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "fmt",
+                    "type": "const char*",
+                    "dimensionality": "单值",
+                    "meaning": "格式化字符串"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

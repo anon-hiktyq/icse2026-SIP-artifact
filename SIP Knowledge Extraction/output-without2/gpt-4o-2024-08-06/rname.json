@@ -1,0 +1,40 @@
+{
+    "functionDescription": "rnameFun函数用于处理指针p，尝试获取对象名称并进行匹配。",
+    "api": {
+        "apiDescription": "rnameFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向rname结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "1",
+                    "meaning": "函数内部使用的结构体指针"
+                },
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "1",
+                    "meaning": "对象名称指针"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "c",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "输入端口的标识符"
+            }
+        ],
+        "parameters": []
+    }
+}

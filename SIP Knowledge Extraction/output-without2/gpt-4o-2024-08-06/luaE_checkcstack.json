@@ -1,0 +1,34 @@
+{
+    "functionDescription": "检查C栈的状态，防止栈溢出。",
+    "api": {
+        "apiDescription": "luaE_checkcstackFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaE_checkcstack结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua的状态结构体，包含栈信息"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "nCcalls",
+                "type": "l_uint32",
+                "dimensionality": "1",
+                "meaning": "嵌套的非可挂起或C调用的数量"
+            }
+        ],
+        "parameters": []
+    }
+}

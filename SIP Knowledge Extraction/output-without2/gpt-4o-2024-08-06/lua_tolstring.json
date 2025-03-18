@@ -1,0 +1,40 @@
+{
+    "functionDescription": "lua_tolstringFun 函数将一个 Lua 值转换为字符串，如果可能的话。它锁定 Lua 状态，检查值是否为字符串或可转换为字符串，并在需要时进行转换。最后，它解锁 Lua 状态并返回字符串或 NULL。",
+    "api": {
+        "apiDescription": "lua_tolstringFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "idx",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "输入索引，用于指定要转换的 Lua 值的位置。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "scalar",
+                    "meaning": "输出字符串指针，表示转换后的 Lua 值。如果转换失败，则为 NULL。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua 状态，用于管理 Lua 虚拟机的状态。"
+                },
+                {
+                    "name": "len",
+                    "type": "size_t*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向长度的指针，用于存储转换后的字符串长度。"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

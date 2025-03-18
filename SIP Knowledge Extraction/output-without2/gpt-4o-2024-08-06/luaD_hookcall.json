@@ -1,0 +1,59 @@
+{
+    "functionDescription": "luaD_hookcallFun函数用于处理Lua调用钩子。它通过检查调用状态并执行相关钩子操作来更新Lua状态。",
+    "api": {
+        "apiDescription": "luaD_hookcallFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaD_hookcall结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态结构"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单值",
+                    "meaning": "调用信息结构"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "oldpc",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "上次跟踪的程序计数器"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "hookmask",
+                "type": "volatile l_signalT",
+                "dimensionality": "单值",
+                "meaning": "钩子掩码"
+            },
+            {
+                "name": "ftransfer",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "传输的第一个值的偏移量"
+            },
+            {
+                "name": "ntransfer",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "传输的值的数量"
+            }
+        ]
+    }
+}

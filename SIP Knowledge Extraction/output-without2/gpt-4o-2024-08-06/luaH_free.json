@@ -1,0 +1,33 @@
+{
+    "functionDescription": "释放哈希表和数组的内存",
+    "api": {
+        "apiDescription": "luaH_freeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向需要释放的内存结构"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua的状态结构"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "需要释放的表结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

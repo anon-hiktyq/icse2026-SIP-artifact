@@ -1,0 +1,39 @@
+{
+    "functionDescription": "获取通用节点的功能",
+    "api": {
+        "apiDescription": "getgenericFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单一",
+                    "meaning": "输入表结构"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "键值用于查找"
+                },
+                {
+                    "name": "deadok",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "指示是否允许死键"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "返回值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

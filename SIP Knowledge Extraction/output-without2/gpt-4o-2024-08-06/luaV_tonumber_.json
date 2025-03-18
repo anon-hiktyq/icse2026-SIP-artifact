@@ -1,0 +1,40 @@
+{
+    "functionDescription": "将给定对象尝试转换为数字。如果对象是整数或可转换为数字的字符串，则转换成功。",
+    "api": {
+        "apiDescription": "luaV_tonumber_Fun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void *",
+                    "dimensionality": "1",
+                    "meaning": "指向luaV_tonumber_结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int *",
+                    "dimensionality": "1",
+                    "meaning": "指向存储转换结果的整数指针，1表示成功，0表示失败"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "obj",
+                    "type": "const TValue *",
+                    "dimensionality": "1",
+                    "meaning": "指向待转换对象的指针"
+                },
+                {
+                    "name": "n",
+                    "type": "lua_Number *",
+                    "dimensionality": "1",
+                    "meaning": "指向存储转换后数字的指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

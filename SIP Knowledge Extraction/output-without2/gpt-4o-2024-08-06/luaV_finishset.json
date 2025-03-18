@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaV_finishsetFun函数用于在Lua中设置表的值，并处理元方法。",
+    "api": {
+        "apiDescription": "luaV_finishsetFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "single",
+                    "meaning": "指向luaV_finishset结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "single",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "t",
+                    "type": "const TValue*",
+                    "dimensionality": "single",
+                    "meaning": "目标表或对象"
+                },
+                {
+                    "name": "key",
+                    "type": "TValue*",
+                    "dimensionality": "single",
+                    "meaning": "键值"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "single",
+                    "meaning": "要设置的值"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "hres",
+                "type": "int",
+                "dimensionality": "single",
+                "meaning": "操作结果状态"
+            }
+        ],
+        "parameters": []
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "functionDescription": "该功能用于遍历并清理垃圾对象列表。",
+    "api": {
+        "apiDescription": "sweeplistFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "countin",
+                    "type": "l_mem",
+                    "dimensionality": "标量",
+                    "meaning": "输入对象计数"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "标量",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "p",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "当前对象指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "返回值指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "标量",
+                "meaning": "垃圾回收状态"
+            },
+            {
+                "name": "ow",
+                "type": "int",
+                "dimensionality": "标量",
+                "meaning": "其他白色标记"
+            },
+            {
+                "name": "white",
+                "type": "int",
+                "dimensionality": "标量",
+                "meaning": "当前白色标记"
+            }
+        ],
+        "parameters": []
+    }
+}

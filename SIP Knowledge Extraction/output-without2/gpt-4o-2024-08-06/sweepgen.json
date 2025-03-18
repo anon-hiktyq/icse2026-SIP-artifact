@@ -1,0 +1,57 @@
+{
+    "functionDescription": "此函数用于在垃圾收集过程中遍历并处理对象列表，移除白色对象（即不再使用的对象）并更新其他对象的标记和年龄。",
+    "api": {
+        "apiDescription": "sweepgenFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "返回的GC对象列表"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "指针",
+                    "meaning": "全局状态"
+                },
+                {
+                    "name": "p",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "当前对象指针"
+                },
+                {
+                    "name": "limit",
+                    "type": "GCObject*",
+                    "dimensionality": "指针",
+                    "meaning": "对象列表的限制"
+                },
+                {
+                    "name": "pfirstold1",
+                    "type": "GCObject**",
+                    "dimensionality": "指针",
+                    "meaning": "第一个OLD1对象指针"
+                },
+                {
+                    "name": "paddedold",
+                    "type": "l_mem*",
+                    "dimensionality": "指针",
+                    "meaning": "增加的旧对象内存大小"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

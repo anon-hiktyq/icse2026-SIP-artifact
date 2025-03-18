@@ -1,0 +1,22 @@
+{
+    "test_function": {
+        "input": {
+            "param2": "char*",
+            "param1": "int",
+            "person_ptr": "struct Person*"
+        },
+        "output": {
+            "global_var": "int"
+        },
+        "stateVar": {},
+        "argVar": {}
+    },
+    "main": {
+        "input": {},
+        "output": {
+            "global_var": "int"
+        },
+        "stateVar": {},
+        "argVar": {}
+    }
+}

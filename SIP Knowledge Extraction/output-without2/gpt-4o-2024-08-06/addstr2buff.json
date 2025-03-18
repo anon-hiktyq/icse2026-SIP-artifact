@@ -1,0 +1,40 @@
+{
+    "functionDescription": "将字符串添加到缓冲区中，并处理缓冲区溢出和内存分配错误。",
+    "api": {
+        "apiDescription": "addstr2buffFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "slen",
+                    "type": "size_t",
+                    "dimensionality": "单值",
+                    "meaning": "要添加到缓冲区的字符串长度"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "buff",
+                    "type": "BuffFS*",
+                    "dimensionality": "结构体指针",
+                    "meaning": "缓冲区结构体，包含缓冲区指针、大小、当前长度和错误状态"
+                },
+                {
+                    "name": "str",
+                    "type": "const char*",
+                    "dimensionality": "字符指针",
+                    "meaning": "要添加到缓冲区的字符串"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "err",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "错误状态指示符，0表示无错误，1表示内存分配错误，2表示缓冲区溢出"
+            }
+        ],
+        "parameters": []
+    }
+}

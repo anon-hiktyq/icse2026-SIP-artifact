@@ -1,0 +1,40 @@
+{
+    "functionDescription": "调整 Lua 栈的大小并处理可能的错误。",
+    "api": {
+        "apiDescription": "luaD_reallocstackFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "newsize",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "新的栈大小"
+                },
+                {
+                    "name": "raiseerror",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "是否在失败时抛出错误"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "",
+                    "meaning": "返回值指针，指示操作是否成功"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "Lua 状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

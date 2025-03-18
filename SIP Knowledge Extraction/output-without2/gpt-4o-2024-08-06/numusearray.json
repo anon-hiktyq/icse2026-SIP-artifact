@@ -1,0 +1,34 @@
+{
+    "functionDescription": "遍历数组并计算元素数量，将结果累加到计数器。",
+    "api": {
+        "apiDescription": "numusearrayFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入的表结构，包含数组信息"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "ct",
+                    "type": "Counters*",
+                    "dimensionality": "1",
+                    "meaning": "计数器结构，用于累加元素数量"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "p",
+                "type": "void*",
+                "dimensionality": "1",
+                "meaning": "指向numusearray结构体的指针"
+            }
+        ]
+    }
+}

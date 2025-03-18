@@ -1,0 +1,52 @@
+{
+    "functionDescription": "该函数用于处理新的上值（upvalue），通过链表将其与现有的上值管理结构连接。",
+    "api": {
+        "apiDescription": "newupvalFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向newupval结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "uv",
+                    "type": "UpVal*",
+                    "dimensionality": "1",
+                    "meaning": "新创建的上值"
+                },
+                {
+                    "name": "ret",
+                    "type": "UpVal*",
+                    "dimensionality": "1",
+                    "meaning": "函数返回的上值"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "level",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "当前值在栈中的位置"
+                },
+                {
+                    "name": "prev",
+                    "type": "UpVal**",
+                    "dimensionality": "1",
+                    "meaning": "指向上一个上值的指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

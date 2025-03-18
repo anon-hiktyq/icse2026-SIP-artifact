@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaC_runtilstateFun函数用于执行垃圾收集状态的转换，直到达到目标状态。",
+    "api": {
+        "apiDescription": "luaC_runtilstateFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "state",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "当前垃圾收集状态"
+                },
+                {
+                    "name": "fast",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "快速模式标志"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机对象"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "垃圾收集器的当前状态"
+            },
+            {
+                "name": "gckind",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "正在运行的垃圾收集器类型"
+            }
+        ],
+        "parameters": []
+    }
+}

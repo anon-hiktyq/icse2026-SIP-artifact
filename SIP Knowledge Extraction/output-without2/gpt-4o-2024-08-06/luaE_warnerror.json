@@ -1,0 +1,32 @@
+{
+    "functionDescription": "luaE_warnerrorFun函数用于产生错误警告信息。",
+    "api": {
+        "apiDescription": "luaE_warnerrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaE_warnerror结构体的指针"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "where",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "错误发生的位置描述字符串"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

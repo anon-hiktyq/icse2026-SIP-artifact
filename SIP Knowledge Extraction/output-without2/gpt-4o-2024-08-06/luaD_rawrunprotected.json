@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaD_rawrunprotectedFun函数用于执行保护模式下的Lua代码，并处理错误。",
+    "api": {
+        "apiDescription": "luaD_rawrunprotectedFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向luaD_rawrunprotected结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "errorJmp",
+                "type": "struct lua_longjmp*",
+                "dimensionality": "scalar",
+                "meaning": "当前错误恢复点"
+            },
+            {
+                "name": "nCcalls",
+                "type": "l_uint32",
+                "dimensionality": "scalar",
+                "meaning": "嵌套的非可中断或C调用的数量"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "LUA_OK",
+                "type": "int",
+                "dimensionality": "scalar",
+                "meaning": "表示操作成功的状态码"
+            },
+            {
+                "name": "LUAI_TRY",
+                "type": "macro",
+                "dimensionality": "scalar",
+                "meaning": "用于捕获错误的宏"
+            }
+        ]
+    }
+}

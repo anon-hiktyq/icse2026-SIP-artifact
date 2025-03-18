@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaF_newtbcupvalFun函数用于处理luaF_newtbcupval结构中的待关闭变量列表。",
+    "api": {
+        "apiDescription": "luaF_newtbcupvalFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单个指针",
+                    "meaning": "指向luaF_newtbcupval结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "tbclist",
+                "type": "StkIdRel",
+                "dimensionality": "列表",
+                "meaning": "待关闭变量的列表"
+            },
+            {
+                "name": "level",
+                "type": "StkId",
+                "dimensionality": "单个指针",
+                "meaning": "当前处理的变量的层级"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单个指针",
+                "meaning": "Lua状态结构"
+            }
+        ]
+    }
+}

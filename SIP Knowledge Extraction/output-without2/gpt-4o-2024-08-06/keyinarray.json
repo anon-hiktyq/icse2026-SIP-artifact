@@ -1,0 +1,33 @@
+{
+    "functionDescription": "keyinarrayFun 函数用于在数组中查找键并返回结果。",
+    "api": {
+        "apiDescription": "keyinarrayFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入的表格结构，包含数组部分"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "要查找的键值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

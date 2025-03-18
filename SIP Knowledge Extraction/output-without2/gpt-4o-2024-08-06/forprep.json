@@ -1,0 +1,40 @@
+{
+    "functionDescription": "forprepFun函数用于准备for循环的计数器，支持整数和浮点数的循环。",
+    "api": {
+        "apiDescription": "forprepFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void *",
+                    "dimensionality": "单一",
+                    "meaning": "指向forprep结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "指示是否跳过循环"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "ra",
+                    "type": "StkId",
+                    "dimensionality": "单一",
+                    "meaning": "栈位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

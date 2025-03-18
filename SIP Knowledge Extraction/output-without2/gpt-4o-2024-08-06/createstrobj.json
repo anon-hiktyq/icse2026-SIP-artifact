@@ -1,0 +1,52 @@
+{
+    "functionDescription": "创建字符串对象的功能",
+    "api": {
+        "apiDescription": "createstrobjFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "totalsize",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "总大小"
+                },
+                {
+                    "name": "tag",
+                    "type": "lu_byte",
+                    "dimensionality": "scalar",
+                    "meaning": "标记"
+                },
+                {
+                    "name": "h",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "哈希值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ts",
+                    "type": "TString*",
+                    "dimensionality": "pointer",
+                    "meaning": "字符串对象"
+                },
+                {
+                    "name": "ret",
+                    "type": "TString*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回的字符串对象"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

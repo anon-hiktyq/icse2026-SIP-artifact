@@ -1,0 +1,47 @@
+{
+    "functionDescription": "luaE_extendCIFun函数用于扩展调用信息结构。",
+    "api": {
+        "apiDescription": "luaE_extendCIFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向luaE_extendCI结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单一",
+                    "meaning": "扩展后的调用信息"
+                },
+                {
+                    "name": "ret",
+                    "type": "CallInfo*",
+                    "dimensionality": "单一",
+                    "meaning": "返回的调用信息"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态结构"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "nci",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "调用信息列表中的项数"
+            }
+        ],
+        "parameters": []
+    }
+}

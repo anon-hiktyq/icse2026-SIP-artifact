@@ -1,0 +1,46 @@
+{
+    "functionDescription": "遍历弱表中的条目，根据条目的状态进行标记和链接。",
+    "api": {
+        "apiDescription": "traverseephemeronFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "inv",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "用于决定遍历顺序"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "marked",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "标记状态"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "指针",
+                    "meaning": "返回标记结果"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "指针",
+                    "meaning": "全局状态信息"
+                },
+                {
+                    "name": "h",
+                    "type": "Table*",
+                    "dimensionality": "指针",
+                    "meaning": "表的引用"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

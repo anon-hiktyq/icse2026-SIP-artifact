@@ -1,0 +1,33 @@
+{
+    "functionDescription": "遍历并标记Proto结构中的各个组成部分，包括字面量、上值名称、嵌套Proto以及局部变量名称，并更新返回值。",
+    "api": {
+        "apiDescription": "traverseprotoFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "1",
+                    "meaning": "用于存储计算后的结果"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾回收状态信息"
+                },
+                {
+                    "name": "f",
+                    "type": "Proto*",
+                    "dimensionality": "1",
+                    "meaning": "表示需要遍历的Proto结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

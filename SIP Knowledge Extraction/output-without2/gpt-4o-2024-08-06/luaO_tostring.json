@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaO_tostringFun函数将对象转换为字符串并将其设置为Lua状态中的值。",
+    "api": {
+        "apiDescription": "luaO_tostringFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaO_tostring结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "obj",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "待转换为字符串的对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

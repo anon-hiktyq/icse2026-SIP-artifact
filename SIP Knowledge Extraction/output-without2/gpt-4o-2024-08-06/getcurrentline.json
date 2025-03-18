@@ -1,0 +1,27 @@
+{
+    "functionDescription": "获取当前代码行号",
+    "api": {
+        "apiDescription": "getcurrentlineFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单一",
+                    "meaning": "调用信息结构体指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "返回的行号"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

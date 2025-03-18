@@ -1,0 +1,52 @@
+{
+    "functionDescription": "检查字符串表的大小，如果太大则调整。",
+    "api": {
+        "apiDescription": "checkSizesFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向checkSizes结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcemergency",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "紧急垃圾收集状态"
+            },
+            {
+                "name": "nuse",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "字符串表中使用的元素数量"
+            },
+            {
+                "name": "size",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "字符串表的桶数量"
+            }
+        ],
+        "parameters": []
+    }
+}

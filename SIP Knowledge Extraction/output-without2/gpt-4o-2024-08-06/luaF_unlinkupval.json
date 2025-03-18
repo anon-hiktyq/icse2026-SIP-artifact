@@ -1,0 +1,27 @@
+{
+    "functionDescription": "luaF_unlinkupvalFun函数用于断开给定UpVal的链接。",
+    "api": {
+        "apiDescription": "luaF_unlinkupvalFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向luaF_unlinkupval结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "uv",
+                    "type": "UpVal*",
+                    "dimensionality": "单一",
+                    "meaning": "UpVal结构体指针，表示要断开的链接"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "functionDescription": "luaD_pcallFun函数用于执行受保护的函数调用，处理可能出现的错误并恢复调用状态。",
+    "api": {
+        "apiDescription": "luaD_pcallFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "func",
+                    "type": "Pfunc",
+                    "dimensionality": "单一",
+                    "meaning": "要保护执行的函数指针"
+                },
+                {
+                    "name": "old_top",
+                    "type": "ptrdiff_t",
+                    "dimensionality": "单一",
+                    "meaning": "旧的栈顶指针位置"
+                },
+                {
+                    "name": "ef",
+                    "type": "ptrdiff_t",
+                    "dimensionality": "单一",
+                    "meaning": "错误函数指针位置"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "TStatus",
+                    "dimensionality": "单一",
+                    "meaning": "调用的状态结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "TStatus*",
+                    "dimensionality": "指针",
+                    "meaning": "返回状态结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "u",
+                    "type": "Unknown type*",
+                    "dimensionality": "指针",
+                    "meaning": "用户数据指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

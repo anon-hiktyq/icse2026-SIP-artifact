@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaG_findlocalFun函数用于查找局部变量的名称或位置。",
+    "api": {
+        "apiDescription": "luaG_findlocalFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaG_findlocal结构的指针"
+                },
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "变量索引或位置"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "单值",
+                    "meaning": "找到的局部变量名称"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单值",
+                    "meaning": "调用信息"
+                },
+                {
+                    "name": "pos",
+                    "type": "StkId*",
+                    "dimensionality": "单值",
+                    "meaning": "变量在栈中的位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

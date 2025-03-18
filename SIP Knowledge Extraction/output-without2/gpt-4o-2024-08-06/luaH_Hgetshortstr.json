@@ -1,0 +1,33 @@
+{
+    "functionDescription": "此函数用于在给定的哈希表中查找短字符串键，并返回对应的值。",
+    "api": {
+        "apiDescription": "luaH_HgetshortstrFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "哈希表"
+                },
+                {
+                    "name": "key",
+                    "type": "TString*",
+                    "dimensionality": "1",
+                    "meaning": "短字符串键"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "返回值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

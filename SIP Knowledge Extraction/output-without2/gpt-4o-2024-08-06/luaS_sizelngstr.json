@@ -1,0 +1,33 @@
+{
+    "functionDescription": "计算长字符串的大小，根据字符串的类型选择不同的计算方式。",
+    "api": {
+        "apiDescription": "luaS_sizelngstrFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "len",
+                    "type": "size_t",
+                    "dimensionality": "标量",
+                    "meaning": "长字符串的长度"
+                },
+                {
+                    "name": "kind",
+                    "type": "int",
+                    "dimensionality": "标量",
+                    "meaning": "长字符串的类型"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "size_t*",
+                    "dimensionality": "指针",
+                    "meaning": "存储计算结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

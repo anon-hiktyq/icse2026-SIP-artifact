@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaV_finishgetFun函数用于从给定对象中获取值，支持处理元方法和表的访问。",
+    "api": {
+        "apiDescription": "luaV_finishgetFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "tag",
+                    "type": "lu_byte",
+                    "dimensionality": "1",
+                    "meaning": "标记变量，用于判断对象类型"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "1",
+                    "meaning": "返回值的标记"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "t",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入对象"
+                },
+                {
+                    "name": "key",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "键值"
+                },
+                {
+                    "name": "val",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "存储结果的栈位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

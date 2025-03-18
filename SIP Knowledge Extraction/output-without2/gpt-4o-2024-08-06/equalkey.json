@@ -1,0 +1,39 @@
+{
+    "functionDescription": "equalkeyFun函数用于比较两个键是否相等，根据不同的键类型进行不同的比较操作。",
+    "api": {
+        "apiDescription": "void equalkeyFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "k1",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入键1的值"
+                },
+                {
+                    "name": "n2",
+                    "type": "const Node*",
+                    "dimensionality": "1",
+                    "meaning": "输入键2的节点"
+                },
+                {
+                    "name": "deadok",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "是否允许键2为deadkey"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "比较结果，1表示相等，0表示不相等"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

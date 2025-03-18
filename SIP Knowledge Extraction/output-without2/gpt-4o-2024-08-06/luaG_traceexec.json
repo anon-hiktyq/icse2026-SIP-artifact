@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaG_traceexecFun函数用于跟踪Lua代码的执行，处理钩子事件，如行钩子和计数钩子，并在必要时调用相关的钩子函数。",
+    "api": {
+        "apiDescription": "luaG_traceexecFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "single",
+                    "meaning": "用于存储函数返回结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "single",
+                    "meaning": "Lua状态结构体，包含当前执行环境的信息"
+                },
+                {
+                    "name": "pc",
+                    "type": "const Instruction*",
+                    "dimensionality": "single",
+                    "meaning": "当前执行的指令指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

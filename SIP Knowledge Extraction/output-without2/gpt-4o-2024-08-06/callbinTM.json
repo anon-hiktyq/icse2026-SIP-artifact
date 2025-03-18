@@ -1,0 +1,52 @@
+{
+    "functionDescription": "处理二元操作符的调用和结果返回。",
+    "api": {
+        "apiDescription": "callbinTMFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "event",
+                    "type": "TMS",
+                    "dimensionality": "1",
+                    "meaning": "事件类型，表示操作符的种类。"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机，表示当前的Lua执行环境。"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第一个操作数。"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第二个操作数。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回值，表示操作结果的标记。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "存储操作结果的栈位置。"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

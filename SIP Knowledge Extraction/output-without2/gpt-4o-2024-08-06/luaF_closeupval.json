@@ -1,0 +1,40 @@
+{
+    "functionDescription": "关闭 Lua 的开放 upvalue",
+    "api": {
+        "apiDescription": "luaF_closeupvalFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向 luaF_closeupval 结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "openupval",
+                "type": "UpVal*",
+                "dimensionality": "1",
+                "meaning": "栈中的开放 upvalue 列表"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua 状态机"
+            },
+            {
+                "name": "level",
+                "type": "StkId",
+                "dimensionality": "1",
+                "meaning": "当前栈的级别"
+            }
+        ]
+    }
+}

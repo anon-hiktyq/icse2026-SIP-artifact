@@ -1,0 +1,32 @@
+{
+    "functionDescription": "设置节点向量的功能是根据给定的大小初始化节点数组，并处理可能的溢出情况。",
+    "api": {
+        "apiDescription": "setnodevectorFun(void *p) -> void",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "size",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "节点数组的大小"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态信息"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "表结构"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

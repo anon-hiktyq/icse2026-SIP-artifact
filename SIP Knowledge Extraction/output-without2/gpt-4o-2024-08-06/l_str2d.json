@@ -1,0 +1,34 @@
+{
+    "functionDescription": "l_str2dFun函数用于将字符串转换为数字，并处理特殊字符和不同区域设置。",
+    "api": {
+        "apiDescription": "l_str2dFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "s",
+                    "type": "const char*",
+                    "dimensionality": "",
+                    "meaning": "输入字符串"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "",
+                    "meaning": "转换后的字符串指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "result",
+                    "type": "lua_Number*",
+                    "dimensionality": "",
+                    "meaning": "转换结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

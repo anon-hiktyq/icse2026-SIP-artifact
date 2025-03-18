@@ -1,0 +1,31 @@
+{
+    "getModifiedValue": {
+        "input": {},
+        "output": {
+            "globalCounter": "volatile int"
+        },
+        "stateVar": {},
+        "argVar": {}
+    },
+    "getColorBasedOnFlag": {
+        "input": {
+            "globalFlag": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "main": {
+        "input": {
+            "globalFlag": "int"
+        },
+        "output": {
+            "globalCounter": "volatile int",
+            "globalFlag": "int"
+        },
+        "stateVar": {
+            "globalFlag": "int"
+        },
+        "argVar": {}
+    }
+}

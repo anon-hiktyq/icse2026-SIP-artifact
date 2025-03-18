@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaV_idivFun函数用于执行整数除法，并在特殊情况下处理除法运算。",
+    "api": {
+        "apiDescription": "luaV_idivFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "m",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "被除数"
+                },
+                {
+                    "name": "n",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "除数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Integer*",
+                    "dimensionality": "pointer",
+                    "meaning": "存储结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

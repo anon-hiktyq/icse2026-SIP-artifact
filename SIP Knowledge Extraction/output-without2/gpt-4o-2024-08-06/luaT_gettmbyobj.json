@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaT_gettmbyobjFun函数用于获取Lua对象的元方法。",
+    "api": {
+        "apiDescription": "luaT_gettmbyobjFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "event",
+                    "type": "TMS",
+                    "dimensionality": "scalar",
+                    "meaning": "事件类型，表示需要获取的元方法"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua对象，用于获取其元方法"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua状态机，提供上下文信息"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const TValue*",
+                    "dimensionality": "scalar",
+                    "meaning": "返回的元方法，如果存在"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "fun",
+                "type": "Fun",
+                "dimensionality": "scalar",
+                "meaning": "接口函数"
+            }
+        ]
+    }
+}

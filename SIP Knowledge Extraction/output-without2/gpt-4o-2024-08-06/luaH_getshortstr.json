@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaH_getshortstrFun函数用于从给定表中获取短字符串。",
+    "api": {
+        "apiDescription": "luaH_getshortstrFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "",
+                    "meaning": "存储获取到的短字符串结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "",
+                    "meaning": "包含短字符串的表"
+                },
+                {
+                    "name": "key",
+                    "type": "TString*",
+                    "dimensionality": "",
+                    "meaning": "用于查找短字符串的键"
+                },
+                {
+                    "name": "res",
+                    "type": "TValue*",
+                    "dimensionality": "",
+                    "meaning": "存储操作结果的值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

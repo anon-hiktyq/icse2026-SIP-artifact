@@ -1,0 +1,40 @@
+{
+    "functionDescription": "执行完整的垃圾回收操作",
+    "api": {
+        "apiDescription": "luaC_fullgcFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "isemergency",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "紧急状态标志"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcemergency",
+                "type": "lu_byte",
+                "dimensionality": "",
+                "meaning": "垃圾回收紧急状态"
+            },
+            {
+                "name": "gckind",
+                "type": "lu_byte",
+                "dimensionality": "",
+                "meaning": "垃圾回收类型"
+            }
+        ],
+        "parameters": []
+    }
+}

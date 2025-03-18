@@ -1,0 +1,40 @@
+{
+    "functionDescription": "创建一个长字符串对象",
+    "api": {
+        "apiDescription": "luaS_createlngstrobjFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "l",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "长字符串的长度"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ts",
+                    "type": "TString*",
+                    "dimensionality": "pointer",
+                    "meaning": "创建的长字符串对象"
+                },
+                {
+                    "name": "ret",
+                    "type": "TString*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回的长字符串对象"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua 状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

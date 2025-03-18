@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaD_pretailcallFun函数用于处理不同类型的函数调用，包括C闭包、轻量级C函数和Lua函数，并尝试处理非函数调用的情况。",
+    "api": {
+        "apiDescription": "luaD_pretailcallFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "narg1",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "输入参数数量"
+                },
+                {
+                    "name": "delta",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "栈偏移量"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "pointer",
+                    "meaning": "调用信息"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "scalar",
+                    "meaning": "函数栈位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

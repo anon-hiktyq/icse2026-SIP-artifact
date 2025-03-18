@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaE_freethreadFun函数用于释放线程资源。",
+    "api": {
+        "apiDescription": "luaE_freethreadFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaE_freethread结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "openupval",
+                "type": "UpVal*",
+                "dimensionality": "1",
+                "meaning": "当前线程的打开的上值列表"
+            },
+            {
+                "name": "twups",
+                "type": "struct lua_State*",
+                "dimensionality": "1",
+                "meaning": "具有打开上值的线程列表"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua状态机的主状态"
+            },
+            {
+                "name": "L1",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "要释放的线程状态"
+            }
+        ]
+    }
+}

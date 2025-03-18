@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaS_removeFun函数用于从字符串表中移除一个元素。",
+    "api": {
+        "apiDescription": "luaS_removeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "",
+                    "meaning": "指向luaS_remove结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "nuse",
+                "type": "int",
+                "dimensionality": "",
+                "meaning": "字符串表中的元素数量"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "",
+                "meaning": "Lua状态机"
+            },
+            {
+                "name": "ts",
+                "type": "TString*",
+                "dimensionality": "",
+                "meaning": "待移除的字符串"
+            }
+        ]
+    }
+}

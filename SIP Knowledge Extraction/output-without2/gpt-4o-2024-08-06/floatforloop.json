@@ -1,0 +1,27 @@
+{
+    "functionDescription": "该功能实现了一个浮点数循环控制，通过更新控制变量来决定循环是否继续。",
+    "api": {
+        "apiDescription": "void floatforloopFun(void *p);",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "用于指示循环是否继续的返回标志。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "ra",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "浮点数循环的控制变量和步长、限制的存储位置。"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

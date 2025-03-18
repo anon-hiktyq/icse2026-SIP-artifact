@@ -1,0 +1,47 @@
+{
+    "functionDescription": "此函数用于遍历弱值表，并在特定条件下清理或标记键。",
+    "api": {
+        "apiDescription": "traverseweakvalueFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向traverseweakvalue结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单值",
+                    "meaning": "垃圾收集器的全局状态"
+                },
+                {
+                    "name": "h",
+                    "type": "Table*",
+                    "dimensionality": "单值",
+                    "meaning": "要遍历的表"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "单值",
+                "meaning": "垃圾收集器的当前状态"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "asize",
+                "type": "unsigned int",
+                "dimensionality": "单值",
+                "meaning": "表中数组部分的大小"
+            }
+        ]
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "functionDescription": "该功能用于处理luaM_toobig结构体的错误。",
+    "api": {
+        "apiDescription": "luaM_toobigFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向luaM_toobig结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态结构体"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "单一",
+                "meaning": "Lua状态的当前状态"
+            },
+            {
+                "name": "top",
+                "type": "StkIdRel",
+                "dimensionality": "单一",
+                "meaning": "栈中的第一个空槽"
+            },
+            {
+                "name": "stack_last",
+                "type": "StkIdRel",
+                "dimensionality": "单一",
+                "meaning": "栈的结束位置"
+            },
+            {
+                "name": "stack",
+                "type": "StkIdRel",
+                "dimensionality": "单一",
+                "meaning": "栈的基址"
+            },
+            {
+                "name": "tbclist",
+                "type": "StkIdRel",
+                "dimensionality": "单一",
+                "meaning": "待关闭变量列表"
+            },
+            {
+                "name": "errfunc",
+                "type": "ptrdiff_t",
+                "dimensionality": "单一",
+                "meaning": "当前错误处理函数的栈索引"
+            },
+            {
+                "name": "nCcalls",
+                "type": "l_uint32",
+                "dimensionality": "单一",
+                "meaning": "嵌套的非可中断或C调用的数量"
+            },
+            {
+                "name": "oldpc",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "最后跟踪的程序计数器"
+            },
+            {
+                "name": "nci",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "ci列表中的项数"
+            },
+            {
+                "name": "basehookcount",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "基础钩子计数"
+            },
+            {
+                "name": "hookcount",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "钩子计数"
+            },
+            {
+                "name": "hookmask",
+                "type": "volatile l_signalT",
+                "dimensionality": "单一",
+                "meaning": "钩子掩码"
+            },
+            {
+                "name": "transferinfo",
+                "type": "struct",
+                "dimensionality": "复合",
+                "meaning": "关于传输值的信息（用于调用/返回钩子）"
+            }
+        ],
+        "parameters": []
+    }
+}

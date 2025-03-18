@@ -1,0 +1,39 @@
+{
+    "functionDescription": "markoldFun 函数用于标记对象为旧对象，并在必要时调用 reallymarkobject 函数进行对象标记。",
+    "api": {
+        "apiDescription": "markoldFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向 markold 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "垃圾回收器的全局状态"
+                },
+                {
+                    "name": "from",
+                    "type": "GCObject*",
+                    "dimensionality": "scalar",
+                    "meaning": "开始标记的对象"
+                },
+                {
+                    "name": "to",
+                    "type": "GCObject*",
+                    "dimensionality": "scalar",
+                    "meaning": "结束标记的对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaG_getfunclineFun函数用于获取给定指令的源代码行号信息。",
+    "api": {
+        "apiDescription": "luaG_getfunclineFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "f",
+                    "type": "const Proto*",
+                    "dimensionality": "单一",
+                    "meaning": "函数原型，包含调试信息和源代码行号信息"
+                },
+                {
+                    "name": "pc",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "程序计数器，指示当前指令位置"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "返回值，存储源代码行号信息"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

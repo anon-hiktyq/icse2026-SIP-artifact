@@ -1,0 +1,20 @@
+{
+    "functionDescription": "计算陀螺的角速度，若参加定姿的陀螺个数大于等于3，则调用矩阵乘法接口计算角速度，否则将角速度置为零。",
+    "api": {
+        "apiDescription": "void CalculateGyroDgFun(CalculateGyroDg *p);",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "pGyroData",
+                    "type": "SGyroData*",
+                    "dimensionality": "",
+                    "meaning": "指向包含陀螺数据的结构体的指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "functionDescription": "计算Proto结构体的大小，并将结果存储在返回值中。",
+    "api": {
+        "apiDescription": "luaF_protosizeFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaF_protosize结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "sz",
+                    "type": "lu_mem",
+                    "dimensionality": "1",
+                    "meaning": "计算的Proto结构体大小"
+                },
+                {
+                    "name": "ret",
+                    "type": "lu_mem*",
+                    "dimensionality": "1",
+                    "meaning": "存储计算结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "flag",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "Proto结构体的标志位，用于判断是否固定大小"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "sizep",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中子函数的数量"
+            },
+            {
+                "name": "sizek",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中常量的数量"
+            },
+            {
+                "name": "sizelocvars",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中局部变量的数量"
+            },
+            {
+                "name": "sizeupvalues",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中上值的数量"
+            },
+            {
+                "name": "sizecode",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中代码的大小"
+            },
+            {
+                "name": "sizelineinfo",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中行信息的大小"
+            },
+            {
+                "name": "sizeabslineinfo",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "Proto结构体中绝对行信息的大小"
+            }
+        ]
+    }
+}

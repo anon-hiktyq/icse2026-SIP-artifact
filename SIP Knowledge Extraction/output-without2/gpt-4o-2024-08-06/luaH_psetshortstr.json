@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaH_psetshortstrFun 函数用于在 Lua 表中设置短字符串键的值。它检查键是否已经存在，如果存在则更新值，否则插入新键值对。",
+    "api": {
+        "apiDescription": "luaH_psetshortstrFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回操作结果的状态码"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "要操作的 Lua 表"
+                },
+                {
+                    "name": "key",
+                    "type": "TString*",
+                    "dimensionality": "1",
+                    "meaning": "要设置的键"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "要设置的值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

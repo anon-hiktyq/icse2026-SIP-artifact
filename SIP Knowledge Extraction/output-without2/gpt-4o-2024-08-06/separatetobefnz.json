@@ -1,0 +1,59 @@
+{
+    "functionDescription": "将所有可终结对象从finobj列表移至tobefnz列表。",
+    "api": {
+        "apiDescription": "separatetobefnzFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向separatetobefnz结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾收集器的全局状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "finobj",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "可终结对象列表"
+            },
+            {
+                "name": "tobefnz",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "待垃圾回收的userdata列表"
+            },
+            {
+                "name": "finobjsur",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "带终结器的存活对象列表"
+            },
+            {
+                "name": "finobjold1",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "带终结器的旧对象列表"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "all",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "指示是否处理所有对象"
+            }
+        ]
+    }
+}

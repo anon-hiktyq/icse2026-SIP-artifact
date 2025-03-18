@@ -1,0 +1,32 @@
+{
+    "functionDescription": "将字符串复制到缓冲区中。",
+    "api": {
+        "apiDescription": "copy2buffFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "top",
+                    "type": "StkId",
+                    "dimensionality": "单值",
+                    "meaning": "栈顶指针，用于定位待复制的字符串"
+                },
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "待复制字符串的数量"
+                },
+                {
+                    "name": "buff",
+                    "type": "char*",
+                    "dimensionality": "数组",
+                    "meaning": "目标缓冲区，用于存储复制的字符串"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

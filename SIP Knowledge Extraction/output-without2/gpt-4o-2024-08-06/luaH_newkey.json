@@ -1,0 +1,38 @@
+{
+    "functionDescription": "luaH_newkeyFun 函数用于在 Lua 表中插入新的键值对，避免插入 nil 值，并在必要时扩展表以容纳新键。",
+    "api": {
+        "apiDescription": "luaH_newkeyFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "",
+                    "meaning": "目标表"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "键值"
+                },
+                {
+                    "name": "value",
+                    "type": "TValue*",
+                    "dimensionality": "",
+                    "meaning": "要插入的值"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

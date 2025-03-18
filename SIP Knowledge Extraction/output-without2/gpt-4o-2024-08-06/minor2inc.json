@@ -1,0 +1,39 @@
+{
+    "functionDescription": "minor2incFun函数用于更新垃圾收集器的状态并继续增量周期。",
+    "api": {
+        "apiDescription": "minor2incFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向minor2inc结构体的指针"
+                },
+                {
+                    "name": "kind",
+                    "type": "lu_byte",
+                    "dimensionality": "单值",
+                    "meaning": "垃圾收集器的类型"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单值",
+                    "meaning": "全局状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

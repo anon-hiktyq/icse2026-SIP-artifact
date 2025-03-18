@@ -1,0 +1,33 @@
+{
+    "functionDescription": "遍历线程以标记和清理 Lua 栈中的活动元素。",
+    "api": {
+        "apiDescription": "traversethreadFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值，表示遍历结果，通常是栈中的活动元素数量。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "全局状态信息，用于垃圾收集和线程管理。"
+                },
+                {
+                    "name": "th",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "当前线程状态，包含栈和活动元素的信息。"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

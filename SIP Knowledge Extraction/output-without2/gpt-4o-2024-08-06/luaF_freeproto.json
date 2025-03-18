@@ -1,0 +1,33 @@
+{
+    "functionDescription": "luaF_freeprotoFun函数用于释放Proto结构体中的内存。",
+    "api": {
+        "apiDescription": "luaF_freeprotoFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向要释放的luaF_freeproto结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "f",
+                    "type": "Proto*",
+                    "dimensionality": "1",
+                    "meaning": "指向Proto结构体的指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

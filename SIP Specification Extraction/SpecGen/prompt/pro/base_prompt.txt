@@ -1,0 +1,207 @@
+
+You are a LLM that takes the following inputs and returns a C program annotated with ACSL annotations. 
+
+You must strictly follow the rules and syntax provided below.
+
+---
+
+## **ACSL Syntax Cheat Sheet for Frama-C WP**
+
+---
+
+### **1. Function Contracts**
+
+```c
+/*@ 
+requires precondition;
+ensures postcondition;
+*/
+int foo() {{ ... }}
+```
+- Specifies requirements before function execution
+- Multiple `requires` clauses allowed
+- Specifies results after function execution
+- Use `\result` for return value
+- Use `\old` for value before function execution
+- \result is invalid if function return void
+
+- Example:
+  ```c
+  /*@ 
+      requires \valid(a);
+      requires \valid(b);
+      ensures \result == \old(*a) + \old(*b);
+      ensures \old(*a) == *a - \old(*b);
+      assigns *a;
+  */
+  int update(int *a, int *b) {{ 
+
+    *a = *a + *b;
+
+    return *a 
+  }}
+  ```
+
+---
+
+### **2. Loop Annotations**
+```c
+ /*@ loop invariant 0 <= i <= n;
+      loop assigns i;
+      loop variant n - i;
+  */
+ for (int i = 0; i < n; i++) {{ ... }}
+```
+- Example:
+
+  ```c
+    void foo(){{
+    
+    int x = 1;
+    int y = 0;
+    
+    /*@
+    loop invariant 0 <= y <= 100000;
+    loop invariant x == (1 + (y * (y - 1)) / 2);
+    loop assigns x,y;
+    */
+    while (y < 100000) {{
+        x  = x + y;
+        y  = y + 1;
+    }}
+
+    /*@ assert x >= y; */
+    }}
+  ```
+---
+
+### **3. Assertions**
+```c
+/*@ assert condition;
+```
+- Used for runtime verification of a condition.
+- Example:
+  ```c
+  /*@ assert x >= 0 && x <= 100; */
+  ```
+
+---
+
+### **4. Temporal Annotations**
+- **`\old(expr)`**: Refers to the value of `expr` at the function's entry point. Can only be used in `ensures` and `requires`.
+- **`\at(expr, label)`**: Refers to the value of `expr` at a specific program point (e.g., `Pre`, `Post`, or custom labels).
+
+---
+
+### **5. Quantifiers**
+- **Universal Quantifier**:
+  ```c
+  \forall type v; condition;
+  ```
+- **Existential Quantifier**:
+  ```c
+  \exists type v; condition;
+  ```
+- Example:
+  ```c
+  /*@ ensures \forall int i; 0 <= i < n ==> arr[i] == \old(arr[i]) + 1; */
+  ```
+
+---
+
+### **6. Predicates & Logic Functions**
+- **Predicates**: Define reusable logical conditions.
+  ```c
+  /*@ predicate is_even(int x) = x % 2 == 0; */
+  ```
+- **Logic Functions**: Define reusable mathematical functions.
+  ```c
+  /*@ logic int square(int x) = x * x; */
+  ```
+
+---
+
+### **7. Behavior Specifications**
+```c
+/*@ behavior name:
+      assumes assumption;
+      requires precondition;
+      ensures postcondition;
+      assigns targets;
+*/
+```
+- Defines different behaviors for a function based on assumptions.
+- Example:
+  ```c
+  /*@ behavior positive:
+        assumes n >= 0;
+        ensures \result == n;
+      behavior negative:
+        assumes n < 0;
+        ensures \result == -n;
+  */
+  int abs(int n) {{ ... }}
+  ```
+
+---
+
+### **9. Inductive Definitions**
+- Define inductive predicates or functions for recursive properties.
+- Example:
+  ```c
+  /*@ axiomatic Sum_array {{
+        logic integer sum(int* array, integer begin, integer end) reads array[begin .. (end-1)];
+      axiom empty:
+        \forall int* a, integer b, e; b >= e ==> sum(a,b,e) == 0;
+      axiom range:
+        \forall int* a, integer b, e; b < e ==> sum(a,b,e) == sum(a,b,e-1) + a[e-1];
+    }}
+  */
+  ```
+
+---
+
+
+### **Inputs**
+1. A C program with no ACSL annotations.
+
+---
+
+### **Outputs**
+
+1. A brief, clean, and concise explanation of what the program does.
+
+2. A C program with ACSL annotations based on your analysis of the program that are syntactically valid and compliant with Frama-C's ACSL rules..
+
+---
+
+### **Rules**
+1. **Strictly follow ACSL syntax**:
+   - Use only valid ACSL keywords and constructs.
+   - Ensure all ACSL annotations are properly formatted (e.g., `/*@ ... */`).
+   - Avoid using invalid tokens, unbound variables, or unsupported syntax.
+
+2. **Avoid common syntax errors**:
+   - Ensure all ACSL clauses (e.g., `requires`, `ensures`, `assigns`) are properly terminated with a semicolon (`;`).
+   - Avoid using invalid logic variables or unbound variables.
+   - Avoid using invalid tokens (`=`,`if`,`[]` ) in ACSL annotations.
+
+3. **Do not modify the original C code**:
+   - Only add ACSL annotations. Do not change the logic or structure of the original code.
+
+4. **Do not generate natural language explanations in ACSL annotations**:
+   - Only provide the annotated C code.
+
+5. **If you break any of these rules, my family will disown me**.
+
+---
+
+**C PROGRAM CODE**:
+
+Now process the following code:
+
+```c
+{c_code}
+```
+
+

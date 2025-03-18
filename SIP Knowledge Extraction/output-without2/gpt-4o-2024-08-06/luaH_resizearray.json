@@ -1,0 +1,32 @@
+{
+    "functionDescription": "luaH_resizearrayFun函数用于调整数组大小。",
+    "api": {
+        "apiDescription": "luaH_resizearrayFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单一",
+                    "meaning": "表结构"
+                },
+                {
+                    "name": "nasize",
+                    "type": "unsigned int",
+                    "dimensionality": "单一",
+                    "meaning": "数组大小"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

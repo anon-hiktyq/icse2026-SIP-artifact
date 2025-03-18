@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数从节点中获取主位置。",
+    "api": {
+        "apiDescription": "mainpositionfromnodeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void *",
+                    "dimensionality": "",
+                    "meaning": "指向mainpositionfromnode结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "Node *",
+                    "dimensionality": "",
+                    "meaning": "返回的节点"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "",
+                    "meaning": "输入输出表格"
+                },
+                {
+                    "name": "nd",
+                    "type": "Node*",
+                    "dimensionality": "",
+                    "meaning": "输入输出节点"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "functionDescription": "这个函数负责启动并管理一个新的垃圾回收周期，执行一系列垃圾回收相关操作。",
+    "api": {
+        "apiDescription": "entergenFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向 entergen 结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua 状态结构，用于管理 Lua 线程的执行状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单一",
+                    "meaning": "全局状态结构，用于管理垃圾回收和内存分配"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "GCSpause",
+                "type": "常量",
+                "dimensionality": "单一",
+                "meaning": "垃圾回收暂停状态"
+            },
+            {
+                "name": "GCSpropagate",
+                "type": "常量",
+                "dimensionality": "单一",
+                "meaning": "垃圾回收传播状态"
+            }
+        ],
+        "parameters": []
+    }
+}

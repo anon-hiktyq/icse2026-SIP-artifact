@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数用于处理Lua的返回钩子，当返回钩子开启时，进行相应的处理。",
+    "api": {
+        "apiDescription": "rethookFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向rethook结构的指针，用于传递函数上下文信息"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机，用于管理Lua的执行状态"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "调用信息结构，包含当前调用的上下文信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "nres",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "表示结果数量，用于确定返回值的数量"
+            }
+        ]
+    }
+}

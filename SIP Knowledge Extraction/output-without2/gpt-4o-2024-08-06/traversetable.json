@@ -1,0 +1,40 @@
+{
+    "functionDescription": "traversetableFun 函数用于遍历表，根据表的弱模式进行不同的遍历操作。",
+    "api": {
+        "apiDescription": "traversetableFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向 traversetable 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "1",
+                    "meaning": "存储遍历结果的内存指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态指针"
+                },
+                {
+                    "name": "h",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "表结构指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "functionDescription": "单步垃圾收集功能，通过不同状态处理垃圾收集过程。",
+    "api": {
+        "apiDescription": "singlestepFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "fast",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "快速模式标志"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "单值",
+                    "meaning": "返回结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "单值",
+                "meaning": "垃圾收集器的当前状态"
+            },
+            {
+                "name": "gcstopem",
+                "type": "lu_byte",
+                "dimensionality": "单值",
+                "meaning": "停止紧急收集标志"
+            }
+        ],
+        "parameters": []
+    }
+}

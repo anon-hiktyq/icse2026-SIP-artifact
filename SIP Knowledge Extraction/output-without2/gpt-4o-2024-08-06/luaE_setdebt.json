@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaE_setdebtFun 函数用于调整 Lua 的 GCdebt 和 GCtotalbytes，以确保总内存使用不超过 MAX_LMEM。",
+    "api": {
+        "apiDescription": "luaE_setdebtFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向 luaE_setdebt 结构体的指针"
+                },
+                {
+                    "name": "debt",
+                    "type": "l_mem",
+                    "dimensionality": "1",
+                    "meaning": "当前的内存债务"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "GCtotalbytes",
+                    "type": "l_mem",
+                    "dimensionality": "1",
+                    "meaning": "更新后的总内存字节数"
+                },
+                {
+                    "name": "GCdebt",
+                    "type": "l_mem",
+                    "dimensionality": "1",
+                    "meaning": "更新后的内存债务"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "指向全局状态的指针，用于更新 GCtotalbytes 和 GCdebt"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

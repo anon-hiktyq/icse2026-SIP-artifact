@@ -1,0 +1,34 @@
+{
+    "functionDescription": "执行哈希搜索功能，通过二分搜索在表中查找不存在的索引。",
+    "api": {
+        "apiDescription": "hash_searchFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "j",
+                    "type": "lua_Unsigned",
+                    "dimensionality": "scalar",
+                    "meaning": "起始索引，用于搜索表中的元素。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Unsigned*",
+                    "dimensionality": "pointer",
+                    "meaning": "存储搜索结果的索引。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "需要搜索的表结构。"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

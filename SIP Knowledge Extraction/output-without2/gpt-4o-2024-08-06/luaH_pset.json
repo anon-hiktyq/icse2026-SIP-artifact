@@ -1,0 +1,46 @@
+{
+    "functionDescription": "此功能实现了根据不同的键类型对表进行设置操作。",
+    "api": {
+        "apiDescription": "luaH_psetFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaH_pset结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单值",
+                    "meaning": "存储操作结果的整数指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单值",
+                    "meaning": "表结构，作为输入输出使用"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "键值，用于在表中查找"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "值，用于设置到表中"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

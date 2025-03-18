@@ -1,0 +1,39 @@
+{
+    "functionDescription": "计算对象的大小。",
+    "api": {
+        "apiDescription": "objsizeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入对象指针"
+                },
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "待计算大小的对象"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "res",
+                    "type": "lu_mem",
+                    "dimensionality": "1",
+                    "meaning": "对象大小结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

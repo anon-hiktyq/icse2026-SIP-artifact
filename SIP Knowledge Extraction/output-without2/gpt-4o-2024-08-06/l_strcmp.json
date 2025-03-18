@@ -1,0 +1,33 @@
+{
+    "functionDescription": "比较两个字符串并返回比较结果",
+    "api": {
+        "apiDescription": "l_strcmpFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ts1",
+                    "type": "const TString*",
+                    "dimensionality": "单一",
+                    "meaning": "第一个待比较的字符串"
+                },
+                {
+                    "name": "ts2",
+                    "type": "const TString*",
+                    "dimensionality": "单一",
+                    "meaning": "第二个待比较的字符串"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "比较结果，0表示相等，正值表示ts1大于ts2，负值表示ts1小于ts2"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

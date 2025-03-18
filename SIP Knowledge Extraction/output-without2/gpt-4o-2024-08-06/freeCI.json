@@ -1,0 +1,40 @@
+{
+    "functionDescription": "释放调用信息链表中的所有节点。",
+    "api": {
+        "apiDescription": "freeCIFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向需要释放的 freeCI 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "ci",
+                "type": "CallInfo*",
+                "dimensionality": "1",
+                "meaning": "当前函数的调用信息"
+            },
+            {
+                "name": "next",
+                "type": "CallInfo*",
+                "dimensionality": "1",
+                "meaning": "下一个调用信息节点"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua 状态机，包含了调用信息链表"
+            }
+        ]
+    }
+}

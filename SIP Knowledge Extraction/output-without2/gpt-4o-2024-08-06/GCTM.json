@@ -1,0 +1,40 @@
+{
+    "functionDescription": "GCTMFun函数用于处理Lua垃圾收集器的终结器逻辑。当对象需要终结时，它检查是否存在终结器并执行相关操作。",
+    "api": {
+        "apiDescription": "GCTMFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向GCTM结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态机"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstp",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "控制垃圾收集器是否运行的状态"
+            },
+            {
+                "name": "gcemergency",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "标识是否为紧急垃圾收集"
+            }
+        ],
+        "parameters": []
+    }
+}

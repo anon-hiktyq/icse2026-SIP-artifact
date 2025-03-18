@@ -1,0 +1,40 @@
+{
+    "functionDescription": "将字符串转换为数字，根据模式选择转换方式。",
+    "api": {
+        "apiDescription": "l_str2dlocFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "s",
+                    "type": "const char*",
+                    "dimensionality": "1D",
+                    "meaning": "输入的字符串"
+                },
+                {
+                    "name": "mode",
+                    "type": "int",
+                    "dimensionality": "0D",
+                    "meaning": "转换模式"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1D",
+                    "meaning": "转换结果指针，指向字符串尾部或NULL"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "result",
+                    "type": "lua_Number*",
+                    "dimensionality": "1D",
+                    "meaning": "存储转换后的数字结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

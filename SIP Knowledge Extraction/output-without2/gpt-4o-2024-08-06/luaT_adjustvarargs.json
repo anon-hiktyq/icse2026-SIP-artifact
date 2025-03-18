@@ -1,0 +1,38 @@
+{
+    "functionDescription": "调整可变参数的功能",
+    "api": {
+        "apiDescription": "luaT_adjustvarargsFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "nfixparams",
+                    "type": "int",
+                    "dimensionality": "标量",
+                    "meaning": "固定参数的数量"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "指针",
+                    "meaning": "当前函数的调用信息"
+                },
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "指针",
+                    "meaning": "函数的原型信息"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

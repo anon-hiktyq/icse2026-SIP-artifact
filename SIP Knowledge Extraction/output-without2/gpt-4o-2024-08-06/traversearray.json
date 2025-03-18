@@ -1,0 +1,39 @@
+{
+    "functionDescription": "遍历数组并标记白色对象",
+    "api": {
+        "apiDescription": "traversearrayFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "marked",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "标记状态，表示是否标记了对象"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回标记状态的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "全局状态信息"
+                },
+                {
+                    "name": "h",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "表结构信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaV_tointegerFun函数用于将输入的对象指针转换为整数。",
+    "api": {
+        "apiDescription": "luaV_tointegerFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "mode",
+                    "type": "F2Imod",
+                    "dimensionality": "",
+                    "meaning": "定义转换模式"
+                },
+                {
+                    "name": "obj",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "输入的对象指针"
+                },
+                {
+                    "name": "p",
+                    "type": "lua_Integer*",
+                    "dimensionality": "",
+                    "meaning": "用于存储转换后的整数值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "",
+                    "meaning": "存储转换结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

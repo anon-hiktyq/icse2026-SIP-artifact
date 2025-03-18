@@ -1,0 +1,45 @@
+{
+    "functionDescription": "findsetregFun函数用于分析指令序列，确定最后一个改变特定寄存器的指令。",
+    "api": {
+        "apiDescription": "findsetregFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "单值",
+                    "meaning": "指向指令序列的指针"
+                },
+                {
+                    "name": "lastpc",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "最后一个指令的索引"
+                },
+                {
+                    "name": "reg",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "需要追踪的寄存器索引"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "setreg",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "最后一个改变指定寄存器的指令索引"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "指针",
+                    "meaning": "返回值指针，存储结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

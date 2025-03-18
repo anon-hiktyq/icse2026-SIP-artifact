@@ -1,0 +1,33 @@
+{
+    "functionDescription": "LTintfloatFun函数用于比较整数和浮点数，根据条件设置返回值。",
+    "api": {
+        "apiDescription": "LTintfloatFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "i",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "整数输入，用于比较"
+                },
+                {
+                    "name": "f",
+                    "type": "lua_Number",
+                    "dimensionality": "scalar",
+                    "meaning": "浮点数输入，用于比较"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "比较结果的返回值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该函数用于根据输入参数进行计算，并将结果存储在输出变量中。",
+    "api": {
+        "apiDescription": "luaO_applyparamFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "lu_byte",
+                    "dimensionality": "1",
+                    "meaning": "表示参数的尾数部分"
+                },
+                {
+                    "name": "x",
+                    "type": "l_mem",
+                    "dimensionality": "1",
+                    "meaning": "表示乘数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "1",
+                    "meaning": "存储计算结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

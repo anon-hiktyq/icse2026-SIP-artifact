@@ -1,0 +1,33 @@
+{
+    "functionDescription": "计算当前 Lua 栈的使用部分大小，并确保其至少为最小栈大小。",
+    "api": {
+        "apiDescription": "stackinuseFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态信息，包含当前函数调用的信息"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "res",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "当前栈的使用部分大小"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "存储计算结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

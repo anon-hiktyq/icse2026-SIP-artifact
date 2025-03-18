@@ -1,0 +1,27 @@
+{
+    "functionDescription": "标记基本类型的元表",
+    "api": {
+        "apiDescription": "markmtFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向标记元表的结构体指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单值",
+                    "meaning": "垃圾收集器的全局状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

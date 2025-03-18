@@ -1,0 +1,33 @@
+{
+    "functionDescription": "获取对象类型名称",
+    "api": {
+        "apiDescription": "luaT_objtypenameFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "1",
+                    "meaning": "返回的类型名称"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "对象值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

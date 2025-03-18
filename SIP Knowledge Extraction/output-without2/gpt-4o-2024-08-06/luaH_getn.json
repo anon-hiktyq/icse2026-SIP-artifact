@@ -1,0 +1,34 @@
+{
+    "functionDescription": "该函数用于获取表的大小，检查数组部分和哈希部分以确定表的边界。",
+    "api": {
+        "apiDescription": "luaH_getnFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaH_getn结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lua_Unsigned*",
+                    "dimensionality": "单值",
+                    "meaning": "存储计算结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "结构体",
+                    "meaning": "包含表数据的结构体"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

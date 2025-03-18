@@ -1,0 +1,35 @@
+{
+    "main": {
+        "input": {
+            "global_var": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "add": {
+        "input": {
+            "b": "int",
+            "a": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "print_point": {
+        "input": {
+            "p": "const"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "print_color": {
+        "input": {
+            "color": "Unknown"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

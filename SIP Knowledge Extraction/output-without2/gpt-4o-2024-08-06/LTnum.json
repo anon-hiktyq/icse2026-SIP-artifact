@@ -1,0 +1,33 @@
+{
+    "functionDescription": "LTnumFun函数用于比较两个数值的大小，支持整数和浮点数的比较。",
+    "api": {
+        "apiDescription": "LTnumFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "l",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "左操作数"
+                },
+                {
+                    "name": "r",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "右操作数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "比较结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

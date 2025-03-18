@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaC_newobjFun函数用于创建新的lua对象",
+    "api": {
+        "apiDescription": "luaC_newobjFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "tt",
+                    "type": "lu_byte",
+                    "dimensionality": "scalar",
+                    "meaning": "输入端口类型标识"
+                },
+                {
+                    "name": "sz",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "输入端口大小"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject *",
+                    "dimensionality": "pointer",
+                    "meaning": "输出端口返回的GC对象指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "lua状态信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

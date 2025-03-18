@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaC_barrierback_Fun函数用于处理垃圾收集的障碍机制。",
+    "api": {
+        "apiDescription": "luaC_barrierback_Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaC_barrierback_结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机指针"
+                },
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾收集对象指针"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gckind",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "垃圾收集的类型"
+            }
+        ],
+        "parameters": []
+    }
+}

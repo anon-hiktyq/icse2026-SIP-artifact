@@ -1,0 +1,34 @@
+{
+    "functionDescription": "通过遍历和传播变化来收敛弱表。",
+    "api": {
+        "apiDescription": "convergeephemeronsFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向convergeephemerons结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾回收的全局状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "ephemeron",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "弱表列表"
+            }
+        ],
+        "parameters": []
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "functionDescription": "此功能用于设置暂停状态，调整垃圾收集器的阈值和债务。",
+    "api": {
+        "apiDescription": "setpauseFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向setpause结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单一",
+                    "meaning": "垃圾收集器的全局状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "GCtotalbytes",
+                "type": "l_mem",
+                "dimensionality": "单一",
+                "meaning": "当前分配的字节数加上债务"
+            },
+            {
+                "name": "GCdebt",
+                "type": "l_mem",
+                "dimensionality": "单一",
+                "meaning": "已计数但尚未分配的字节数"
+            },
+            {
+                "name": "GCmarked",
+                "type": "l_mem",
+                "dimensionality": "单一",
+                "meaning": "在垃圾收集周期中标记的对象数"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "gcparams",
+                "type": "lu_byte[]",
+                "dimensionality": "数组",
+                "meaning": "垃圾收集参数"
+            }
+        ]
+    }
+}

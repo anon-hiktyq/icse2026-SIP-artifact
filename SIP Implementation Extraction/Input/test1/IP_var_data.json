@@ -1,0 +1,38 @@
+{
+    "printGlobalVariables": {
+        "input": {
+            "value2": "int",
+            "globalPointerArray": "int* [3]",
+            "value0": "int",
+            "value1": "int",
+            "globalIntArray": "int [5]"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {
+            "globalPointerArray": "int* [3]"
+        }
+    },
+    "main": {
+        "input": {
+            "value2": "int",
+            "globalPointerArray": "int* [3]",
+            "value0": "int",
+            "value1": "int"
+        },
+        "output": {
+            "value2": "int",
+            "value0": "int",
+            "value1": "int",
+            "globalIntArray": "int [5]"
+        },
+        "stateVar": {
+            "value2": "int",
+            "value0": "int",
+            "value1": "int"
+        },
+        "argVar": {
+            "globalPointerArray": "int* [3]"
+        }
+    }
+}

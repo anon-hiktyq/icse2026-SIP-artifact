@@ -1,0 +1,39 @@
+{
+    "functionDescription": "清除表中的值和键。",
+    "api": {
+        "apiDescription": "clearbyvaluesFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向clearbyvalues结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "1",
+                "meaning": "全局状态"
+            },
+            {
+                "name": "l",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "当前GC对象"
+            },
+            {
+                "name": "f",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "结束GC对象"
+            }
+        ]
+    }
+}

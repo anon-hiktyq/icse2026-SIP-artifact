@@ -1,0 +1,33 @@
+{
+    "functionDescription": "重新插入旧切片功能：遍历消失的切片，将非空条目插入哈希部分。",
+    "api": {
+        "apiDescription": "reinsertOldSliceFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "oldasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "旧数组大小"
+                },
+                {
+                    "name": "newasize",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "新数组大小"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "表结构指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

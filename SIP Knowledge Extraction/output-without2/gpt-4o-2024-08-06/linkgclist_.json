@@ -1,0 +1,39 @@
+{
+    "functionDescription": "将对象链接到垃圾回收列表并设置为灰色状态。",
+    "api": {
+        "apiDescription": "linkgclist_Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向linkgclist_结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "o",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "当前对象"
+            },
+            {
+                "name": "pnext",
+                "type": "GCObject**",
+                "dimensionality": "1",
+                "meaning": "指向下一个对象的指针"
+            },
+            {
+                "name": "list",
+                "type": "GCObject**",
+                "dimensionality": "1",
+                "meaning": "垃圾回收列表"
+            }
+        ],
+        "parameters": []
+    }
+}

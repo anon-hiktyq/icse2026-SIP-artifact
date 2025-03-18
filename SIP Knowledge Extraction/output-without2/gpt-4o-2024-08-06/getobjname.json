@@ -1,0 +1,45 @@
+{
+    "functionDescription": "获取对象名称的功能实现",
+    "api": {
+        "apiDescription": "getobjnameFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "lastpc",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "最后一个程序计数器，指示当前处理的位置"
+                },
+                {
+                    "name": "reg",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "寄存器索引"
+                },
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "单值",
+                    "meaning": "指向函数原型的指针"
+                },
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "单值",
+                    "meaning": "指向名称的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "单值",
+                    "meaning": "返回的对象名称"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

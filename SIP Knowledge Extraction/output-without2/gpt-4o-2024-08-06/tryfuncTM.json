@@ -1,0 +1,54 @@
+{
+    "functionDescription": "tryfuncTMFun函数负责处理元方法调用和错误处理，主要用于Lua虚拟机的栈操作和状态管理。",
+    "api": {
+        "apiDescription": "tryfuncTMFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "输入状态，用于判断是否达到最大计数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "pointer",
+                    "meaning": "输出计数结果"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态机，用于栈操作"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "scalar",
+                    "meaning": "函数栈指针，指向当前函数"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "top",
+                "type": "StkIdRel",
+                "dimensionality": "pointer",
+                "meaning": "栈顶指针，指示栈的第一个空闲槽"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "p",
+                "type": "void*",
+                "dimensionality": "pointer",
+                "meaning": "通用指针，指向tryfuncTM结构体"
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "functionDescription": "判断哈希键是否为空",
+    "api": {
+        "apiDescription": "hashkeyisemptyFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Unsigned",
+                    "dimensionality": "scalar",
+                    "meaning": "输入的哈希键"
+                },
+                {
+                    "name": "fun",
+                    "type": "Fun",
+                    "dimensionality": "scalar",
+                    "meaning": "接口函数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值，表示键是否为空"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "输入输出的表结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

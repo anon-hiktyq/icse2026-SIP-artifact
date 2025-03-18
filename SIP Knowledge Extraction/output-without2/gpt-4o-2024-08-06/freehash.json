@@ -1,0 +1,33 @@
+{
+    "functionDescription": "释放哈希表内存",
+    "api": {
+        "apiDescription": "freehashFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向需要释放内存的freehash结构体"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua状态机指针"
+            },
+            {
+                "name": "t",
+                "type": "Table*",
+                "dimensionality": "1",
+                "meaning": "指向哈希表的指针"
+            }
+        ],
+        "parameters": []
+    }
+}

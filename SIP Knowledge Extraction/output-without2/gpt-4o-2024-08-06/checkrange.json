@@ -1,0 +1,33 @@
+{
+    "functionDescription": "检查范围功能",
+    "api": {
+        "apiDescription": "checkrangeFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "k",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "输入值"
+                },
+                {
+                    "name": "limit",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "限制值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "pointer",
+                    "meaning": "结果值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

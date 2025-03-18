@@ -1,0 +1,40 @@
+{
+    "functionDescription": "计算数组的最优大小。",
+    "api": {
+        "apiDescription": "computesizesFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入参数指针，指向computesizes结构体"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "optimal",
+                    "type": "unsigned int",
+                    "dimensionality": "1",
+                    "meaning": "最优数组大小"
+                },
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "1",
+                    "meaning": "返回最优数组大小的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "ct",
+                    "type": "Counters*",
+                    "dimensionality": "1",
+                    "meaning": "计数器结构体指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

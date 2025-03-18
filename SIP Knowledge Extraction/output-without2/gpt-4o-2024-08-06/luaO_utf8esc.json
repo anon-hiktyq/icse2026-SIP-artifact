@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数用于将一个整数转换为UTF-8编码，并将结果存储在缓冲区中。",
+    "api": {
+        "apiDescription": "luaO_utf8escFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "x",
+                    "type": "unsigned long",
+                    "dimensionality": "scalar",
+                    "meaning": "输入整数值，需要转换为UTF-8编码"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "缓冲区中存储的字节数"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "存储字节数的地址"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "buff",
+                    "type": "char*",
+                    "dimensionality": "array",
+                    "meaning": "用于存储UTF-8编码结果的缓冲区"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

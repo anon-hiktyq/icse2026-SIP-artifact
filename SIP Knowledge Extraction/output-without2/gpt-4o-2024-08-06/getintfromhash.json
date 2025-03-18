@@ -1,0 +1,33 @@
+{
+    "functionDescription": "从哈希表中获取整数值",
+    "api": {
+        "apiDescription": "getintfromhashFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "要查找的键值"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "pointer",
+                    "meaning": "包含键值对的哈希表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const TValue *",
+                    "dimensionality": "pointer",
+                    "meaning": "找到的键对应的值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

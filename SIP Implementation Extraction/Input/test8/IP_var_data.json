@@ -1,0 +1,12 @@
+{
+    "callee": {
+        "input": {
+            "fixedValue": "int",
+            "ptr": "int*",
+            "arr": "int*"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

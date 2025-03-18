@@ -1,0 +1,27 @@
+{
+    "functionDescription": "luaO_ceillog2Fun函数用于计算给定整数的天花板对数（以2为底），并将结果存储在指定位置。",
+    "api": {
+        "apiDescription": "luaO_ceillog2Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "x",
+                    "type": "unsigned int",
+                    "dimensionality": "标量",
+                    "meaning": "输入值，用于计算其天花板对数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "指针",
+                    "meaning": "存储计算结果的地址"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

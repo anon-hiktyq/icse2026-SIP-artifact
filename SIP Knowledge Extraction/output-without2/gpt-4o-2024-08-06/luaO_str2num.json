@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaO_str2numFun函数用于将字符串转换为数字，尝试先转换为整数，如果失败则尝试转换为浮点数。",
+    "api": {
+        "apiDescription": "luaO_str2numFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaO_str2num结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "s",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "输入的字符串"
+                },
+                {
+                    "name": "o",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输出的转换结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "size_t*",
+                    "dimensionality": "1",
+                    "meaning": "转换成功时返回字符串的大小"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

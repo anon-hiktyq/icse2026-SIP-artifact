@@ -1,0 +1,33 @@
+{
+    "functionDescription": "释放给定的自由变量，如果该变量是开放的，则先解除链接。",
+    "api": {
+        "apiDescription": "freeupvalFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "single",
+                    "meaning": "指向需要释放的自由变量的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "single",
+                "meaning": "Lua 虚拟机状态"
+            },
+            {
+                "name": "uv",
+                "type": "UpVal*",
+                "dimensionality": "single",
+                "meaning": "表示自由变量的结构体"
+            }
+        ],
+        "parameters": []
+    }
+}

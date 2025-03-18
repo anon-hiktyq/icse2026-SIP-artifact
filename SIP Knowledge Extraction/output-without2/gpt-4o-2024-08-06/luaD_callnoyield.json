@@ -1,0 +1,53 @@
+{
+    "functionDescription": "luaD_callnoyieldFun函数的功能是调用一个不可中断的Lua函数。",
+    "api": {
+        "apiDescription": "luaD_callnoyieldFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaD_callnoyield结构的指针"
+                },
+                {
+                    "name": "nResults",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "函数调用后期望的结果数量"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "要调用的函数"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "1",
+                "meaning": "Lua线程的当前状态"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "nyci",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "不可中断调用的标志"
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "functionDescription": "完成垃圾回收周期的功能实现。",
+    "api": {
+        "apiDescription": "finishgencycleFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单一",
+                    "meaning": "全局状态"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "垃圾收集器状态"
+            },
+            {
+                "name": "gcemergency",
+                "type": "lu_byte",
+                "dimensionality": "单一",
+                "meaning": "是否为紧急垃圾收集"
+            }
+        ],
+        "parameters": []
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "functionDescription": "将字符串转换为数字，并存储结果。",
+    "api": {
+        "apiDescription": "l_strtonFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "obj",
+                    "type": "const TValue*",
+                    "dimensionality": "单个值",
+                    "meaning": "输入对象，可能是字符串或其他类型"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单个值",
+                    "meaning": "转换结果，表示是否成功转换"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "result",
+                    "type": "TValue*",
+                    "dimensionality": "单个值",
+                    "meaning": "存储转换后的数字结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

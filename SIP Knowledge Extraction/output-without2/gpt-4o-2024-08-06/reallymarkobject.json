@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该函数负责标记对象以进行垃圾收集。",
+    "api": {
+        "apiDescription": "reallymarkobjectFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向要标记的对象的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾收集器的全局状态"
+                },
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "要标记的垃圾收集对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

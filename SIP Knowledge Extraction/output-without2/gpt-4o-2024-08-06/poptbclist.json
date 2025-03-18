@@ -1,0 +1,34 @@
+{
+    "functionDescription": "poptbclistFun函数用于处理待关闭变量列表，通过调整指针来移除虚拟节点。",
+    "api": {
+        "apiDescription": "poptbclistFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向poptbclist结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "结构体",
+                    "meaning": "Lua状态结构体"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "tbclist",
+                "type": "StkIdRel",
+                "dimensionality": "列表",
+                "meaning": "待关闭变量列表"
+            }
+        ],
+        "parameters": []
+    }
+}

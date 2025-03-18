@@ -1,0 +1,33 @@
+{
+    "functionDescription": "比较两个长字符串是否相等",
+    "api": {
+        "apiDescription": "luaS_eqlngstrFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "a",
+                    "type": "TString*",
+                    "dimensionality": "单一",
+                    "meaning": "第一个长字符串"
+                },
+                {
+                    "name": "b",
+                    "type": "TString*",
+                    "dimensionality": "单一",
+                    "meaning": "第二个长字符串"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "比较结果，1表示相等，0表示不相等"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

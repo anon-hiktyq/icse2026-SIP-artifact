@@ -1,0 +1,47 @@
+{
+    "functionDescription": "计算 Lua 线程的大小",
+    "api": {
+        "apiDescription": "luaE_threadsizeFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态结构体指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "sz",
+                    "type": "lu_mem",
+                    "dimensionality": "1",
+                    "meaning": "计算得到的线程大小"
+                },
+                {
+                    "name": "ret",
+                    "type": "lu_mem*",
+                    "dimensionality": "1",
+                    "meaning": "存储线程大小的返回指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "nci",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "当前函数调用信息的数量"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "EXTRA_STACK",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "额外的堆栈空间大小"
+            }
+        ]
+    }
+}

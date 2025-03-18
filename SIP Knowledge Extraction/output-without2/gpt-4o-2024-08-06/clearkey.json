@@ -1,0 +1,27 @@
+{
+    "functionDescription": "清理键功能，检查键是否为空或可收集，并将未使用的键设置为死亡状态。",
+    "api": {
+        "apiDescription": "clearkeyFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向clearkey结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "n",
+                    "type": "Node*",
+                    "dimensionality": "1",
+                    "meaning": "节点，包含键值信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

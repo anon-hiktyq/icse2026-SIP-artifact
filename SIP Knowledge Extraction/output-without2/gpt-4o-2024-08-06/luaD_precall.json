@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaD_precallFun函数用于处理不同类型的函数调用，包括C闭包、轻量级C函数和Lua函数。根据函数类型执行相应的操作，并在必要时尝试调用元方法。",
+    "api": {
+        "apiDescription": "luaD_precallFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "single",
+                    "meaning": "指向luaD_precall结构体的指针"
+                },
+                {
+                    "name": "nresults",
+                    "type": "int",
+                    "dimensionality": "single",
+                    "meaning": "期望的结果数量"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "single",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "single",
+                    "meaning": "函数在堆栈中的位置"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "CallInfo*",
+                    "dimensionality": "single",
+                    "meaning": "调用信息"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "fun",
+                "type": "Fun",
+                "dimensionality": "single",
+                "meaning": "接口函数"
+            }
+        ]
+    }
+}

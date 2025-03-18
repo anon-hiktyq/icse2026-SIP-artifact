@@ -1,0 +1,51 @@
+{
+    "functionDescription": "该函数尝试初始化一个二元元方法。",
+    "api": {
+        "apiDescription": "luaT_trybiniTMFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "i2",
+                    "type": "lua_Integer",
+                    "dimensionality": "标量",
+                    "meaning": "输入整数，用于计算"
+                },
+                {
+                    "name": "flip",
+                    "type": "int",
+                    "dimensionality": "标量",
+                    "meaning": "翻转标志"
+                },
+                {
+                    "name": "event",
+                    "type": "TMS",
+                    "dimensionality": "标量",
+                    "meaning": "事件类型"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "指针",
+                    "meaning": "第一个值"
+                },
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "标量",
+                    "meaning": "结果存储位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

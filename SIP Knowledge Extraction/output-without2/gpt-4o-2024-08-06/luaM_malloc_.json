@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaM_malloc_Fun函数用于内存分配，根据输入的大小和标记来分配内存块，并返回内存块指针。如果分配失败，则会触发错误处理。",
+    "api": {
+        "apiDescription": "luaM_malloc_Fun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "size",
+                    "type": "size_t",
+                    "dimensionality": "单值",
+                    "meaning": "要分配的内存块大小"
+                },
+                {
+                    "name": "tag",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "内存块标记"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "分配的内存块指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

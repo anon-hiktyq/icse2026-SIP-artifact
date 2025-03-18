@@ -1,0 +1,51 @@
+{
+    "functionDescription": "luaT_callTMFun函数用于在Lua状态下调用一个元方法。通过设置对象和参数，将函数推送到堆栈上，并根据调用上下文选择不同的调用方式。",
+    "api": {
+        "apiDescription": "luaT_callTMFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态，用于存储当前调用的上下文信息。"
+                },
+                {
+                    "name": "f",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "函数值，表示要调用的元方法。"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "第一个参数，用于传递给元方法的参数。"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "第二个参数，用于传递给元方法的参数。"
+                },
+                {
+                    "name": "p3",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "第三个参数，用于传递给元方法的参数。"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "top",
+                "type": "StkIdRel",
+                "dimensionality": "pointer",
+                "meaning": "堆栈的第一个空闲槽，用于存储函数调用的上下文。"
+            }
+        ],
+        "parameters": []
+    }
+}

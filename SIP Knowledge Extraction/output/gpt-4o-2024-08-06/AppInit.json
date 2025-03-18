@@ -1,0 +1,80 @@
+{
+    "functionDescription": "初始化应用程序的各个模块，包括变量初始化和设备控制。",
+    "api": {
+        "apiDescription": "void AppInitFun(AppInit *p);",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "countInt32ms",
+                    "type": "unint08",
+                    "dimensionality": "",
+                    "meaning": "32ms计数器"
+                },
+                {
+                    "name": "countSate",
+                    "type": "unint32",
+                    "dimensionality": "",
+                    "meaning": "卫星状态计数"
+                },
+                {
+                    "name": "countPublic",
+                    "type": "unint32",
+                    "dimensionality": "",
+                    "meaning": "公共计数"
+                },
+                {
+                    "name": "countMode",
+                    "type": "unint32",
+                    "dimensionality": "",
+                    "meaning": "模式计数"
+                },
+                {
+                    "name": "flgPRSAM",
+                    "type": "unint16",
+                    "dimensionality": "",
+                    "meaning": "PRSAM标志"
+                },
+                {
+                    "name": "flgGryoCalc",
+                    "type": "unint08",
+                    "dimensionality": "",
+                    "meaning": "陀螺计算标志"
+                },
+                {
+                    "name": "flg160INT",
+                    "type": "unint16",
+                    "dimensionality": "",
+                    "meaning": "160INT标志"
+                },
+                {
+                    "name": "mGyroData",
+                    "type": "SGyroData",
+                    "dimensionality": "",
+                    "meaning": "陀螺数据"
+                },
+                {
+                    "name": "mModulator",
+                    "type": "SFratemodulator[3]",
+                    "dimensionality": "",
+                    "meaning": "调制器数组"
+                },
+                {
+                    "name": "mThrDistribute",
+                    "type": "SThrDistribute",
+                    "dimensionality": "",
+                    "meaning": "推力分配"
+                },
+                {
+                    "name": "mFWarning",
+                    "type": "SFWarning",
+                    "dimensionality": "",
+                    "meaning": "故障警告"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

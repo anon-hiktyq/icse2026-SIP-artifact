@@ -1,0 +1,27 @@
+{
+    "functionDescription": "该功能将一个数字转换为字符串并添加到缓冲区中。",
+    "api": {
+        "apiDescription": "addnum2buffFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "num",
+                    "type": "TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "输入数字"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "buff",
+                    "type": "BuffFS*",
+                    "dimensionality": "pointer",
+                    "meaning": "用于存储结果的缓冲区"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

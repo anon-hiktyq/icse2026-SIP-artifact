@@ -1,0 +1,40 @@
+{
+    "functionDescription": "findvarargFun 函数用于检查给定的调用信息是否为可变参数，并返回相关信息。",
+    "api": {
+        "apiDescription": "findvarargFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "调用信息结构体指针"
+                },
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "0",
+                    "meaning": "额外参数的数量"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "1",
+                    "meaning": "返回的字符串指针，指示是否为可变参数"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "pos",
+                    "type": "StkId*",
+                    "dimensionality": "1",
+                    "meaning": "栈中位置指针，可能被修改"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

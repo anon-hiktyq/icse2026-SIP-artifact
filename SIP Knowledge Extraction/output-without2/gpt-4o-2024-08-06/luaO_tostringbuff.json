@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数将给定对象转换为字符串，并将结果存储在缓冲区中。",
+    "api": {
+        "apiDescription": "luaO_tostringbuffFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "obj",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "输入对象，该对象将被转换为字符串"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "len",
+                    "type": "int",
+                    "dimensionality": "单一",
+                    "meaning": "转换后的字符串长度"
+                },
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "指针",
+                    "meaning": "指向存储转换结果的缓冲区"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "buff",
+                    "type": "char*",
+                    "dimensionality": "指针",
+                    "meaning": "存储转换结果的缓冲区"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

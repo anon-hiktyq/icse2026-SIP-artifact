@@ -1,0 +1,33 @@
+{
+    "functionDescription": "instackFun函数用于在给定的instack结构中查找特定值的位置。",
+    "api": {
+        "apiDescription": "instackFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "pointer",
+                    "meaning": "调用信息结构指针"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "待查找的目标值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "存储目标值位置的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

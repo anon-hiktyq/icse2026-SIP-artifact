@@ -1,0 +1,27 @@
+{
+    "functionDescription": "获取当前程序计数器的功能",
+    "api": {
+        "apiDescription": "currentpcFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "pointer",
+                    "meaning": "输入端口，表示调用信息"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "输出端口，返回当前程序计数器的值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

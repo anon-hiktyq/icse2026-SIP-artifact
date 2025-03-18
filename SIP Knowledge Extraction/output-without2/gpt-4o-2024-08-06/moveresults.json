@@ -1,0 +1,39 @@
+{
+    "functionDescription": "moveresultsFun 函数用于根据需求移动结果。它处理不同的情况，包括不需要值、需要一个值以及需要多个结果或待关闭变量。",
+    "api": {
+        "apiDescription": "moveresultsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "nres",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "结果数量"
+                },
+                {
+                    "name": "fwanted",
+                    "type": "l_uint32",
+                    "dimensionality": "scalar",
+                    "meaning": "所需结果的标志"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "pointer",
+                    "meaning": "结果栈指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

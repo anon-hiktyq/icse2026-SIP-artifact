@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该功能实现了对垃圾回收对象的扫描和更新。",
+    "api": {
+        "apiDescription": "sweeptoliveFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "GCObject**",
+                    "dimensionality": "pointer to pointer",
+                    "meaning": "存储函数执行结果的输出端口"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "p",
+                    "type": "GCObject**",
+                    "dimensionality": "pointer to pointer",
+                    "meaning": "指向当前处理的垃圾回收对象列表"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

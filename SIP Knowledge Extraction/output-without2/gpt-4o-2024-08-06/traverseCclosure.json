@@ -1,0 +1,40 @@
+{
+    "functionDescription": "遍历C闭包并标记其上值",
+    "api": {
+        "apiDescription": "traverseCclosureFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向traverseCclosure结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "l_mem*",
+                    "dimensionality": "1",
+                    "meaning": "返回值，标记的上值数量加1"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态，用于垃圾收集"
+                },
+                {
+                    "name": "cl",
+                    "type": "CClosure*",
+                    "dimensionality": "1",
+                    "meaning": "C闭包结构体，包含上值列表"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

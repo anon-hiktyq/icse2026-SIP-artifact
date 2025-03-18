@@ -1,0 +1,65 @@
+{
+    "functionDescription": "此函数用于格式化字符串并进行错误处理。",
+    "api": {
+        "apiDescription": "luaO_pushfstringFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "fmt",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "格式字符串"
+                },
+                {
+                    "name": "argp",
+                    "type": "va_list",
+                    "dimensionality": "单一",
+                    "meaning": "可变参数列表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "msg",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "格式化后的字符串"
+                },
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "单一",
+                    "meaning": "返回的字符串"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "单一",
+                "meaning": "状态变量"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单一",
+                "meaning": "Lua状态"
+            },
+            {
+                "name": "fmt",
+                "type": "const char*",
+                "dimensionality": "单一",
+                "meaning": "格式字符串"
+            }
+        ]
+    }
+}

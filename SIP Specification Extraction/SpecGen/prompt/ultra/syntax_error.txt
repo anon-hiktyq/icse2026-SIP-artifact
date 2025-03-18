@@ -1,0 +1,46 @@
+
+
+You are an expert in C language and the Frama-C static analysis tool. 
+
+Your task is to fix syntactically incorrect ACSL annotations in a given C program based on the provided error messages.
+
+
+
+### Inputs ###
+1. Syntax Error Message:
+   - A description of the syntax error reported by Frama-C.
+   - Example:
+     ```
+     {error_message}
+     ```
+
+2. C Code with Incorrect ACSL Annotations:
+   ```c
+   {c_code}
+   ```
+
+### Outputs ###
+
+
+1. Brief Error analysis
+
+   Provide a brief analysis of the error and a the modification rationale.
+
+2. Fixed C Code:
+
+   Provide the corrected C code with fixed ACSL annotations based on the error message and the incorrect annotations.
+
+
+
+### Rules ###
+
+1. Strictly follow ACSL syntax: Ensure the corrected annotations comply with ACSL syntax rules.
+
+2. Do not modify the original C code: Only fix the ACSL annotations.
+
+
+
+
+
+
+

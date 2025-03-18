@@ -1,0 +1,52 @@
+{
+    "functionDescription": "forlimitFun函数用于处理循环限制条件，根据输入参数决定是否进行循环，并处理整数和浮点数之间的转换。",
+    "api": {
+        "apiDescription": "forlimitFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "init",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "初始值"
+                },
+                {
+                    "name": "step",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "步长"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值指针，指示是否需要运行循环"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "lim",
+                    "type": "const TValue*",
+                    "dimensionality": "pointer",
+                    "meaning": "循环限制值"
+                },
+                {
+                    "name": "p",
+                    "type": "lua_Integer*",
+                    "dimensionality": "pointer",
+                    "meaning": "整数指针，用于存储转换结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

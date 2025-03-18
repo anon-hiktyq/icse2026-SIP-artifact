@@ -1,0 +1,68 @@
+#if !defined(__COPY2BUFF_H__)
+#define __COPY2BUFF_H__
+
+#include "common.h"
+
+
+#ifndef _S2V_
+	#define s2v (&(o)->val)
+#endif
+
+#ifndef _TSVALUE_
+	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
+#endif
+
+#ifndef _GETLSTR_
+	#define getlstr (strisshr(ts) \
+		? (cast_void((len) = cast_sizet((ts)->shrlen)), rawgetshrstr(ts)) \
+		: (cast_void((len) = (ts)->u.lnglen), (ts)->contents))
+#endif
+
+typedef signed char ls_byte;
+union Value {
+  struct GCObject *gc;    /* collectable objects */
+  void *p;         /* light userdata */
+  lua_CFunction f; /* light C functions */
+  lua_Integer i;   /* integer numbers */
+  lua_Number n;    /* float numbers */
+  /* not used, but may avoid warnings for uninitialized value */
+  lu_byte ub;
+};
+struct TValue {
+  TValuefields;
+};
+typedef StackValue *StkId;
+struct GCObject {
+  CommonHeader;
+};
+struct TString {
+  CommonHeader;
+  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
+  ls_byte shrlen;  /* length for short strings, negative for long strings */
+  unsigned int hash;
+  union {
+    size_t lnglen;  /* length for long strings */
+    struct TString *hnext;  /* linked list for hash table */
+  } u;
+  char *contents;  /* pointer to content in long strings */
+  lua_Alloc falloc;  /* deallocation function for external strings */
+  void *ud;  /* user data for external strings */
+};
+
+void copy2buffFun(void *p);
+
+typedef struct __copy2buff
+{
+	/* Functional Interface */
+	Fun			fun;
+	/* Input Variables */
+	StkId			top;
+	int			n;
+	char*			buff;
+	/* Output Variables */
+	/* In&Output Variables */
+	/* Statement Variables*/
+	/* Argument Variables */
+} copy2buff;
+
+#endif // __COPY2BUFF_H__

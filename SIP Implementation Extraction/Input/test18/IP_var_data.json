@@ -1,0 +1,28 @@
+{
+    "callee": {
+        "input": {
+            "value": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "test_conditions": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "printf": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "main": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

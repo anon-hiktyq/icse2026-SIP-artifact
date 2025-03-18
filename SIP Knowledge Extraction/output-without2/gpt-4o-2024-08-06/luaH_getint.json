@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaH_getintFun函数用于从哈希表中获取整数值。",
+    "api": {
+        "apiDescription": "luaH_getintFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Integer",
+                    "dimensionality": "scalar",
+                    "meaning": "用于查找数组中的键值"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "object",
+                    "meaning": "哈希表结构"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回的标签值"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "res",
+                    "type": "TValue*",
+                    "dimensionality": "object",
+                    "meaning": "存储结果值的结构"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

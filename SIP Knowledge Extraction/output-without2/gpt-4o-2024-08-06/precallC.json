@@ -1,0 +1,58 @@
+{
+    "functionDescription": "precallCFun函数用于在Lua中执行函数调用的准备工作，包括检查堆栈、处理钩子事件和执行实际调用。",
+    "api": {
+        "apiDescription": "precallCFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "unsigned int",
+                    "dimensionality": "scalar",
+                    "meaning": "输入状态标识"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "scalar",
+                    "meaning": "函数调用的堆栈索引"
+                },
+                {
+                    "name": "f",
+                    "type": "lua_CFunction",
+                    "dimensionality": "function pointer",
+                    "meaning": "待调用的C函数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "n",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "返回值的数量"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回值的存储位置"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "pointer",
+                "meaning": "Lua状态机"
+            }
+        ],
+        "parameters": []
+    }
+}

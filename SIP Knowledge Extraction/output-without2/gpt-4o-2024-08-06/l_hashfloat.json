@@ -1,0 +1,27 @@
+{
+    "functionDescription": "此函数用于处理 l_hashfloat 结构体中的浮点数，将其转换为整数并存储结果。",
+    "api": {
+        "apiDescription": "l_hashfloatFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "n",
+                    "type": "lua_Number",
+                    "dimensionality": "标量",
+                    "meaning": "输入浮点数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "标量",
+                    "meaning": "存储转换后的整数结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

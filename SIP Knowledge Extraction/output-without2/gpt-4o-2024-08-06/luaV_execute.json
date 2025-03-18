@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该函数实现了Lua虚拟机的指令执行功能，通过循环执行字节码指令来实现Lua脚本的运行。",
+    "api": {
+        "apiDescription": "luaV_executeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向luaV_execute结构体的指针，包含执行环境信息"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态机的指针，包含当前执行环境"
+                },
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单一",
+                    "meaning": "调用信息结构体的指针，包含当前调用的上下文信息"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

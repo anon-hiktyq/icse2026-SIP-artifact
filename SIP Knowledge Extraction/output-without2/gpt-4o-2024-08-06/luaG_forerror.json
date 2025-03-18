@@ -1,0 +1,39 @@
+{
+    "functionDescription": "此函数用于处理Lua中的'for'循环错误。",
+    "api": {
+        "apiDescription": "luaG_forerrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaG_forerror结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua状态机"
+            },
+            {
+                "name": "o",
+                "type": "const TValue*",
+                "dimensionality": "1",
+                "meaning": "Lua值"
+            },
+            {
+                "name": "what",
+                "type": "const char*",
+                "dimensionality": "1",
+                "meaning": "错误描述"
+            }
+        ],
+        "parameters": []
+    }
+}

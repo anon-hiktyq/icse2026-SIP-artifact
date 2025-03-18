@@ -1,0 +1,1 @@
+{    "functionDescription": "通过ADDR_WRITE函数向特定地址写入数据以控制设备。",    "api": {        "apiDescription": "void DevControlFun(void *p);",        "interfaces": {            "inputInterfaces": [],            "outputInterfaces": [],            "inoutInterfaces": []        },        "states": [],        "parameters": []    }}

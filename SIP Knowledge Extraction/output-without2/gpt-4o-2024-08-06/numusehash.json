@@ -1,0 +1,27 @@
+{
+    "functionDescription": "numusehashFun函数用于处理哈希表中的节点，根据节点的键类型进行计数，并更新计数器。",
+    "api": {
+        "apiDescription": "numusehashFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "单一",
+                    "meaning": "输入哈希表"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "ct",
+                    "type": "Counters*",
+                    "dimensionality": "单一",
+                    "meaning": "计数器，用于存储节点处理后的结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

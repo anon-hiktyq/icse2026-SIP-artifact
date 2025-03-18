@@ -1,0 +1,40 @@
+{
+    "functionDescription": "mainpositionTVFun函数用于根据输入键值的类型计算哈希值，并将结果存储在返回值中。",
+    "api": {
+        "apiDescription": "mainpositionTVFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向mainpositionTV结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "Node*",
+                    "dimensionality": "单一",
+                    "meaning": "存储计算后的哈希值的节点"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "单一",
+                    "meaning": "哈希表"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "用于哈希计算的键值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

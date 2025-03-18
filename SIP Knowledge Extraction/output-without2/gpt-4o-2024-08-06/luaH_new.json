@@ -1,0 +1,40 @@
+{
+    "functionDescription": "创建一个新的 Lua 表并初始化其属性。",
+    "api": {
+        "apiDescription": "luaH_newFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向 luaH_new 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向新创建的 Lua 表"
+                },
+                {
+                    "name": "ret",
+                    "type": "Table*",
+                    "dimensionality": "scalar",
+                    "meaning": "返回值，指向新创建的 Lua 表"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua 状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

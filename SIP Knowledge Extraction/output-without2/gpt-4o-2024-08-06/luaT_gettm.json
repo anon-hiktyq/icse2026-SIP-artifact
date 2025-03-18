@@ -1,0 +1,48 @@
+{
+    "functionDescription": "luaT_gettmFun函数用于获取指定事件的标签方法，并缓存结果。",
+    "api": {
+        "apiDescription": "luaT_gettmFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaT_gettm结构体的指针，用于传递接口数据。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "返回获取的标签方法，如果不存在则为NULL。"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "events",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "事件表，用于更新标志缓存。"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "event",
+                "type": "TMS",
+                "dimensionality": "1",
+                "meaning": "事件类型，用于指定需要获取的标签方法。"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "ename",
+                "type": "TString*",
+                "dimensionality": "1",
+                "meaning": "事件名称字符串，用于标识事件。"
+            }
+        ]
+    }
+}

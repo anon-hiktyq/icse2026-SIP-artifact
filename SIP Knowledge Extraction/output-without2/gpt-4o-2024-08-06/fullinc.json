@@ -1,0 +1,40 @@
+{
+    "functionDescription": "fullincFun函数用于进行垃圾回收的状态管理和控制。",
+    "api": {
+        "apiDescription": "fullincFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向fullinc结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态的指针，用于管理Lua环境"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态的指针，用于管理垃圾回收的状态"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "垃圾回收器的状态"
+            }
+        ],
+        "parameters": []
+    }
+}

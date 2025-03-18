@@ -1,0 +1,46 @@
+{
+    "functionDescription": "该函数用于获取上值名称。",
+    "api": {
+        "apiDescription": "getupvalnameFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向getupvalname结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "单值",
+                    "meaning": "返回的上值名称"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "单值",
+                    "meaning": "调用信息"
+                },
+                {
+                    "name": "o",
+                    "type": "const TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "TValue类型的对象"
+                },
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "指针",
+                    "meaning": "指向上值名称的指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

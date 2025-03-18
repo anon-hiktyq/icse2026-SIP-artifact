@@ -1,0 +1,51 @@
+{
+    "functionDescription": "该函数用于安全地重新分配内存块，如果内存分配失败则抛出错误。",
+    "api": {
+        "apiDescription": "luaM_saferealloc_Fun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "osize",
+                    "type": "size_t",
+                    "dimensionality": "1",
+                    "meaning": "原内存块大小"
+                },
+                {
+                    "name": "nsize",
+                    "type": "size_t",
+                    "dimensionality": "1",
+                    "meaning": "新内存块大小"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "block",
+                    "type": "Unknown type*",
+                    "dimensionality": "1",
+                    "meaning": "要重新分配的内存块"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "newblock",
+                    "type": "Unknown type*",
+                    "dimensionality": "1",
+                    "meaning": "重新分配后的新内存块"
+                },
+                {
+                    "name": "ret",
+                    "type": "void *",
+                    "dimensionality": "1",
+                    "meaning": "返回值，指向新内存块"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

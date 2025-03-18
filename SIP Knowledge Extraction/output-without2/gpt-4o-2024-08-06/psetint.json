@@ -1,0 +1,45 @@
+{
+    "functionDescription": "psetintFun函数用于在给定的表中设置整数值，并返回操作结果。",
+    "api": {
+        "apiDescription": "luaH_fastseti",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "key",
+                    "type": "lua_Integer",
+                    "dimensionality": "单值",
+                    "meaning": "用于设置的键值"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "要设置的值"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "对象",
+                    "meaning": "目标表"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "hres",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "操作结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "指针",
+                    "meaning": "返回结果的指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

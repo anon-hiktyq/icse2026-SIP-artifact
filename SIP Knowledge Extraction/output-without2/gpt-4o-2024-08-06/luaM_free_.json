@@ -1,0 +1,46 @@
+{
+    "functionDescription": "luaM_free_Fun函数用于释放内存块，并更新全局状态的GC债务。",
+    "api": {
+        "apiDescription": "luaM_free_Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void *",
+                    "dimensionality": "单值",
+                    "meaning": "指向需要释放的内存块的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "GCdebt",
+                "type": "l_mem",
+                "dimensionality": "单值",
+                "meaning": "全局状态的垃圾回收债务"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "osize",
+                "type": "size_t",
+                "dimensionality": "单值",
+                "meaning": "内存块的原始大小"
+            },
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单值",
+                "meaning": "Lua状态"
+            },
+            {
+                "name": "block",
+                "type": "Unknown type*",
+                "dimensionality": "单值",
+                "meaning": "指向内存块的指针"
+            }
+        ]
+    }
+}

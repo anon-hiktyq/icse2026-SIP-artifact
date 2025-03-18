@@ -1,0 +1,39 @@
+{
+    "functionDescription": "该函数用于创建新的 Lua 字符串对象，处理短字符串和长字符串的不同情况。",
+    "api": {
+        "apiDescription": "luaS_newlstrFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "l",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "字符串的长度"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "str",
+                    "type": "const char*",
+                    "dimensionality": "pointer",
+                    "meaning": "字符串内容"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "TString*",
+                    "dimensionality": "pointer",
+                    "meaning": "返回的字符串对象"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

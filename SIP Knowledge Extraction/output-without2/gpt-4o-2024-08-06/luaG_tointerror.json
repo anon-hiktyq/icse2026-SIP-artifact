@@ -1,0 +1,32 @@
+{
+    "functionDescription": "luaG_tointerrorFun函数用于处理整数转换错误。",
+    "api": {
+        "apiDescription": "luaG_tointerrorFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "输入值"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "",
+                    "meaning": "输出值"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

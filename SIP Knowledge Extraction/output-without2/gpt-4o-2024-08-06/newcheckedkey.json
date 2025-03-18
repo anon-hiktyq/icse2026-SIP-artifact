@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该函数用于检查给定的键是否存在于数组部分，如果存在则设置相应的值；如果不存在，则将键插入到哈希部分。",
+    "api": {
+        "apiDescription": "void newcheckedkeyFun(void *p);",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单值",
+                    "meaning": "表示数组和哈希部分的表结构"
+                },
+                {
+                    "name": "key",
+                    "type": "const TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "表示要检查或插入的键"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "value",
+                    "type": "TValue*",
+                    "dimensionality": "单值",
+                    "meaning": "如果键存在于数组部分，则设置相应的值"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

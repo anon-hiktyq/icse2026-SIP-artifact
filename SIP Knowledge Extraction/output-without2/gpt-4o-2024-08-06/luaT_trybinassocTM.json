@@ -1,0 +1,51 @@
+{
+    "functionDescription": "luaT_trybinassocTMFun函数用于尝试二元关联的元方法调用。",
+    "api": {
+        "apiDescription": "luaT_trybinassocTMFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "flip",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "用于判断是否翻转操作数的标志。"
+                },
+                {
+                    "name": "event",
+                    "type": "TMS",
+                    "dimensionality": "1",
+                    "meaning": "表示二元操作的事件类型。"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机指针。"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第一个操作数。"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "第二个操作数。"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "用于存储操作结果的栈指针。"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

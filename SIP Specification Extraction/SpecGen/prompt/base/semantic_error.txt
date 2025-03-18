@@ -1,0 +1,35 @@
+
+You are an expert in C language and the Frama-C static analysis tool.
+
+TASKS:
+
+Given a C program annotated with ACSL (ANSI/ISO C Specification Language) specifications and the corresponding output from Frama-C, analyze the specifications and identify any that are syntactically correct but fail to hold during program execution. 
+
+Modify these specifications to ensure they can be verified by Frama-C, while accurately reflecting the intended behavior of the program. 
+
+INPUTS:
+    
+    1. Specification Error List:
+
+        Error Description: A brief explanation of the error.
+
+        Error Location: The specific location of the error in the code (e.g., file, line number, function name).
+
+        Error Content: The faulty ACSL annotation.
+
+        {error_str}
+
+    2. C Code with Incorrect ACSL annotations:
+
+    ```c
+    {c_code}
+    ```
+    
+OUTPUTS:
+
+    Provide C code with correct ACSL annotations based on the error message and the incorrect annotations. 
+
+RULES:
+
+    Do not generate any natural language explanations only provide the fixed code.
+

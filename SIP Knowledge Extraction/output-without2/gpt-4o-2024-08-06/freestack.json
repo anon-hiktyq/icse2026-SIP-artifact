@@ -1,0 +1,27 @@
+{
+    "functionDescription": "此函数用于释放堆栈。",
+    "api": {
+        "apiDescription": "freestackFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向freestack结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "scalar",
+                "meaning": "Lua状态机的指针"
+            }
+        ],
+        "parameters": []
+    }
+}

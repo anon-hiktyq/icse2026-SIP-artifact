@@ -1,0 +1,30 @@
+{
+    "funb": {
+        "input": {
+            "x": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "funa": {
+        "input": {
+            "y": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "printf": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "main": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

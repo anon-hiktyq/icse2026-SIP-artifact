@@ -1,0 +1,46 @@
+{
+    "functionDescription": "finishnodesetFun函数用于处理finishnodeset结构体中的slot和val，并根据条件设置返回值。",
+    "api": {
+        "apiDescription": "finishnodesetFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向finishnodeset结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果的指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出表结构体"
+                },
+                {
+                    "name": "slot",
+                    "type": "const TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出的槽值"
+                },
+                {
+                    "name": "val",
+                    "type": "TValue*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出的值"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

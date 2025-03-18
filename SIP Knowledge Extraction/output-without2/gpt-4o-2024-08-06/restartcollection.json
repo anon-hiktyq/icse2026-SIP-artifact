@@ -1,0 +1,34 @@
+{
+    "functionDescription": "重启垃圾回收集合的功能",
+    "api": {
+        "apiDescription": "restartcollectionFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void *",
+                    "dimensionality": "1",
+                    "meaning": "指向垃圾回收集合的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "垃圾回收状态信息"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "GCmarked",
+                "type": "l_mem",
+                "dimensionality": "1",
+                "meaning": "标记的对象数量"
+            }
+        ],
+        "parameters": []
+    }
+}

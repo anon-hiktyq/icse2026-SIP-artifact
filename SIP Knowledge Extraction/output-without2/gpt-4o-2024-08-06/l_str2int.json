@@ -1,0 +1,34 @@
+{
+    "functionDescription": "将字符串转换为整数的功能。",
+    "api": {
+        "apiDescription": "l_str2intFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "s",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "输入字符串，表示要转换的数字"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "转换后的整数字符串指针"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "result",
+                    "type": "lua_Integer*",
+                    "dimensionality": "1",
+                    "meaning": "存储转换后的整数结果"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

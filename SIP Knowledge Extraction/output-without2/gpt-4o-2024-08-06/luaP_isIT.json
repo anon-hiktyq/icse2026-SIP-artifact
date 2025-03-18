@@ -1,0 +1,27 @@
+{
+    "functionDescription": "该功能用于检查给定指令的模式，并根据条件设置返回值。",
+    "api": {
+        "apiDescription": "luaP_isITFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "i",
+                    "type": "Instruction",
+                    "dimensionality": "单值",
+                    "meaning": "输入指令"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单值",
+                    "meaning": "返回结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

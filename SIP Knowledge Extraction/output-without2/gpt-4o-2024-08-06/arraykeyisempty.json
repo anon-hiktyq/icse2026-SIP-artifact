@@ -1,0 +1,40 @@
+{
+    "functionDescription": "检查数组键是否为空的功能",
+    "api": {
+        "apiDescription": "arraykeyisemptyFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "const Table*",
+                    "dimensionality": "1",
+                    "meaning": "输入的表结构指针"
+                },
+                {
+                    "name": "key",
+                    "type": "unsigned int",
+                    "dimensionality": "1",
+                    "meaning": "数组键"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回结果指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": [
+            {
+                "name": "fun",
+                "type": "Fun",
+                "dimensionality": "1",
+                "meaning": "接口函数"
+            }
+        ]
+    }
+}

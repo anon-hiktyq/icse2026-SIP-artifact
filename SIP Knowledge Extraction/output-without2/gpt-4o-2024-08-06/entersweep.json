@@ -1,0 +1,34 @@
+{
+    "functionDescription": "进入垃圾收集的清扫阶段。",
+    "api": {
+        "apiDescription": "entersweepFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向 entersweep 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "g->sweepgc",
+                    "type": "GCObject**",
+                    "dimensionality": "1",
+                    "meaning": "当前清扫位置"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "1",
+                "meaning": "垃圾收集器的状态"
+            }
+        ],
+        "parameters": []
+    }
+}

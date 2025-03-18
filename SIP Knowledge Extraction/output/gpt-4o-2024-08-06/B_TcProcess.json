@@ -1,0 +1,20 @@
+{
+    "functionDescription": "处理TCA数据，根据特定格式校验数据并设置相应的模式标志。",
+    "api": {
+        "apiDescription": "void B_TcProcessFun(B_TcProcess *p);",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "tcaData",
+                    "type": "unint08*",
+                    "dimensionality": "",
+                    "meaning": "TCA数据数组首地址指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

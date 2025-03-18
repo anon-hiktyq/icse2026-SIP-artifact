@@ -1,0 +1,1 @@
+"```json\n{\n  \"c_file\": \"#if !defined(__TCPROCESS_H__)\\n#define __TCPROCESS_H__\\n\\n#include \\\"../../IP.h\\\"\\n\\nvoid TcProcessFun(TcProcess *p);\\n\\n#endif // __TCPROCESS_H__\\n\",\n  \"h_file\": \"#include \\\"TcProcess.h\\\"\\n\\nvoid TcProcessFun(TcProcess *p)\\n{\\n    // 从UART获取数据并处理\\n    // 如果获取的数据有效，则调用B_TcProcess模块进行进一步处理\\n    return;\\n}\\n\"\n}\n```"

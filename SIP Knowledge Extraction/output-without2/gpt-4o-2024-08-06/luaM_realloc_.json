@@ -1,0 +1,45 @@
+{
+    "functionDescription": "luaM_realloc_Fun函数用于重新分配内存块，处理内存不足的情况，并更新垃圾收集器的债务。",
+    "api": {
+        "apiDescription": "luaM_realloc_Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "osize",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "原内存块大小"
+                },
+                {
+                    "name": "nsize",
+                    "type": "size_t",
+                    "dimensionality": "scalar",
+                    "meaning": "新内存块大小"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "scalar",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "block",
+                    "type": "Unknown type*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向内存块的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "重新分配后的内存块指针"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

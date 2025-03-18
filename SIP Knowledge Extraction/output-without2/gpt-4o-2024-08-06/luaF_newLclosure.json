@@ -1,0 +1,40 @@
+{
+    "functionDescription": "luaF_newLclosureFun函数用于创建一个新的Lua闭包并初始化相关参数。",
+    "api": {
+        "apiDescription": "luaF_newLclosureFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "nupvals",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "闭包的上值数量"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "c",
+                    "type": "LClosure*",
+                    "dimensionality": "单值",
+                    "meaning": "新创建的闭包"
+                },
+                {
+                    "name": "ret",
+                    "type": "LClosure*",
+                    "dimensionality": "单值",
+                    "meaning": "返回的闭包"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

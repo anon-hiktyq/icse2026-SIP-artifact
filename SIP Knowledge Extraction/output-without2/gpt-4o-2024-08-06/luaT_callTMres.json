@@ -1,0 +1,52 @@
+{
+    "functionDescription": "luaT_callTMresFun函数用于执行Lua中的元方法调用并返回结果的类型标记。",
+    "api": {
+        "apiDescription": "luaT_callTMresFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "f",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "函数对象"
+                },
+                {
+                    "name": "p1",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "第一个参数"
+                },
+                {
+                    "name": "p2",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "第二个参数"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "lu_byte*",
+                    "dimensionality": "单一",
+                    "meaning": "返回结果的类型标记"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "单一",
+                    "meaning": "结果存储位置"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

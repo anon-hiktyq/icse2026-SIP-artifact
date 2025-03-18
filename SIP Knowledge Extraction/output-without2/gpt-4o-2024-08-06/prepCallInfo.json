@@ -1,0 +1,58 @@
+{
+    "functionDescription": "prepCallInfoFun 函数用于准备调用信息，设置新的调用帧并更新相关状态。",
+    "api": {
+        "apiDescription": "prepCallInfoFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "unsigned int",
+                    "dimensionality": "1",
+                    "meaning": "输入状态标志"
+                },
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "func",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "函数栈标识"
+                },
+                {
+                    "name": "top",
+                    "type": "StkId",
+                    "dimensionality": "1",
+                    "meaning": "栈顶标识"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ci",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "调用信息"
+                },
+                {
+                    "name": "ret",
+                    "type": "CallInfo*",
+                    "dimensionality": "1",
+                    "meaning": "返回调用信息"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua 状态"
+            }
+        ],
+        "parameters": []
+    }
+}

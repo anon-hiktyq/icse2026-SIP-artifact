@@ -1,0 +1,40 @@
+{
+    "functionDescription": "此函数用于标记 Lua 状态和其开放上值，确保它们在垃圾回收过程中正确处理。",
+    "api": {
+        "apiDescription": "remarkupvalsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向 remarkupvals 结构的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "thread",
+                "type": "lua_State*",
+                "dimensionality": "单一",
+                "meaning": "当前 Lua 线程"
+            },
+            {
+                "name": "twups",
+                "type": "lua_State*",
+                "dimensionality": "单一",
+                "meaning": "具有开放上值的线程列表"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "g",
+                "type": "global_State*",
+                "dimensionality": "单一",
+                "meaning": "全局状态对象"
+            }
+        ]
+    }
+}

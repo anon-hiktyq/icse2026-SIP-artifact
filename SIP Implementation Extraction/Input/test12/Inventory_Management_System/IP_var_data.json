@@ -1,0 +1,40 @@
+{
+    "read_file": {
+        "input": {
+            "products": "pro*"
+        },
+        "output": {
+            "products": "pro*"
+        },
+        "stateVar": {},
+        "argVar": {}
+    },
+    "write_file": {
+        "input": {
+            "products": "pro*",
+            "len": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "save_file": {
+        "input": {
+            "len": "int",
+            "products": "pro*"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "Display": {
+        "input": {
+            "products": "pro*",
+            "len": "int",
+            "c": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

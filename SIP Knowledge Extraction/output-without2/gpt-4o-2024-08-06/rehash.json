@@ -1,0 +1,57 @@
+{
+    "functionDescription": "重新哈希函数用于根据表的当前状态调整数组和哈希部分的大小。",
+    "api": {
+        "apiDescription": "rehashFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单一",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单一",
+                    "meaning": "哈希表"
+                },
+                {
+                    "name": "ek",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "额外的键值"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "total",
+                "type": "unsigned",
+                "dimensionality": "单一",
+                "meaning": "总计数"
+            },
+            {
+                "name": "na",
+                "type": "unsigned",
+                "dimensionality": "单一",
+                "meaning": "数组部分的键数"
+            },
+            {
+                "name": "deleted",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "已删除条目的计数"
+            },
+            {
+                "name": "nums",
+                "type": "unsigned[MAXABITS + 1]",
+                "dimensionality": "数组",
+                "meaning": "每个位数的键数"
+            }
+        ],
+        "parameters": []
+    }
+}

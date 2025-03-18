@@ -1,0 +1,46 @@
+{
+    "functionDescription": "该函数用于关闭 Lua 的 upvalues 和处理待关闭变量的列表。",
+    "api": {
+        "apiDescription": "luaF_closeFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "status",
+                    "type": "TStatus",
+                    "dimensionality": "",
+                    "meaning": "表示当前状态"
+                },
+                {
+                    "name": "yy",
+                    "type": "int",
+                    "dimensionality": "",
+                    "meaning": "用于存储临时值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "StkId*",
+                    "dimensionality": "",
+                    "meaning": "返回关闭后的栈级别"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "",
+                    "meaning": "当前 Lua 状态"
+                },
+                {
+                    "name": "level",
+                    "type": "StkId",
+                    "dimensionality": "",
+                    "meaning": "当前栈级别"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

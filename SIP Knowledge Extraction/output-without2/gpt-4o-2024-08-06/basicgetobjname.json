@@ -1,0 +1,46 @@
+{
+    "functionDescription": "basicgetobjnameFun函数用于获取对象名称，通过分析指令和操作码来确定对象的类型，例如局部变量、UpValue等。",
+    "api": {
+        "apiDescription": "basicgetobjnameFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "reg",
+                    "type": "int",
+                    "dimensionality": "单值",
+                    "meaning": "寄存器编号"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char *",
+                    "dimensionality": "单值",
+                    "meaning": "返回对象类型描述"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "p",
+                    "type": "const Proto*",
+                    "dimensionality": "指针",
+                    "meaning": "函数原型信息"
+                },
+                {
+                    "name": "ppc",
+                    "type": "int*",
+                    "dimensionality": "指针",
+                    "meaning": "程序计数器"
+                },
+                {
+                    "name": "name",
+                    "type": "const char**",
+                    "dimensionality": "指针",
+                    "meaning": "对象名称"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

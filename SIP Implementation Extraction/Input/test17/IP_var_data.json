@@ -1,0 +1,29 @@
+{
+    "callee": {
+        "input": {
+            "b": "int",
+            "a": "int"
+        },
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "caller": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "printf": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    },
+    "main": {
+        "input": {},
+        "output": {},
+        "stateVar": {},
+        "argVar": {}
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "functionDescription": "此函数用于重新散列数组的旧部分，并清除新元素。",
+    "api": {
+        "apiDescription": "void tablerehashFun(void *p);",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "osize",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "旧数组的大小"
+                },
+                {
+                    "name": "nsize",
+                    "type": "int",
+                    "dimensionality": "1",
+                    "meaning": "新数组的大小"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "vect",
+                    "type": "TString**",
+                    "dimensionality": "1",
+                    "meaning": "字符串指针数组，用于存储哈希表的链表"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

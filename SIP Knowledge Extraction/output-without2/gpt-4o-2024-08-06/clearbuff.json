@@ -1,0 +1,77 @@
+{
+    "functionDescription": "清除缓冲区并处理Lua状态",
+    "api": {
+        "apiDescription": "clearbuffFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向clearbuff结构体的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "res",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "返回的字符串结果"
+                },
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "返回的字符串结果"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "buff",
+                    "type": "BuffFS*",
+                    "dimensionality": "1",
+                    "meaning": "缓冲区结构体指针"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua状态"
+            },
+            {
+                "name": "b",
+                "type": "char*",
+                "dimensionality": "1",
+                "meaning": "缓冲区指针"
+            },
+            {
+                "name": "buffsize",
+                "type": "size_t",
+                "dimensionality": "1",
+                "meaning": "缓冲区大小"
+            },
+            {
+                "name": "blen",
+                "type": "size_t",
+                "dimensionality": "1",
+                "meaning": "缓冲区内字符串长度"
+            },
+            {
+                "name": "err",
+                "type": "int",
+                "dimensionality": "1",
+                "meaning": "错误状态"
+            },
+            {
+                "name": "space",
+                "type": "char",
+                "dimensionality": "BUFVFS",
+                "meaning": "初始缓冲区"
+            }
+        ],
+        "parameters": []
+    }
+}

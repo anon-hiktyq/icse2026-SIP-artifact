@@ -1,0 +1,33 @@
+{
+    "functionDescription": "检查和处理垃圾收集器的主要和次要状态。",
+    "api": {
+        "apiDescription": "checkmajorminorFun",
+        "interfaces": {
+            "inputInterfaces": [],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "1",
+                    "meaning": "返回值，指示是否退出增量收集"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "1",
+                    "meaning": "全局状态"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

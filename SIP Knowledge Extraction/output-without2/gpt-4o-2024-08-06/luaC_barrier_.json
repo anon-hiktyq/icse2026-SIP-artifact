@@ -1,0 +1,39 @@
+{
+    "functionDescription": "luaC_barrier_Fun函数用于在Lua垃圾收集过程中维护对象的颜色不变性，确保在增量模式和清扫阶段之间的正确处理。",
+    "api": {
+        "apiDescription": "luaC_barrier_Fun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaC_barrier_结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua状态机"
+                },
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "被标记的对象"
+                },
+                {
+                    "name": "v",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "待处理的对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,1 @@
+{  "functionDescription": "TcProcessFun函数用于从UART获取数据并处理，如果获取的数据有效，则调用B_TcProcess模块进行进一步处理。",  "api": {    "apiDescription": "void TcProcessFun(TcProcess *p);",    "interfaces": {      "inputInterfaces": [],      "outputInterfaces": [],      "inoutInterfaces": []    },    "states": [],    "parameters": []  }}

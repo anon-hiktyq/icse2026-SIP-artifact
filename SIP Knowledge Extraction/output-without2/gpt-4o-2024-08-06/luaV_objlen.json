@@ -1,0 +1,20 @@
+{
+    "functionDescription": "luaV_objlenFun函数用于计算Lua对象的长度，支持表、短字符串和长字符串，并处理元方法。",
+    "api": {
+        "apiDescription": "luaV_objlenFun(p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaV_objlen结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

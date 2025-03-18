@@ -1,0 +1,39 @@
+{
+    "functionDescription": "将结果移动到正确的位置，并根据需要调整结果数量。",
+    "api": {
+        "apiDescription": "genmoveresultsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "nres",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "结果数量"
+                },
+                {
+                    "name": "wanted",
+                    "type": "int",
+                    "dimensionality": "scalar",
+                    "meaning": "期望的结果数量"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "pointer",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "res",
+                    "type": "StkId",
+                    "dimensionality": "pointer",
+                    "meaning": "结果堆栈指针"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "functionDescription": "计算长字符串的哈希值。",
+    "api": {
+        "apiDescription": "luaS_hashlongstrFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "输入指针，指向luaS_hashlongstr结构体"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "1",
+                    "meaning": "输出端口，用于存储计算出的哈希值"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "ts",
+                    "type": "TString*",
+                    "dimensionality": "1",
+                    "meaning": "输入输出端口，指向字符串结构体，包含待计算哈希的长字符串"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

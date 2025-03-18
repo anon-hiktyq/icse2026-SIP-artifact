@@ -1,0 +1,41 @@
+{
+    "functionDescription": "lexerrorFun函数用于处理词法错误，通过调用多个API来生成错误信息并抛出异常。",
+    "api": {
+        "apiDescription": "lexerrorFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向lexerror结构体的指针，用于传递错误处理信息"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "msg",
+                    "type": "const char*",
+                    "dimensionality": "scalar",
+                    "meaning": "错误信息字符串"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "token",
+                "type": "int",
+                "dimensionality": "scalar",
+                "meaning": "当前错误的token标识"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "ls",
+                "type": "LexState*",
+                "dimensionality": "scalar",
+                "meaning": "词法分析状态信息"
+            }
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "functionDescription": "luaD_throwFun函数用于处理Lua线程中的错误抛出机制，支持线程和主线程的错误处理。",
+    "api": {
+        "apiDescription": "luaD_throwFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向luaD_throw结构的指针，包含错误信息和线程状态。"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua线程状态，用于错误处理和状态更新。"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "1",
+                "meaning": "当前线程的错误状态码。"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "errcode",
+                "type": "TStatus",
+                "dimensionality": "1",
+                "meaning": "错误代码，用于标识具体的错误类型。"
+            }
+        ]
+    }
+}

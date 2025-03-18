@@ -1,0 +1,46 @@
+{
+    "functionDescription": "格式化变量信息",
+    "api": {
+        "apiDescription": "formatvarinfoFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "指针",
+                    "meaning": "指向formatvarinfo结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "指针",
+                    "meaning": "格式化后的字符串"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "指针",
+                    "meaning": "Lua状态"
+                },
+                {
+                    "name": "kind",
+                    "type": "const char*",
+                    "dimensionality": "指针",
+                    "meaning": "变量类型"
+                },
+                {
+                    "name": "name",
+                    "type": "const char*",
+                    "dimensionality": "指针",
+                    "meaning": "变量名称"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

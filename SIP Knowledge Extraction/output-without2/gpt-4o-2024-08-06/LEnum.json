@@ -1,0 +1,33 @@
+{
+    "functionDescription": "LEnumFun函数用于比较两个数值，判断左值是否小于或等于右值，并将结果存储在输出端口。",
+    "api": {
+        "apiDescription": "LEnumFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "l",
+                    "type": "const TValue*",
+                    "dimensionality": "scalar",
+                    "meaning": "左侧比较值"
+                },
+                {
+                    "name": "r",
+                    "type": "const TValue*",
+                    "dimensionality": "scalar",
+                    "meaning": "右侧比较值"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "scalar",
+                    "meaning": "比较结果"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

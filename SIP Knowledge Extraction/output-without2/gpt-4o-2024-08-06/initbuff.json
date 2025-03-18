@@ -1,0 +1,33 @@
+{
+    "functionDescription": "初始化缓冲区功能",
+    "api": {
+        "apiDescription": "initbuffFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向初始化缓冲区的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "1",
+                "meaning": "Lua状态"
+            },
+            {
+                "name": "buff",
+                "type": "BuffFS*",
+                "dimensionality": "1",
+                "meaning": "缓冲区结构体"
+            }
+        ],
+        "parameters": []
+    }
+}

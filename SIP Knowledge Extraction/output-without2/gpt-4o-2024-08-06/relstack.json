@@ -1,0 +1,27 @@
+{
+    "functionDescription": "relstackFun函数用于处理relstack相关的操作。",
+    "api": {
+        "apiDescription": "relstackFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "scalar",
+                    "meaning": "指向需要处理的数据的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "lua_State",
+                "type": "struct",
+                "dimensionality": "scalar",
+                "meaning": "Lua解释器的状态"
+            }
+        ],
+        "parameters": []
+    }
+}

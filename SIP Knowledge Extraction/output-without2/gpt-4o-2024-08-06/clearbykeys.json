@@ -1,0 +1,33 @@
+{
+    "functionDescription": "清除未标记的键和空条目。",
+    "api": {
+        "apiDescription": "clearbykeysFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向 clearbykeys 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "g",
+                    "type": "global_State*",
+                    "dimensionality": "单值",
+                    "meaning": "垃圾回收器的全局状态"
+                },
+                {
+                    "name": "l",
+                    "type": "GCObject*",
+                    "dimensionality": "单值",
+                    "meaning": "当前处理的垃圾回收对象列表"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

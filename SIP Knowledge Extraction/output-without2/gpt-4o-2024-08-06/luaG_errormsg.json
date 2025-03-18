@@ -1,0 +1,47 @@
+{
+    "functionDescription": "luaG_errormsgFun函数用于处理错误信息，检查是否存在错误处理函数并进行调用。",
+    "api": {
+        "apiDescription": "luaG_errormsgFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向luaG_errormsg结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "单值",
+                    "meaning": "Lua状态机"
+                }
+            ]
+        },
+        "states": [
+            {
+                "name": "errfunc",
+                "type": "ptrdiff_t",
+                "dimensionality": "单值",
+                "meaning": "当前错误处理函数的栈索引"
+            },
+            {
+                "name": "top",
+                "type": "StkIdRel",
+                "dimensionality": "指针",
+                "meaning": "栈中的第一个空闲槽"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "LUA_ERRRUN",
+                "type": "int",
+                "dimensionality": "单值",
+                "meaning": "运行时错误"
+            }
+        ]
+    }
+}

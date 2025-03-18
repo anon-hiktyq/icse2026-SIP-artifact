@@ -1,0 +1,51 @@
+{
+    "functionDescription": "清除灰色列表的功能",
+    "api": {
+        "apiDescription": "cleargraylistsFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向cleargraylists结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gray",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "灰色对象列表"
+            },
+            {
+                "name": "grayagain",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "需要原子遍历的对象列表"
+            },
+            {
+                "name": "weak",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "弱值表列表"
+            },
+            {
+                "name": "ephemeron",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "弱键表列表"
+            },
+            {
+                "name": "allweak",
+                "type": "GCObject*",
+                "dimensionality": "1",
+                "meaning": "全弱表列表"
+            }
+        ],
+        "parameters": []
+    }
+}

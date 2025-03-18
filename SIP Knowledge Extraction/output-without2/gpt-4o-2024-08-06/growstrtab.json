@@ -1,0 +1,52 @@
+{
+    "functionDescription": "增长字符串表的功能。",
+    "api": {
+        "apiDescription": "growstrtabFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单一",
+                    "meaning": "指向growstrtab结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "nuse",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "字符串表中元素的数量"
+            },
+            {
+                "name": "size",
+                "type": "int",
+                "dimensionality": "单一",
+                "meaning": "字符串表中桶的数量"
+            },
+            {
+                "name": "status",
+                "type": "TStatus",
+                "dimensionality": "单一",
+                "meaning": "lua状态标识"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "L",
+                "type": "lua_State*",
+                "dimensionality": "单一",
+                "meaning": "lua状态"
+            },
+            {
+                "name": "tb",
+                "type": "stringtable*",
+                "dimensionality": "单一",
+                "meaning": "字符串表结构体"
+            }
+        ]
+    }
+}

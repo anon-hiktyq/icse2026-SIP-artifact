@@ -1,0 +1,34 @@
+{
+    "functionDescription": "此功能执行增量步骤的垃圾收集",
+    "api": {
+        "apiDescription": "incstepFun",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "单值",
+                    "meaning": "指向 incstep 结构体的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": []
+        },
+        "states": [
+            {
+                "name": "gcstate",
+                "type": "lu_byte",
+                "dimensionality": "单值",
+                "meaning": "垃圾收集器的当前状态"
+            }
+        ],
+        "parameters": [
+            {
+                "name": "gcparams",
+                "type": "lu_byte[]",
+                "dimensionality": "数组",
+                "meaning": "垃圾收集器的参数"
+            }
+        ]
+    }
+}

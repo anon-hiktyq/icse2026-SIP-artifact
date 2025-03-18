@@ -1,0 +1,40 @@
+{
+    "functionDescription": "该函数实现了一个二分查找算法。",
+    "api": {
+        "apiDescription": "void binsearchFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "array",
+                    "type": "Table*",
+                    "dimensionality": "",
+                    "meaning": "查找操作的目标数组"
+                },
+                {
+                    "name": "j",
+                    "type": "unsigned int",
+                    "dimensionality": "",
+                    "meaning": "数组的上界索引"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "unsigned int*",
+                    "dimensionality": "",
+                    "meaning": "存储查找结果的地址"
+                }
+            ],
+            "inoutInterfaces": [
+                {
+                    "name": "i",
+                    "type": "unsigned int",
+                    "dimensionality": "",
+                    "meaning": "数组的下界索引，作为输入输出端口"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}

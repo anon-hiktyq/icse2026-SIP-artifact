@@ -1,0 +1,33 @@
+{
+    "functionDescription": "该功能用于根据给定的槽位返回节点编码。如果槽位的键不存在，则返回未找到的状态，否则返回节点编码。",
+    "api": {
+        "apiDescription": "retpsetcodeFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "t",
+                    "type": "Table*",
+                    "dimensionality": "单一",
+                    "meaning": "提供节点数组和相关信息的表结构"
+                },
+                {
+                    "name": "slot",
+                    "type": "const TValue*",
+                    "dimensionality": "单一",
+                    "meaning": "用于查找节点的槽位"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "int*",
+                    "dimensionality": "单一",
+                    "meaning": "返回节点编码或未找到状态"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

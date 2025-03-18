@@ -1,0 +1,27 @@
+{
+    "functionDescription": "upvalnameFun 函数用于从给定的 upvalname 结构中检索 upvalue 的名称。",
+    "api": {
+        "apiDescription": "upvalnameFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向 upvalname 结构的指针"
+                }
+            ],
+            "outputInterfaces": [
+                {
+                    "name": "ret",
+                    "type": "const char*",
+                    "dimensionality": "1",
+                    "meaning": "返回的 upvalue 名称字符串"
+                }
+            ],
+            "inoutInterfaces": []
+        },
+        "states": [],
+        "parameters": []
+    }
+}

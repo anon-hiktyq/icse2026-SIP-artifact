@@ -1,0 +1,33 @@
+{
+    "functionDescription": "freeobjFun 函数用于释放 Lua 对象的内存。",
+    "api": {
+        "apiDescription": "freeobjFun(void *p)",
+        "interfaces": {
+            "inputInterfaces": [
+                {
+                    "name": "p",
+                    "type": "void*",
+                    "dimensionality": "1",
+                    "meaning": "指向需要释放的 Lua 对象的指针"
+                }
+            ],
+            "outputInterfaces": [],
+            "inoutInterfaces": [
+                {
+                    "name": "L",
+                    "type": "lua_State*",
+                    "dimensionality": "1",
+                    "meaning": "Lua 状态"
+                },
+                {
+                    "name": "o",
+                    "type": "GCObject*",
+                    "dimensionality": "1",
+                    "meaning": "需要释放的 Lua 对象"
+                }
+            ]
+        },
+        "states": [],
+        "parameters": []
+    }
+}
