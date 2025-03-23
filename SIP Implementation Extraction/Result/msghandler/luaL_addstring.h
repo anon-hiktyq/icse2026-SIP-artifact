@@ -2,9 +2,10 @@
 #define __LUAL_ADDSTRING_H__
 
 #include "common.h"
-#include luaL_addlstring.h
+#include "luaL_addlstring.h"
 
-#ifndef _LUAL_BUFFER_
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

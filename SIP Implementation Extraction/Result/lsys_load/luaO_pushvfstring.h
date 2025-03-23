@@ -8,60 +8,78 @@
 #include "luaO_utf8esc.h"
 #include "clearbuff.h"
 
-#ifndef _LUA_POINTER2STR_
+#ifndef _lua_pointer2str_
+#define _lua_pointer2str_
 	#define lua_pointer2str l_sprintf(buff,sz,"%p",p)
 #endif
 
 #ifndef _LUA_N2SBUFFSZ_
+#define _LUA_N2SBUFFSZ_
 	#define LUA_N2SBUFFSZ 64
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_NUM_
+#ifndef _cast_num_
+#define _cast_num_
 	#define cast_num cast(lua_Number, (i))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
-#ifndef _CAST_CHAR_
+#ifndef _cast_char_
+#define _cast_char_
 	#define cast_char cast(char, (i))
 #endif
 
-#ifndef _CT_DIFF2SZ_
+#ifndef _ct_diff2sz_
+#define _ct_diff2sz_
 	#define ct_diff2sz ((size_t)(df))
 #endif
 
-#ifndef _SETFLTVALUE_
+#ifndef _setfltvalue_
+#define _setfltvalue_
 	#define setfltvalue { TValue *io=(obj); val_(io).n=(x); settt_(io, LUA_VNUMFLT); }
 #endif
 
-#ifndef _SETIVALUE_
+#ifndef _setivalue_
+#define _setivalue_
 	#define setivalue { TValue *io=(obj); val_(io).i=(x); settt_(io, LUA_VNUMINT); }
 #endif
 
 #ifndef _UTF8BUFFSZ_
+#define _UTF8BUFFSZ_
 	#define UTF8BUFFSZ 8
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -73,13 +91,15 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -110,7 +130,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _BUFFFS_
+#ifndef _BuffFS_
+#define _BuffFS_
 	struct BuffFS {
 	  lua_State *L;
 	  char *b;

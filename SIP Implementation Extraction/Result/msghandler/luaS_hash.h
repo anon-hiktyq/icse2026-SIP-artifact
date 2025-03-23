@@ -4,11 +4,13 @@
 #include "common.h"
 
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 
@@ -24,7 +26,6 @@ typedef struct __luaS_hash
 	size_t			l;
 	unsigned int			seed;
 	/* Output Variables */
-	unsigned int			h;
 	unsigned int*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

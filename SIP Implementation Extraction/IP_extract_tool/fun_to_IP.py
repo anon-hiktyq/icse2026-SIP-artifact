@@ -11,7 +11,7 @@ from tree_sitter_app import insert_before_identifier
 from collections import defaultdict
 from main_class import *
 import re
-from record_callee_range_and_content import record_modified_range_and_content, get_callee_context
+from callee_to_IP import get_callee_context, record_modified_range_and_content, record_ret_range_and_content, record_IP_var_pos
 import os
 
 
@@ -90,95 +90,6 @@ def var_dict_update(function_info):
         function_info.fun_var_dict['ret'] = ret_type
 
 
-def find_nearest_insertion_point(code, callee_info):
-    """
-    找到最近的插入点（分号或左大括号）和缩进信息
-    
-    :param code: 源代码
-    :param callee_info: CalleeInfo对象，包含content_range信息
-    :return: 
-    - 插入位置 [line, column]
-    - 缩进字符串
-    """
-    lines = code.splitlines()
-    cursor_line = callee_info.content_range[0]  # 已经是0索引
-    cursor_col = callee_info.content_range[1]   # 已经是0索引
-
-    def get_line_indent(line_content):
-        """获取行的实际缩进，忽略注释"""
-        # 移除行注释
-        line_without_comment = re.sub(r'//.*$', '', line_content)
-        # 移除多行注释
-        line_without_comment = re.sub(r'/\*.*?\*/', '', line_without_comment)
-        # 如果去掉注释后是空行，返回None
-        if not line_without_comment.strip():
-            return None
-        return re.match(r'^\s*', line_without_comment).group()
-
-    # 向上查找最近的分号或左大括号
-    current_line = cursor_line
-    while current_line >= 0:
-        line = lines[current_line]
-        search_range = line[:cursor_col] if current_line == cursor_line else line
-        
-        # 移除注释后再搜索分号或左大括号
-        search_range = re.sub(r'//.*$', '', search_range)
-        search_range = re.sub(r'/\*.*?\*/', '', search_range)
-
-        # 从右向左查找分号或左大括号
-        for i in range(len(search_range) - 1, -1, -1):
-            if search_range[i] in [';', '{', ':']:
-                # 获取下一行的缩进
-                next_line = current_line + 1
-                next_indent = "    "  # 默认缩进
-                
-                # 查找下一个非注释行的缩进
-                while next_line < len(lines):
-                    indent = get_line_indent(lines[next_line])
-                    if indent is not None:
-                        next_indent = indent
-                        # 如果这行只有右大括号，缩进需要多一级
-                        if lines[next_line].strip() == '}':
-                            next_indent += "    "
-                        break
-                    next_line += 1
-
-                return [current_line, i + 1], next_indent #这里返回的位置是找到的{和;后面一格的位置
-
-        current_line -= 1
-
-    return None, "    "  # 默认缩进
-
-
-def create_ip_expr(callee_name, var_mapping, fun_var_dict, indent=""):
-    """将函数体内选定的callee转换为IPCREATE;IPCALL的形式
-
-    形式如:
-    IPCREATE(GetUartData, ipGetUartData, .len = 30, .lenAddr = pIp->getLenAddr, .dataAddr = pIp->getDataAddr,.data = &gyroRecvData[0]);
-    IPCALL(ipGetUartData);
-
-    :param callee_name: 被调用函数名
-    :param var_mapping: 变量映射
-    :param fun_var_dict: 函数变量字典
-    :param indent: 缩进字符串
-    """
-    var_list = []
-    for key in var_mapping:
-        # 如果出现在fun_var_dict,代表该参数包含在IP Struct内
-        if get_type_name(key) in fun_var_dict:
-            var_list.append(f' .{key} = pIp->{var_mapping[key]}')
-        else:
-            var_list.append(f' .{key} = {var_mapping[key]}')
-    if var_list:
-        ip_create_list = [f'IPCREATE({callee_name}', f' ip{callee_name}', ",".join(var_list)]
-    else:
-        ip_create_list = [f'IPCREATE({callee_name}', f' ip{callee_name}']
-    IP_callee_code = (f'{indent}{",".join(ip_create_list)});\n'
-                      f'{indent}IPCALL(ip{callee_name});\n')
-
-    return IP_callee_code
-
-
 def find_var_pos(source_code, fun_var_dict):
     """
     找到所有在 fun_var_dict 中出现的变量的位置。
@@ -246,29 +157,12 @@ def find_var_pos(source_code, fun_var_dict):
     return result
 
 
-def record_ret_range_and_content(function_info):
-    """记录所有return语句的range以及应该替换成的代码"""
-    modifications = []
-    code = function_info.code
-    type = function_info.func_type
-    ret_range_list = function_info.ret_range_list
-    for ret_range in ret_range_list:
-        content = record_range_content(code, ret_range)
-        #如果返回的是指针
-        if "*" in type:
-            content = content.replace("return", "pIp -> ret =")
-        else:
-            content = content.replace("return", "*(pIp -> ret) =")
-        modifications.append((ret_range, content))
-
-    return modifications
-
-
 def record_modify_place(function_info_dict, function_name):
     """将所有在原函数中需要修改的地方和将最后修改为的代码同时记录在字典中(行数由小到大记录)"""
     modifications = [] #用于存储多个范围及其对应的替换内容
-
     function_info = function_info_dict[function_name]
+    fun_var_dict = function_info.fun_var_dict
+
     #需要先对function_info的var_dict做处理
     var_dict_update(function_info)
 
@@ -277,28 +171,23 @@ def record_modify_place(function_info_dict, function_name):
 
     # 处理源代码的header:
     header_range = find_function_header_range(function_info.code)
-    replace_content = f'void {function_name}Fun(void *p) \n{{'
+    replace_content = f'void {function_name}Fun(void *p) \n'
     modifications.append((header_range, replace_content))
 
     #处理源代码的IP化的callee:
     print("开始处理IP化的callee")
+    node_item_map = get_callee_context(function_info.code, function_info.callee_info_list, function_info.macro_expr_info_list)
+    new_modifications = record_modified_range_and_content(function_name, function_info_dict, node_item_map, fun_var_dict)
+    modifications.extend(new_modifications)
 
-    node_callee_map = get_callee_context(function_info.function_cursor, function_info.callee_info_list)
-    record_modified_range_and_content(modifications, node_callee_map, function_info_dict, function_name,
-                                      function_info.fun_var_dict)
+    # 处理return语句
+    print("开始处理return语句")
+    modifications.extend(record_ret_range_and_content(function_info))
 
     #处理IP函数以外需要加pIp ->部分:
     print("开始处理'pIp ->'")
-    if function_info.fun_var_dict:
-        modifications.extend(find_var_pos(function_info.code, function_info.fun_var_dict))
+    modifications.extend(record_IP_var_pos(function_info, modifications))
 
-
-    #处理return语句
-    print("开始处理return语句")
-    if not function_info.func_type == 'void':
-        modifications.extend(record_ret_range_and_content(function_info))
-
-    print(modifications)
 
     return modifications
 
@@ -311,80 +200,132 @@ def apply_modifications(code, modifications):
     :param modifications: 修改列表，形如 [([开始行, 开始列, 结束行, 结束列], 替换内容), ...]
     :return: 修改后的代码字符串
     """
-    # 将代码按行分割
+    # 如果没有修改，直接返回原代码
     if not modifications:
         return code
+    
+    # 将代码按行分割
     lines = code.splitlines()
-    print(f'\n\nmodifications:{modifications}\n')
+    
     # 第一步：按照结束位置从后往前排序
     modifications.sort(key=lambda x: (x[0][2], x[0][3]), reverse=True)
-
-    # 第二步：过滤掉被其他范围包含的 'pIp -> ' 节点
-    filtered_modifications = []
-    for i, (pos, replacement) in enumerate(modifications):
-        start_row, start_col, end_row, end_col = pos
-
-        # 如果替换内容是 'pIp -> '，检查是否被其他范围包含
-        if replacement == "pIp -> ":
-            is_contained = False
-            for j, (other_pos, other_replacement) in enumerate(modifications):
-                if i != j and other_replacement != "pIp -> ":  # 排除自身和其他 'pIp -> ' 修改
-                    other_start_row, other_start_col, other_end_row, other_end_col = other_pos
-
-                    # 检查当前位置是否在其他修改范围内
-                    if (other_start_row < start_row or
-                            (other_start_row == start_row and other_start_col <= start_col)):
-                        if (other_end_row > start_row or
-                                (other_end_row == start_row and other_end_col >= end_col)):
-                            is_contained = True
-                            break
-
-            if not is_contained:
-                filtered_modifications.append((pos, replacement))
+    print("modifications", modifications)
+    # 第二步：合并相邻的修改
+    merged_modifications = []
+    i = 0
+    while i < len(modifications):
+        current_mod = modifications[i]
+        current_range, current_content = current_mod
+        
+        # 查找是否有相邻的修改
+        adjacent_mod = None
+        for j in range(i + 1, len(modifications)):
+            next_range, next_content = modifications[j]
+            
+            # 检查是否相邻（结束位置和起始位置相同）
+            if (current_range[0] == next_range[2] and current_range[1] == next_range[3]) or \
+               (current_range[2] == next_range[0] and current_range[3] == next_range[1]):
+                adjacent_mod = modifications[j]
+                break
+        
+        if adjacent_mod:
+            # 合并相邻的修改
+            adj_range, adj_content = adjacent_mod
+            
+            # 确定合并后的范围
+            if current_range[0] < adj_range[0] or (current_range[0] == adj_range[0] and current_range[1] < adj_range[1]):
+                merged_range = (current_range[0], current_range[1], adj_range[2], adj_range[3])
+                merged_content = current_content + adj_content
+            else:
+                merged_range = (adj_range[0], adj_range[1], current_range[2], current_range[3])
+                merged_content = adj_content + current_content
+            
+            merged_modifications.append((merged_range, merged_content))
+            
+            # 从原列表中移除已合并的修改
+            modifications.pop(j)
+            modifications.pop(i)
+            
+            # 将合并后的修改添加回原列表，以便继续检查是否有其他可合并的修改
+            modifications.insert(i, (merged_range, merged_content))
         else:
-            filtered_modifications.append((pos, replacement))
-
-    # 第三步：按照排序后的顺序依次替换
+            # 如果没有相邻的修改，添加到结果列表并继续
+            merged_modifications.append(current_mod)
+            i += 1
+    
+    # 第三步：删除被包含在其他修改中的修改
+    filtered_modifications = []
+    for i, (pos1, content1) in enumerate(modifications):
+        is_contained = False
+        for j, (pos2, content2) in enumerate(modifications):
+            if i != j:  # 不与自身比较
+                # 检查pos1是否被pos2包含
+                if (pos2[0] < pos1[0] or (pos2[0] == pos1[0] and pos2[1] <= pos1[1])) and \
+                   (pos2[2] > pos1[2] or (pos2[2] == pos1[2] and pos2[3] >= pos1[3])):
+                    is_contained = True
+                    break
+        
+        if not is_contained:
+            filtered_modifications.append((pos1, content1))
+    
+    # 第四步：应用修改
     for pos, replacement in filtered_modifications:
         start_row, start_col, end_row, end_col = pos
-
-        # # 检查行索引是否有效
-        # if start_row >= len(lines) or end_row >= len(lines):
-        #     print(f"警告: 行索引超出范围 - 跳过修改 ({start_row}, {end_row})")
-        #     continue
-
-        # 处理单行替换
+        
+        # 检查是否是点插入（起始位置和结束位置相同）
+        is_point_insertion = (start_row == end_row and start_col == end_col)
+        
+        # 处理单行修改
         if start_row == end_row:
             line = lines[start_row]
-
-            # # 检查列索引是否有效
-            # if start_col >= len(line):
-            #     print(f"警告: 列索引超出范围 - 跳过修改 (行 {start_row}, 列 {start_col})")
-            #     continue
-
-            if replacement == "pIp -> ":  # 特殊处理 'pIp -> '
-                try:
-                    original_char = line[start_col]  # 获取原始字符
-                    replacement += original_char  # 将原始字符附加到 'pIp -> ' 后面
-                except IndexError:
-                    print(f"警告: 无法获取原始字符 (行 {start_row}, 列 {start_col})")
-                    continue
-
-            # 安全地执行字符串切片
-            new_line = line[:start_col] + replacement
-            if end_col + 1 < len(line):
-                new_line += line[end_col + 1:]
+            
+            if is_point_insertion:
+                # 点插入：默认插入到左边，除非是 '}'
+                if replacement == '}':
+                    # 插入到右边
+                    new_line = line[:start_col + 1] + replacement + line[start_col + 1:]
+                else:
+                    # 插入到左边
+                    new_line = line[:start_col] + replacement + line[start_col:]
+            else:
+                # 普通替换
+                new_line = line[:start_col] + replacement
+                if end_col < len(line):
+                    new_line += line[end_col:]
+            
             lines[start_row] = new_line
         else:
             # 多行替换
-            lines[start_row] = lines[start_row][:start_col] + replacement
-            for row in range(start_row + 1, end_row):
-                lines[row] = ""
-            if end_col + 1 < len(lines[end_row]):
-                lines[end_row] = lines[end_row][end_col + 1:]
+            # 处理第一行
+            lines[start_row] = lines[start_row][:start_col] + replacement.split('\n')[0]
+            
+            # 如果替换内容有多行，处理中间行
+            if '\n' in replacement:
+                replacement_lines = replacement.split('\n')
+                
+                # 插入新行
+                for i, repl_line in enumerate(replacement_lines[1:], 1):
+                    if start_row + i < len(lines):
+                        # 替换现有行
+                        if i == len(replacement_lines) - 1:  # 最后一行
+                            if end_col < len(lines[end_row]):
+                                lines[start_row + i] = repl_line + lines[end_row][end_col:]
+                            else:
+                                lines[start_row + i] = repl_line
+                        else:
+                            lines[start_row + i] = repl_line
+                    else:
+                        # 添加新行
+                        lines.append(repl_line)
+                
+                # 删除原来的多余行
+                if start_row + len(replacement_lines) <= end_row:
+                    del lines[start_row + len(replacement_lines):end_row + 1]
             else:
-                lines[end_row] = ""
-
+                # 如果替换内容只有一行，删除原来的多余行
+                if start_row + 1 <= end_row:
+                    del lines[start_row + 1:end_row + 1]
+    
     # 合并修改后的代码
     return "\n".join(lines)
 
@@ -406,22 +347,36 @@ def create_IP_item(function_info: FunctionInfo, global_type_dict, global_macro_d
     callee_item_set = function_info.callee_item_set
     item_code_list = []
     for item_name in fun_item_dict:
-
-        #当该item不属于callee且不是全局变量时
-        if item_name not in callee_item_set and not fun_item_dict[item_name] == 'global':
-
+        #
+        # #当该item不属于callee且不是全局变量时
+        # if item_name not in callee_item_set and not fun_item_dict[item_name] == 'global':
+        #
+        #     #item是宏是
+        #     if fun_item_dict[item_name] == 'macro':
+        #         item_code = f"#define {item_name.split('@')[0]} {global_macro_dict[item_name].def_code}"
+        #     #item是type时
+        #     else:
+        #         item_code = global_type_dict[item_name].def_code
+        #     #当该item未被其他函数使用时
+        #     if item_count_dict[item_name] == 1:
+        #         item_code_list.append(item_code)
+        #     #否则有并行使用的函数,需要添加编译条件
+        #     else:
+        #         item_code_list.append(f'#ifndef _{item_name.upper().split("@")[0]}_\n'
+        #                               f'#define _{item_name.upper().split("@")[0]}_\n'
+        #                               f'\t{item_code.replace('\n','\n\t')}\n'
+        #                               f'#endif\n')
+        if not fun_item_dict[item_name] == 'global':
             #item是宏是
             if fun_item_dict[item_name] == 'macro':
                 item_code = f"#define {item_name.split('@')[0]} {global_macro_dict[item_name].def_code}"
             #item是type时
             else:
                 item_code = global_type_dict[item_name].def_code
-            #当该item未被其他函数使用时
-            if item_count_dict[item_name] == 1:
-                item_code_list.append(item_code)
-            #否则有并行使用的函数,需要添加编译条件
-            else:
-                item_code_list.append(f'#ifndef _{item_name.upper().split("@")[0]}_\n\t{item_code.replace('\n','\n\t')}\n#endif\n')
+            item_code_list.append(f'#ifndef _{item_name.split("@")[0]}_\n'
+                                          f'#define _{item_name.split("@")[0]}_\n'
+                                          f'\t{item_code.replace('\n','\n\t')}\n'
+                                          f'#endif\n')
 
     fun_item_code = '\n'.join(item_code_list)
     return fun_item_code
@@ -633,13 +588,13 @@ def create_common_file(function_info_dict, function_name, root_dir):
             f.write(f'{header}\n')
         f.write('\n')
 
-        f.write('\ntypedef void (*Fun)(void *);\n')
+        f.write('\ntypedef void (*Fun)(void *);')
         f.write('#define IPCALL(IpName, InstName, ...) {IpName InstName = {.fun = IpName##Fun, __VA_ARGS__ };(InstName.fun(&InstName));}\n')
 
         
         f.write('\n#endif /* COMMON_H */\n')
     
-    print(f"Created common.h file, containing {len(library_headers)} library headers and {len(all_headers)} project headers")
+    print(f"已创建common.h文件，包含 {len(library_headers)} 个库头文件和 {len(all_headers)} 个项目头文件")
 
 
 def create_IP_file(function_info_dict, function_name, global_type_dict, global_macro_dict, item_count_dict):
@@ -651,7 +606,7 @@ def create_IP_file(function_info_dict, function_name, global_type_dict, global_m
         # 只处理需要IP化的函数
         
         # 处理当前函数
-        print(f'Start to process {func_name}')
+        print(f'开始生成{func_name}的IP文件')
         print(f'{function_info_dict[func_name].code}')
         print(f'{function_info_dict[func_name].path}')
         modifications = record_modify_place(function_info_dict, func_name)
@@ -667,7 +622,7 @@ def create_IP_file(function_info_dict, function_name, global_type_dict, global_m
         
         processed_functions.append(func_name)
     
-    print(f"processed_functions: {', '.join(processed_functions)}")
+    print(f"已处理的函数: {', '.join(processed_functions)}")
 
 # @timer
 # def process_ip_conversion(file_path, function_name):
@@ -771,25 +726,30 @@ def app(file_path, root_dir, function_name, bc_file_name):
 
 if __name__ == '__main__':
 
-    file_path = '../Input/lua/llex.c'
-    root_dir = '../Input/lua'
-    function_name = 'save'
-    bc_file_name = 'lua'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
+    # file_path = '../Input/lua/llex.c'
+    # root_dir = '../Input/lua'
+    # function_name = 'save'
+    # bc_file_name = 'lua'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
     #
     # file_path = '../Input/lua/lua.c'
     # root_dir = '../Input/lua'
     # function_name = 'msghandler'
     # bc_file_name = 'lua'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
 
-    # file_path = '../Input/lua/loadlib.c'
-    # root_dir = '../Input/lua'
-    # function_name = 'lsys_load'
-    # bc_file_name = 'lua'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
+    file_path = '../Input/lua/loadlib.c'
+    root_dir = '../Input/lua'
+    function_name = 'lsys_load'
+    bc_file_name = 'lua'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
 
     # file_path = '../Input/SAMCode_V1.01/g4eapp.c'
     # root_dir = '../Input/SAMCode_V1.01'
     # function_name = 'main'
     # bc_file_name = 'myproject'
+
+    # file_path = '../Input/test19/test.c'
+    # root_dir = '../Input/test19'
+    # function_name = 'main'
+    # bc_file_name = 'myproject'  # debug:当顶层出现函数调用,此时上下文为none,会将none传回
 
 
     app(file_path, root_dir, function_name, bc_file_name)

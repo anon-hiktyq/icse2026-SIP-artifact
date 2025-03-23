@@ -2,9 +2,10 @@
 #define __LUAL_PREPBUFFSIZE_H__
 
 #include "common.h"
-#include prepbuffsize.h
+#include "prepbuffsize.h"
 
-#ifndef _LUAL_BUFFER_
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

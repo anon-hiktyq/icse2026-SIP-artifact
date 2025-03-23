@@ -4,27 +4,33 @@
 #include "common.h"
 
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _PF_FIXED_
+#define _PF_FIXED_
 	#define PF_FIXED 2
 #endif
 
-#ifndef _LU_MEM_
+#ifndef _lu_mem_
+#define _lu_mem_
 	typedef size_t lu_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

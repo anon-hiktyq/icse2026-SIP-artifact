@@ -2,13 +2,17 @@
 #define __LUAL_WHERE_H__
 
 #include "common.h"
-#include lua_getstack.h
-#include lua_getinfo.h
-#include lua_pushfstring.h
-#include lua_pushfstring.h
+#include "lua_getstack.h"
+#include "lua_getinfo.h"
+#include "lua_pushfstring.h"
 
-struct lua_State;
-#ifndef _LUA_DEBUG_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Debug_
+#define _lua_Debug_
 	struct lua_Debug;
 #endif
 

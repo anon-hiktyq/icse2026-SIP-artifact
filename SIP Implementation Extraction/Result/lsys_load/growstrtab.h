@@ -5,24 +5,33 @@
 #include "luaC_fullgc.h"
 #include "luaS_resize.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _LUAM_ERROR_
+#ifndef _luaM_error_
+#define _luaM_error_
 	#define luaM_error luaD_throw(L, LUA_ERRMEM)
 #endif
 
 #ifndef _MAXSTRTB_
+#define _MAXSTRTB_
 	#define MAXSTRTB cast_int(luaM_limitN(INT_MAX, TString*))
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _STRINGTABLE_
+#ifndef _stringtable_
+#define _stringtable_
 	struct stringtable {
 	  TString **hash;  /* array of buckets (linked lists of strings) */
 	  int nuse;  /* number of elements */
@@ -30,7 +39,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

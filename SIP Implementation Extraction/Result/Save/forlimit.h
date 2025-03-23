@@ -6,35 +6,47 @@
 #include "luaG_forerror.h"
 
 #ifndef _LUA_MAXINTEGER_
+#define _LUA_MAXINTEGER_
 	#define LUA_MAXINTEGER _I64_MAX
 #endif
 
 #ifndef _LUA_MININTEGER_
+#define _LUA_MININTEGER_
 	#define LUA_MININTEGER _I64_MIN
 #endif
 
-#ifndef _LUAI_NUMLT_
+#ifndef _luai_numlt_
+#define _luai_numlt_
 	#define luai_numlt ((a)<(b))
 #endif
 
-#ifndef _TONUMBER_
+#ifndef _tonumber_
+#define _tonumber_
 	#define tonumber (ttisfloat(o) ? (*(n) = fltvalue(o), 1) : luaV_tonumber_(o,n))
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -46,41 +58,47 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-struct lua_State {
-  CommonHeader;
-  lu_byte allowhook;
-  TStatus status;
-  StkIdRel top;  /* first free slot in the stack */
-  struct global_State *l_G;
-  CallInfo *ci;  /* call info for current function */
-  StkIdRel stack_last;  /* end of stack (last element + 1) */
-  StkIdRel stack;  /* stack base */
-  UpVal *openupval;  /* list of open upvalues in this stack */
-  StkIdRel tbclist;  /* list of to-be-closed variables */
-  GCObject *gclist;
-  struct lua_State *twups;  /* list of threads with open upvalues */
-  struct lua_longjmp *errorJmp;  /* current error recover point */
-  CallInfo base_ci;  /* CallInfo for first level (C host) */
-  volatile lua_Hook hook;
-  ptrdiff_t errfunc;  /* current error handling function (stack index) */
-  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
-  int oldpc;  /* last pc traced */
-  int nci;  /* number of items in 'ci' list */
-  int basehookcount;
-  int hookcount;
-  volatile l_signalT hookmask;
-  struct {  /* info about transferred values (for call/return hooks) */
-    int ftransfer;  /* offset of first value transferred */
-    int ntransfer;  /* number of values transferred */
-  } transferinfo;
-};
-#ifndef _F2IMOD_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State {
+	  CommonHeader;
+	  lu_byte allowhook;
+	  TStatus status;
+	  StkIdRel top;  /* first free slot in the stack */
+	  struct global_State *l_G;
+	  CallInfo *ci;  /* call info for current function */
+	  StkIdRel stack_last;  /* end of stack (last element + 1) */
+	  StkIdRel stack;  /* stack base */
+	  UpVal *openupval;  /* list of open upvalues in this stack */
+	  StkIdRel tbclist;  /* list of to-be-closed variables */
+	  GCObject *gclist;
+	  struct lua_State *twups;  /* list of threads with open upvalues */
+	  struct lua_longjmp *errorJmp;  /* current error recover point */
+	  CallInfo base_ci;  /* CallInfo for first level (C host) */
+	  volatile lua_Hook hook;
+	  ptrdiff_t errfunc;  /* current error handling function (stack index) */
+	  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
+	  int oldpc;  /* last pc traced */
+	  int nci;  /* number of items in 'ci' list */
+	  int basehookcount;
+	  int hookcount;
+	  volatile l_signalT hookmask;
+	  struct {  /* info about transferred values (for call/return hooks) */
+	    int ftransfer;  /* offset of first value transferred */
+	    int ntransfer;  /* number of values transferred */
+	  } transferinfo;
+	};
+#endif
+
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

@@ -4,16 +4,23 @@
 #include "common.h"
 #include "ccall.h"
 
-struct lua_State;
-#ifndef _L_UINT32_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

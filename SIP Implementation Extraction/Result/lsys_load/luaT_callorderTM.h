@@ -5,22 +5,30 @@
 #include "callbinTM.h"
 #include "luaG_ordererror.h"
 
-#ifndef _TAGISFALSE_
+#ifndef _tagisfalse_
+#define _tagisfalse_
 	#define tagisfalse ((t) == LUA_VFALSE || novariant(t) == LUA_TNIL)
 #endif
 
-struct lua_State;
-#ifndef _TVALUE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
@@ -28,6 +36,7 @@ struct lua_State;
 #endif
 
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -58,7 +67,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

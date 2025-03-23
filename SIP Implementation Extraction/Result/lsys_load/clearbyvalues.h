@@ -6,50 +6,62 @@
 #include "clearkey.h"
 
 #ifndef _LUA_VEMPTY_
+#define _LUA_VEMPTY_
 	#define LUA_VEMPTY makevariant(LUA_TNIL, 1)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _SETEMPTY_
+#ifndef _setempty_
+#define _setempty_
 	#define setempty settt_(v, LUA_VEMPTY)
 #endif
 
-#ifndef _GCO2T_
+#ifndef _gco2t_
+#define _gco2t_
 	#define gco2t check_exp((o)->tt == LUA_VTABLE, &((cast_u(o))->h))
 #endif
 
-#ifndef _GNODE_
+#ifndef _gnode_
+#define _gnode_
 	#define gnode (&(t)->node[i])
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _GETARRTAG_
+#ifndef _getArrTag_
+#define _getArrTag_
 	#define getArrTag (cast(lu_byte*, (t)->array) + sizeof(unsigned) + (k))
 #endif
 
-#ifndef _GCVALUEN_
+#ifndef _gcvalueN_
+#define _gcvalueN_
 	#define gcvalueN (iscollectable(o) ? gcvalue(o) : NULL)
 #endif
 
-#ifndef _GCVALARR_
+#ifndef _gcvalarr_
+#define _gcvalarr_
 	#define gcvalarr ((*getArrTag(t,i) & BIT_ISCOLLECTABLE) ? getArrVal(t,i)->gc : NULL)
 #endif
 
-#ifndef _GNODELAST_
+#ifndef _gnodelast_
+#define _gnodelast_
 	#define gnodelast gnode(h, cast_sizet(sizenode(h)))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -61,19 +73,22 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -85,17 +100,22 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -2,19 +2,19 @@
 void LTnumFun(void *p) 
 {
     LTnum *pIp = (LTnum*)p;
-  lua_assert(ttisnumber(pIp -> l) && ttisnumber(pIp -> r));
-  if (ttisinteger(pIp -> l)) {
-    lua_Integer li = ivalue(pIp -> l);
-    if (ttisinteger(pIp -> r))
-      *(pIp -> ret) = li < ivalue(r); /* both are integers */
-    else  /* 'pIp -> l' is int and 'pIp -> r' is float */
-      *(pIp -{int LTintfloat_ret_0;IPCALL(LTintfloat,ipLTintfloat_0,.i = li,.f = fltvalue(pIp->r),.pIp->ret = pIp->&LTintfloat_ret_0);}alue(r)); /* pIp -> l < pIp -> r ? */
+  {lua_assert(ttisnumber(pIp->l) && ttisnumber(pIp->r));}
+  {if (ttisinteger(pIp->l)) {
+    lua_Integer li;{li = ivalue(pIp->l);}
+    {if (ttisinteger(pIp->r))
+      *(pIp->ret) =  li < ivalue(r);  /* both are integers */
+    else  /* 'l' is int and 'r' is float */
+      *(pIp->ret) =  LTintfloat(li, fltvalue(r)); } /* l < r ? */
   }
   else {
-    lua_Number lf = fltvalue(pIp -> l);  /* 'pIp -> l' must be float */
-    if (ttisfloat(pIp -> r))
-      *(pIp -> ret) = luai_numlt(lf, fltvalue(r)); /* both are float */
-    else  /* 'pIp -> l' is float and 'pIp -> r' is int */
-      *(pIp -> ret) = LTfloatint(lf, ivalue(r));
-  }
+    lua_Number lf;{lf = fltvalue(pIp->l);}  /* 'l' must be float */
+    {if (ttisfloat(pIp->r))
+      *(pIp->ret) =  luai_numlt(lf, fltvalue(r));  /* both are float */
+    else  /* 'l' is float and 'r' is int */
+      *(pIp->ret) =  LTfloatint(lf, ivalue(r));}
+  }}
 }

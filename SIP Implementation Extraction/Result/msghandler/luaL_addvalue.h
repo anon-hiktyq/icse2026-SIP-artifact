@@ -2,19 +2,26 @@
 #define __LUAL_ADDVALUE_H__
 
 #include "common.h"
-#include lua_tolstring.h
-#include prepbuffsize.h
+#include "lua_tolstring.h"
+#include "prepbuffsize.h"
 
-#ifndef _LUA_POP_
+#ifndef _lua_pop_
+#define _lua_pop_
 	#define lua_pop lua_settop(L, -(n)-1)
 #endif
 
-#ifndef _LUAL_ADDSIZE_
+#ifndef _luaL_addsize_
+#define _luaL_addsize_
 	#define luaL_addsize ((B)->n += (s))
 #endif
 
-struct lua_State;
-#ifndef _LUAL_BUFFER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

@@ -6,49 +6,60 @@
 #include "insertkey.h"
 #include "retpsetcode.h"
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _SETOBJ_
+#ifndef _setobj_
+#define _setobj_
 	#define setobj { TValue *io1=(obj1); const TValue *io2=(obj2); \
 	          io1->value_ = io2->value_; settt_(io1, io2->tt_); \
 		  checkliveness(L,io1); lua_assert(!isnonstrictnil(io1)); }
 #endif
 
-#ifndef _TTISNIL_
+#ifndef _ttisnil_
+#define _ttisnil_
 	#define ttisnil checktype((v), LUA_TNIL)
 #endif
 
-#ifndef _ISABSTKEY_
+#ifndef _isabstkey_
+#define _isabstkey_
 	#define isabstkey checktag((v), LUA_VABSTKEY)
 #endif
 
-#ifndef _CHECKNOTM_
+#ifndef _checknoTM_
+#define _checknoTM_
 	#define checknoTM ((mt) == NULL || (mt)->flags & (1u<<(e)))
 #endif
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _ISBLACK_
+#ifndef _isblack_
+#define _isblack_
 	#define isblack testbit((x)->marked, BLACKBIT)
 #endif
 
-#ifndef _INVALIDATETMCACHE_
+#ifndef _invalidateTMcache_
+#define _invalidateTMcache_
 	#define invalidateTMcache ((t)->flags &= cast_byte(~maskflags))
 #endif
 
 #ifndef _HOK_
+#define _HOK_
 	#define HOK 0
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -60,19 +71,22 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -88,16 +102,20 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void luaH_psetshortstrFun(void *p);
 

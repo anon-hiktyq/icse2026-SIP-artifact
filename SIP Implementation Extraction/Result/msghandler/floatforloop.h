@@ -4,47 +4,66 @@
 #include "common.h"
 
 
-#ifndef _LUAI_NUMADD_
+#ifndef _luai_numadd_
+#define _luai_numadd_
 	#define luai_numadd ((a)+(b))
 #endif
 
-#ifndef _LUAI_NUMLT_
+#ifndef _luai_numlt_
+#define _luai_numlt_
 	#define luai_numlt ((a)<(b))
 #endif
 
-#ifndef _LUAI_NUMLE_
+#ifndef _luai_numle_
+#define _luai_numle_
 	#define luai_numle ((a)<=(b))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _FLTVALUE_
+#ifndef _fltvalue_
+#define _fltvalue_
 	#define fltvalue check_exp(ttisfloat(o), val_(o).n)
 #endif
 
-#ifndef _CHGFLTVALUE_
+#ifndef _chgfltvalue_
+#define _chgfltvalue_
 	#define chgfltvalue { TValue *io=(obj); lua_assert(ttisfloat(io)); val_(io).n=(x); }
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-union Value {
-  struct GCObject *gc;    /* collectable objects */
-  void *p;         /* light userdata */
-  lua_CFunction f; /* light C functions */
-  lua_Integer i;   /* integer numbers */
-  lua_Number n;    /* float numbers */
-  /* not used, but may avoid warnings for uninitialized value */
-  lu_byte ub;
-};
-struct TValue {
-  TValuefields;
-};
-typedef StackValue *StkId;
+#ifndef _Value_
+#define _Value_
+	union Value {
+	  struct GCObject *gc;    /* collectable objects */
+	  void *p;         /* light userdata */
+	  lua_CFunction f; /* light C functions */
+	  lua_Integer i;   /* integer numbers */
+	  lua_Number n;    /* float numbers */
+	  /* not used, but may avoid warnings for uninitialized value */
+	  lu_byte ub;
+	};
+#endif
+
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
+#ifndef _StkId_
+#define _StkId_
+	typedef StackValue *StkId;
+#endif
+
 
 void floatforloopFun(void *p);
 

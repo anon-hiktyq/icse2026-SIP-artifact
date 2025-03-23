@@ -2,44 +2,55 @@
 #define __TRAVERSELCLOSURE_H__
 
 #include "common.h"
-#include reallymarkobject.h
+#include "reallymarkobject.h"
 
-#ifndef _MARKOBJECTN_
+#ifndef _markobjectN_
+#define _markobjectN_
 	#define markobjectN { if (t) markobject(g,t); }
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
-struct Proto {
-  CommonHeader;
-  lu_byte numparams;  /* number of fixed (named) parameters */
-  lu_byte flag;
-  lu_byte maxstacksize;  /* number of registers needed by this function */
-  int sizeupvalues;  /* size of 'upvalues' */
-  int sizek;  /* size of 'k' */
-  int sizecode;
-  int sizelineinfo;
-  int sizep;  /* size of 'p' */
-  int sizelocvars;
-  int sizeabslineinfo;  /* size of 'abslineinfo' */
-  int linedefined;  /* debug information  */
-  int lastlinedefined;  /* debug information  */
-  TValue *k;  /* constants used by the function */
-  Instruction *code;  /* opcodes */
-  struct Proto **p;  /* functions defined inside the function */
-  Upvaldesc *upvalues;  /* upvalue information */
-  ls_byte *lineinfo;  /* information about source lines (debug information) */
-  AbsLineInfo *abslineinfo;  /* idem */
-  LocVar *locvars;  /* information about local variables (debug information) */
-  TString  *source;  /* used for debug information */
-  GCObject *gclist;
-};
-#ifndef _UPVAL_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _Proto_
+#define _Proto_
+	struct Proto {
+	  CommonHeader;
+	  lu_byte numparams;  /* number of fixed (named) parameters */
+	  lu_byte flag;
+	  lu_byte maxstacksize;  /* number of registers needed by this function */
+	  int sizeupvalues;  /* size of 'upvalues' */
+	  int sizek;  /* size of 'k' */
+	  int sizecode;
+	  int sizelineinfo;
+	  int sizep;  /* size of 'p' */
+	  int sizelocvars;
+	  int sizeabslineinfo;  /* size of 'abslineinfo' */
+	  int linedefined;  /* debug information  */
+	  int lastlinedefined;  /* debug information  */
+	  TValue *k;  /* constants used by the function */
+	  Instruction *code;  /* opcodes */
+	  struct Proto **p;  /* functions defined inside the function */
+	  Upvaldesc *upvalues;  /* upvalue information */
+	  ls_byte *lineinfo;  /* information about source lines (debug information) */
+	  AbsLineInfo *abslineinfo;  /* idem */
+	  LocVar *locvars;  /* information about local variables (debug information) */
+	  TString  *source;  /* used for debug information */
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -56,12 +67,17 @@ struct Proto {
 	};
 #endif
 
-struct LClosure {
-  ClosureHeader;
-  struct Proto *p;
-  UpVal *upvals[1];  /* list of upvalues */
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _LClosure_
+#define _LClosure_
+	struct LClosure {
+	  ClosureHeader;
+	  struct Proto *p;
+	  UpVal *upvals[1];  /* list of upvalues */
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

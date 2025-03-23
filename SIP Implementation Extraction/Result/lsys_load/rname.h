@@ -4,7 +4,8 @@
 #include "common.h"
 #include "basicgetobjname.h"
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

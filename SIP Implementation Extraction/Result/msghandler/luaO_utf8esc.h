@@ -4,15 +4,18 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_CHAR_
+#ifndef _cast_char_
+#define _cast_char_
 	#define cast_char cast(char, (i))
 #endif
 
 #ifndef _UTF8BUFFSZ_
+#define _UTF8BUFFSZ_
 	#define UTF8BUFFSZ 8
 #endif
 
@@ -26,7 +29,6 @@ typedef struct __luaO_utf8esc
 	/* Input Variables */
 	unsigned long			x;
 	/* Output Variables */
-	int			n;
 	int*			ret;
 	/* In&Output Variables */
 	char*			buff;

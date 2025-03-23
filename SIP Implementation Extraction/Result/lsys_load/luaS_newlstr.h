@@ -6,25 +6,34 @@
 #include "luaM_toobig.h"
 #include "luaS_createlngstrobj.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
 #ifndef _MAX_SIZE_
+#define _MAX_SIZE_
 	#define MAX_SIZE (sizeof(size_t) < sizeof(lua_Integer) ? MAX_SIZET \
 				  : cast_sizet(LUA_MAXINTEGER))
 #endif
 
-#ifndef _GETLNGSTR_
+#ifndef _getlngstr_
+#define _getlngstr_
 	#define getlngstr check_exp(!strisshr(ts), (ts)->contents)
 #endif
 
 #ifndef _LUAI_MAXSHORTLEN_
+#define _LUAI_MAXSHORTLEN_
 	#define LUAI_MAXSHORTLEN 40
 #endif
 
-struct lua_State;
-#ifndef _TSTRING_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -40,7 +49,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

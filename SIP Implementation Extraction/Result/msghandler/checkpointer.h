@@ -4,9 +4,13 @@
 #include "common.h"
 
 
-struct GCObject {
-  CommonHeader;
-};
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
 
 void checkpointerFun(void *p);
 

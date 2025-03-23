@@ -5,18 +5,22 @@
 #include "luaG_getfuncline.h"
 
 #ifndef _ABSLINEINFO_
+#define _ABSLINEINFO_
 	#define ABSLINEINFO (-0x80)
 #endif
 
 #ifndef _MAXIWTHABS_
+#define _MAXIWTHABS_
 	#define MAXIWTHABS 128
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

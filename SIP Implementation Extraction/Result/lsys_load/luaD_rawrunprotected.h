@@ -5,27 +5,37 @@
 
 
 #ifndef _LUA_OK_
+#define _LUA_OK_
 	#define LUA_OK 0
 #endif
 
 #ifndef _LUAI_TRY_
+#define _LUAI_TRY_
 	#define LUAI_TRY if (setjmp((c)->b) == 0) ((f)(L, ud))
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _LUA_LONGJMP_
+#ifndef _lua_longjmp_
+#define _lua_longjmp_
 	struct lua_longjmp;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -56,11 +66,13 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _PFUNC_
+#ifndef _Pfunc_
+#define _Pfunc_
 	typedef void (*Pfunc) (lua_State *L, void *ud);
 #endif
 
-#ifndef _LUA_LONGJMP_
+#ifndef _lua_longjmp_
+#define _lua_longjmp_
 	struct lua_longjmp {
 	  struct lua_longjmp *previous;
 	  luai_jmpbuf b;

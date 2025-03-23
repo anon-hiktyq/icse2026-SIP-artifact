@@ -4,18 +4,25 @@
 #include "common.h"
 #include "sweeplist.h"
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

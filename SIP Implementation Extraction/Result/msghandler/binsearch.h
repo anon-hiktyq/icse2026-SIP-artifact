@@ -2,10 +2,25 @@
 #define __BINSEARCH_H__
 
 #include "common.h"
-#include arraykeyisempty.h
+#include "arraykeyisempty.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
+#endif
+
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
 #endif
 
 

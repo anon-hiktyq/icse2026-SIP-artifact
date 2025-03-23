@@ -2,5 +2,5 @@
 void luaL_prepbuffsizeFun(void *p) 
 {
     luaL_prepbuffsize *pIp = (luaL_prepbuffsize*)p;
-  pIp -> ret = prepbuffsize(B, sz, -1);
+  char * prepbuffsize_ret_0;IPCALL(prepbuffsize,ipprepbuffsize_0,.B = pIp->B,.sz = pIp->sz,.boxidx = -1,.ret = prepbuffsize_ret_0);pIp->ret =  prepbuffsize_ret_0;
 }

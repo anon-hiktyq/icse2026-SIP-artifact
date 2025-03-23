@@ -5,89 +5,114 @@
 #include "objsize.h"
 #include "reallymarkobject.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _LUA_VTHREAD_
+#define _LUA_VTHREAD_
 	#define LUA_VTHREAD makevariant(LUA_TTHREAD, 0)
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
 #ifndef _LUA_VUSERDATA_
+#define _LUA_VUSERDATA_
 	#define LUA_VUSERDATA makevariant(LUA_TUSERDATA, 0)
 #endif
 
 #ifndef _LUA_VPROTO_
+#define _LUA_VPROTO_
 	#define LUA_VPROTO makevariant(LUA_TPROTO, 0)
 #endif
 
 #ifndef _LUA_VUPVAL_
+#define _LUA_VUPVAL_
 	#define LUA_VUPVAL makevariant(LUA_TUPVAL, 0)
 #endif
 
 #ifndef _LUA_VLCL_
+#define _LUA_VLCL_
 	#define LUA_VLCL makevariant(LUA_TFUNCTION, 0)
 #endif
 
 #ifndef _LUA_VCCL_
+#define _LUA_VCCL_
 	#define LUA_VCCL makevariant(LUA_TFUNCTION, 2)
 #endif
 
 #ifndef _LUA_VTABLE_
+#define _LUA_VTABLE_
 	#define LUA_VTABLE makevariant(LUA_TTABLE, 0)
 #endif
 
-#ifndef _GCO2U_
+#ifndef _gco2u_
+#define _gco2u_
 	#define gco2u check_exp((o)->tt == LUA_VUSERDATA, &((cast_u(o))->u))
 #endif
 
-#ifndef _GCO2UPV_
+#ifndef _gco2upv_
+#define _gco2upv_
 	#define gco2upv check_exp((o)->tt == LUA_VUPVAL, &((cast_u(o))->upv))
 #endif
 
-#ifndef _UPISOPEN_
+#ifndef _upisopen_
+#define _upisopen_
 	#define upisopen ((up)->v.p != &(up)->u.value)
 #endif
 
-#ifndef _SET2GRAY_
+#ifndef _set2gray_
+#define _set2gray_
 	#define set2gray resetbits(x->marked, maskcolors)
 #endif
 
-#ifndef _SET2BLACK_
+#ifndef _set2black_
+#define _set2black_
 	#define set2black (x->marked = cast_byte((x->marked & ~WHITEBITS) | bitmask(BLACKBIT)))
 #endif
 
-#ifndef _MARKVALUE_
+#ifndef _markvalue_
+#define _markvalue_
 	#define markvalue { checkliveness(mainthread(g),o); \
 	  if (valiswhite(o)) reallymarkobject(g,gcvalue(o)); }
 #endif
 
-#ifndef _MARKOBJECTN_
+#ifndef _markobjectN_
+#define _markobjectN_
 	#define markobjectN { if (t) markobject(g,t); }
 #endif
 
-#ifndef _LINKOBJGCLIST_
+#ifndef _linkobjgclist_
+#define _linkobjgclist_
 	#define linkobjgclist linkgclist_(obj2gco(o), getgclist(o), &(p))
 #endif
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -99,19 +124,22 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _UDATA_
+#ifndef _Udata_
+#define _Udata_
 	struct Udata {
 	  CommonHeader;
 	  unsigned short nuvalue;  /* number of user values */
@@ -122,7 +150,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -139,17 +168,22 @@ struct lua_State;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _LUA_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -181,13 +215,15 @@ struct Table {
 #endif
 
 #ifndef _LX_
+#define _LX_
 	struct LX {
 	  lu_byte extra_[LUA_EXTRASPACE];
 	  lua_State l;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

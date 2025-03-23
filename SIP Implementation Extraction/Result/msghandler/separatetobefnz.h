@@ -2,28 +2,37 @@
 #define __SEPARATETOBEFNZ_H__
 
 #include "common.h"
-#include findlast.h
+#include "findlast.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _TOFINALIZE_
+#ifndef _tofinalize_
+#define _tofinalize_
 	#define tofinalize testbit((x)->marked, FINALIZEDBIT)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

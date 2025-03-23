@@ -4,36 +4,48 @@
 #include "common.h"
 #include "tryagain.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _FIRSTTRY_
+#ifndef _firsttry_
+#define _firsttry_
 	#define firsttry callfrealloc(g, block, os, ns)
 #endif
 
-struct lua_State;
-#ifndef _LUA_ALLOC_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Alloc_
+#define _lua_Alloc_
 	typedef void * (*lua_Alloc) (void *ud, void *ptr, size_t osize, size_t nsize);
 #endif
 
-#ifndef _L_MEM_
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -64,7 +76,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -2,17 +2,23 @@
 #define __ADDNUM2BUFF_H__
 
 #include "common.h"
-#include luaO_tostringbuff.h
-#include addstr2buff.h
+#include "luaO_tostringbuff.h"
+#include "addstr2buff.h"
 
 #ifndef _LUA_N2SBUFFSZ_
+#define _LUA_N2SBUFFSZ_
 	#define LUA_N2SBUFFSZ 64
 #endif
 
-struct TValue {
-  TValuefields;
-};
-#ifndef _BUFFFS_
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
+#ifndef _BuffFS_
+#define _BuffFS_
 	struct BuffFS {
 	  lua_State *L;
 	  char *b;

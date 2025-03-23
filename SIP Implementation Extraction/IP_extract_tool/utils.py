@@ -424,9 +424,9 @@ def clean_temp_files(root_dir):
             if item.endswith(('.bc', '.o')) or item == 'myproject':
                 try:
                     os.remove(item_path)
-                    print(f"Removed file: {item_path}")
+                    print(f"已删除: {item_path}")
                 except Exception as e:
-                    print(f"Failed to remove {item_path}: {e}")
+                    print(f"删除 {item_path} 失败: {e}")
     except Exception as e:
         print(f"清理临时文件时发生错误: {e}")
 
@@ -447,11 +447,11 @@ def timer(func):
         
         # 格式化输出
         if run_time < 60:
-            print(f"\nRunning time: {run_time:.2f} 秒")
+            print(f"\n程序运行时间: {run_time:.2f} 秒")
         else:
             minutes = int(run_time // 60)
             seconds = run_time % 60
-            print(f"\nRunning time: {minutes} 分 {seconds:.2f} 秒")
+            print(f"\n程序运行时间: {minutes} 分 {seconds:.2f} 秒")
         
         return result
     return wrapper

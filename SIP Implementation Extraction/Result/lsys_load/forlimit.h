@@ -6,35 +6,47 @@
 #include "luaG_forerror.h"
 
 #ifndef _LUA_MAXINTEGER_
+#define _LUA_MAXINTEGER_
 	#define LUA_MAXINTEGER _I64_MAX
 #endif
 
 #ifndef _LUA_MININTEGER_
+#define _LUA_MININTEGER_
 	#define LUA_MININTEGER _I64_MIN
 #endif
 
-#ifndef _LUAI_NUMLT_
+#ifndef _luai_numlt_
+#define _luai_numlt_
 	#define luai_numlt ((a)<(b))
 #endif
 
-#ifndef _TONUMBER_
+#ifndef _tonumber_
+#define _tonumber_
 	#define tonumber (ttisfloat(o) ? (*(n) = fltvalue(o), 1) : luaV_tonumber_(o,n))
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -46,13 +58,15 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -83,7 +97,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _F2IMOD_
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

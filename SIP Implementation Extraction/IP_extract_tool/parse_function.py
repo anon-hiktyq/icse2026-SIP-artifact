@@ -105,11 +105,12 @@ def collect_and_mark_types(function_cursor, tu_item_dict, tu_type_dict):
     def update_related_types(type_name):
         if type_name in tu_type_dict:
             type_info = tu_type_dict[type_name]
-            for related_type in type_info.include_type_set:
-                if related_type in tu_item_dict and not tu_item_dict[related_type]['flag']:
-                    tu_item_dict[related_type]['flag'] = True
+            for related_item in type_info.include_item_set:
+                if related_item in tu_item_dict and not tu_item_dict[related_item]['flag']:
+                    tu_item_dict[related_item]['flag'] = True
                     # 递归查找相关类型
-                    update_related_types(related_type)
+                    if related_item in tu_type_dict:
+                        update_related_types(related_item)
 
     print(f'\ntypes_used:{types_used}\n')
     # 更新tu_item_dict中的flag
@@ -159,42 +160,42 @@ def is_standard_library_function(callee_cursor):
     return False
 
 
-def analyze_return_stmts(function_code):
-    """
-    直接从函数源代码中查找所有return语句的位置
-    
-    :param function_code: 函数的源代码字符串
-    :return: 包含所有return语句范围的列表
-    """
-    ret_range_list = []
-    lines = function_code.splitlines()
-    
-    # 正则表达式匹配return语句，考虑前后可能有空格
-    # 不匹配注释中的return
-    pattern = r'^\s*return\s+.*?;|^\s*return\s*;'
-    
-    for line_idx, line in enumerate(lines):
-        # 跳过注释行
-        if re.match(r'^\s*//', line) or re.match(r'^\s*/\*', line):
-            continue
-            
-        # 检查行中是否有注释，如果有，在注释前查找return
-        comment_start = line.find('//')
-        if comment_start != -1:
-            line_to_check = line[:comment_start]
-        else:
-            line_to_check = line
-            
-        # 查找return语句
-        match = re.search(pattern, line_to_check)
-        if match:
-            start_col = match.start()
-            end_col = match.end()
-            
-            # 记录return语句的范围 [start_line, start_col, end_line, end_col]
-            ret_range_list.append([line_idx, start_col, line_idx, end_col])
-    
-    return ret_range_list
+# def analyze_return_stmts(function_code):
+#     """
+#     直接从函数源代码中查找所有return语句的位置
+#
+#     :param function_code: 函数的源代码字符串
+#     :return: 包含所有return语句范围的列表
+#     """
+#     ret_range_list = []
+#     lines = function_code.splitlines()
+#
+#     # 正则表达式匹配return语句，考虑前后可能有空格
+#     # 不匹配注释中的return
+#     pattern = r'^\s*return\s+.*?;|^\s*return\s*;'
+#
+#     for line_idx, line in enumerate(lines):
+#         # 跳过注释行
+#         if re.match(r'^\s*//', line) or re.match(r'^\s*/\*', line):
+#             continue
+#
+#         # 检查行中是否有注释，如果有，在注释前查找return
+#         comment_start = line.find('//')
+#         if comment_start != -1:
+#             line_to_check = line[:comment_start]
+#         else:
+#             line_to_check = line
+#
+#         # 查找return语句
+#         match = re.search(pattern, line_to_check)
+#         if match:
+#             start_col = match.start()
+#             end_col = match.end()
+#
+#             # 记录return语句的范围 [start_line, start_col, end_line, end_col]
+#             ret_range_list.append([line_idx, start_col, line_idx, end_col])
+#
+#     return ret_range_list
 
 
 def print_decl_stmt(function_cursor):
@@ -285,7 +286,7 @@ def parse_function(root_dir, file_path, function_name, tu, file_cache, tu_dict, 
     content_range = record_content_range(function_cursor)
 
 
-    # print(content_range)
+    # print(secondary_range)
 
     function_code = record_range_content(file_code, content_range)
 
@@ -306,7 +307,7 @@ def parse_function(root_dir, file_path, function_name, tu, file_cache, tu_dict, 
 
     func_type = function_cursor.result_type.spelling  # 提取函数的类型
 
-    ret_range_list = analyze_return_stmts(function_code)  # 分析return语句
+    ret_range_list = []  # 分析return语句
 
     # refine tu_item_dict
     fun_item_dict = {}

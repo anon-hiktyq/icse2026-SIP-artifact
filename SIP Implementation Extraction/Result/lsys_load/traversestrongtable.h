@@ -7,49 +7,64 @@
 #include "reallymarkobject.h"
 #include "genlink.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _KEYISNIL_
+#ifndef _keyisnil_
+#define _keyisnil_
 	#define keyisnil (keytt(node) == LUA_TNIL)
 #endif
 
-#ifndef _OBJ2GCO_
+#ifndef _obj2gco_
+#define _obj2gco_
 	#define obj2gco check_exp((v)->tt >= LUA_TSTRING, &(cast_u(v)->gc))
 #endif
 
-#ifndef _GNODE_
+#ifndef _gnode_
+#define _gnode_
 	#define gnode (&(t)->node[i])
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _MARKVALUE_
+#ifndef _markvalue_
+#define _markvalue_
 	#define markvalue { checkliveness(mainthread(g),o); \
 	  if (valiswhite(o)) reallymarkobject(g,gcvalue(o)); }
 #endif
 
-#ifndef _MARKKEY_
+#ifndef _markkey_
+#define _markkey_
 	#define markkey { if keyiswhite(n) reallymarkobject(g,gckey(n)); }
 #endif
 
-#ifndef _GNODELAST_
+#ifndef _gnodelast_
+#define _gnodelast_
 	#define gnodelast gnode(h, cast_sizet(sizenode(h)))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -61,19 +76,22 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -85,17 +103,22 @@ struct lua_State;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _LUA_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -127,13 +150,15 @@ struct Table {
 #endif
 
 #ifndef _LX_
+#define _LX_
 	struct LX {
 	  lu_byte extra_[LUA_EXTRASPACE];
 	  lua_State l;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

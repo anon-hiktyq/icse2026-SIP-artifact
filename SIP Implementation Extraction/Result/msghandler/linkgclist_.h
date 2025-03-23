@@ -4,25 +4,33 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISGRAY_
+#ifndef _isgray_
+#define _isgray_
 	#define isgray (!testbits((x)->marked, WHITEBITS | bitmask(BLACKBIT)))
 #endif
 
-#ifndef _SET2GRAY_
+#ifndef _set2gray_
+#define _set2gray_
 	#define set2gray resetbits(x->marked, maskcolors)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
 
 void linkgclist_Fun(void *p);
 

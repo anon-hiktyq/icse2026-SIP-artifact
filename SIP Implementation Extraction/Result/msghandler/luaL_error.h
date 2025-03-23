@@ -2,12 +2,16 @@
 #define __LUAL_ERROR_H__
 
 #include "common.h"
-#include luaL_where.h
-#include lua_pushvfstring.h
-#include lua_concat.h
-#include lua_error.h
+#include "luaL_where.h"
+#include "lua_pushvfstring.h"
+#include "lua_concat.h"
+#include "lua_error.h"
 
-struct lua_State;
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
 
 void luaL_errorFun(void *p);
 

@@ -5,47 +5,58 @@
 #include "LTintfloat.h"
 #include "LTfloatint.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _LUAI_NUMLT_
+#ifndef _luai_numlt_
+#define _luai_numlt_
 	#define luai_numlt ((a)<(b))
 #endif
 
-#ifndef _TTISNUMBER_
+#ifndef _ttisnumber_
+#define _ttisnumber_
 	#define ttisnumber checktype((o), LUA_TNUMBER)
 #endif
 
-#ifndef _TTISFLOAT_
+#ifndef _ttisfloat_
+#define _ttisfloat_
 	#define ttisfloat checktag((o), LUA_VNUMFLT)
 #endif
 
-#ifndef _TTISINTEGER_
+#ifndef _ttisinteger_
+#define _ttisinteger_
 	#define ttisinteger checktag((o), LUA_VNUMINT)
 #endif
 
-#ifndef _FLTVALUE_
+#ifndef _fltvalue_
+#define _fltvalue_
 	#define fltvalue check_exp(ttisfloat(o), val_(o).n)
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -57,7 +68,8 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};

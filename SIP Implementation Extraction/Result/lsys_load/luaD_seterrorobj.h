@@ -5,56 +5,73 @@
 #include "luaS_newlstr.h"
 
 #ifndef _LUA_ERRMEM_
+#define _LUA_ERRMEM_
 	#define LUA_ERRMEM 4
 #endif
 
 #ifndef _LUA_ERRERR_
+#define _LUA_ERRERR_
 	#define LUA_ERRERR 5
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _SETOBJS2S_
+#ifndef _setobjs2s_
+#define _setobjs2s_
 	#define setobjs2s setobj(L,s2v(o1),s2v(o2))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _TTISNIL_
+#ifndef _ttisnil_
+#define _ttisnil_
 	#define ttisnil checktype((v), LUA_TNIL)
 #endif
 
-#ifndef _SETSVALUE2S_
+#ifndef _setsvalue2s_
+#define _setsvalue2s_
 	#define setsvalue2s setsvalue(L,s2v(o),s)
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _LUAS_NEWLITERAL_
+#ifndef _luaS_newliteral_
+#define _luaS_newliteral_
 	#define luaS_newliteral (luaS_newlstr(L, "" s, \
 	                                 (sizeof(s)/sizeof(char))-1))
 #endif
 
-#ifndef _ERRORSTATUS_
+#ifndef _errorstatus_
+#define _errorstatus_
 	#define errorstatus ((s) > LUA_YIELD)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TSTATUS_
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -66,30 +83,35 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -105,7 +127,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -136,7 +159,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

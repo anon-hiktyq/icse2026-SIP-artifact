@@ -4,17 +4,20 @@
 #include "common.h"
 
 
-#ifndef _GETLSTR_
+#ifndef _getlstr_
+#define _getlstr_
 	#define getlstr (strisshr(ts) \
 		? (cast_void((len) = cast_sizet((ts)->shrlen)), rawgetshrstr(ts)) \
 		: (cast_void((len) = (ts)->u.lnglen), (ts)->contents))
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */

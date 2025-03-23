@@ -5,31 +5,42 @@
 #include "luaD_hookcall.h"
 
 #ifndef _PF_ISVARARG_
+#define _PF_ISVARARG_
 	#define PF_ISVARARG 1
 #endif
 
 #ifndef _CIST_HOOKYIELD_
+#define _CIST_HOOKYIELD_
 	#define CIST_HOOKYIELD (CIST_TAIL << 1)
 #endif
 
-#ifndef _CI_FUNC_
+#ifndef _ci_func_
+#define _ci_func_
 	#define ci_func (clLvalue(s2v((ci)->func.p)))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -41,31 +52,40 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -92,7 +112,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _LCLOSURE_
+#ifndef _LClosure_
+#define _LClosure_
 	struct LClosure {
 	  ClosureHeader;
 	  struct Proto *p;
@@ -100,14 +121,16 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _CLOSURE_
+#ifndef _Closure_
+#define _Closure_
 	union Closure {
 	  CClosure c;
 	  LClosure l;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

@@ -5,57 +5,74 @@
 #include "reallymarkobject.h"
 #include "luaD_shrinkstack.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _SETNILVALUE_
+#ifndef _setnilvalue_
+#define _setnilvalue_
 	#define setnilvalue settt_(obj, LUA_VNIL)
 #endif
 
 #ifndef _EXTRA_STACK_
+#define _EXTRA_STACK_
 	#define EXTRA_STACK 5
 #endif
 
-#ifndef _ISINTWUPS_
+#ifndef _isintwups_
+#define _isintwups_
 	#define isintwups (L->twups != L)
 #endif
 
-#ifndef _GCSPROPAGATE_
+#ifndef _GCSpropagate_
+#define _GCSpropagate_
 	#define GCSpropagate 0
 #endif
 
-#ifndef _GCSATOMIC_
+#ifndef _GCSatomic_
+#define _GCSatomic_
 	#define GCSatomic 2
 #endif
 
-#ifndef _ISOLD_
+#ifndef _isold_
+#define _isold_
 	#define isold (getage(o) > G_SURVIVAL)
 #endif
 
-#ifndef _MARKVALUE_
+#ifndef _markvalue_
+#define _markvalue_
 	#define markvalue { checkliveness(mainthread(g),o); \
 	  if (valiswhite(o)) reallymarkobject(g,gcvalue(o)); }
 #endif
 
-#ifndef _MARKOBJECT_
+#ifndef _markobject_
+#define _markobject_
 	#define markobject { if (iswhite(t)) reallymarkobject(g, obj2gco(t)); }
 #endif
 
-#ifndef _LINKGCLIST_
+#ifndef _linkgclist_
+#define _linkgclist_
 	#define linkgclist linkgclist_(obj2gco(o), &(o)->gclist, &(p))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -67,30 +84,35 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -107,7 +129,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -139,13 +162,15 @@ struct lua_State;
 #endif
 
 #ifndef _LX_
+#define _LX_
 	struct LX {
 	  lu_byte extra_[LUA_EXTRASPACE];
 	  lua_State l;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

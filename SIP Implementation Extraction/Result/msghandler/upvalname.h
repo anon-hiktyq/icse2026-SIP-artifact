@@ -4,29 +4,40 @@
 #include "common.h"
 
 
-#ifndef _CHECK_EXP_
+#ifndef _check_exp_
+#define _check_exp_
 	#define check_exp (lua_assert(c), (e))
 #endif
 
-#ifndef _GETSTR_
+#ifndef _getstr_
+#define _getstr_
 	#define getstr (strisshr(ts) ? rawgetshrstr(ts) : (ts)->contents)
 #endif
 
-typedef signed char ls_byte;
-struct TString {
-  CommonHeader;
-  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
-  ls_byte shrlen;  /* length for short strings, negative for long strings */
-  unsigned int hash;
-  union {
-    size_t lnglen;  /* length for long strings */
-    struct TString *hnext;  /* linked list for hash table */
-  } u;
-  char *contents;  /* pointer to content in long strings */
-  lua_Alloc falloc;  /* deallocation function for external strings */
-  void *ud;  /* user data for external strings */
-};
-#ifndef _UPVALDESC_
+#ifndef _ls_byte_
+#define _ls_byte_
+	typedef signed char ls_byte;
+#endif
+
+#ifndef _TString_
+#define _TString_
+	struct TString {
+	  CommonHeader;
+	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
+	  ls_byte shrlen;  /* length for short strings, negative for long strings */
+	  unsigned int hash;
+	  union {
+	    size_t lnglen;  /* length for long strings */
+	    struct TString *hnext;  /* linked list for hash table */
+	  } u;
+	  char *contents;  /* pointer to content in long strings */
+	  lua_Alloc falloc;  /* deallocation function for external strings */
+	  void *ud;  /* user data for external strings */
+	};
+#endif
+
+#ifndef _Upvaldesc_
+#define _Upvaldesc_
 	struct Upvaldesc {
 	  TString *name;  /* upvalue name (for debug information) */
 	  lu_byte instack;  /* whether it is in stack (register) */
@@ -35,30 +46,34 @@ struct TString {
 	};
 #endif
 
-struct Proto {
-  CommonHeader;
-  lu_byte numparams;  /* number of fixed (named) parameters */
-  lu_byte flag;
-  lu_byte maxstacksize;  /* number of registers needed by this function */
-  int sizeupvalues;  /* size of 'upvalues' */
-  int sizek;  /* size of 'k' */
-  int sizecode;
-  int sizelineinfo;
-  int sizep;  /* size of 'p' */
-  int sizelocvars;
-  int sizeabslineinfo;  /* size of 'abslineinfo' */
-  int linedefined;  /* debug information  */
-  int lastlinedefined;  /* debug information  */
-  TValue *k;  /* constants used by the function */
-  Instruction *code;  /* opcodes */
-  struct Proto **p;  /* functions defined inside the function */
-  Upvaldesc *upvalues;  /* upvalue information */
-  ls_byte *lineinfo;  /* information about source lines (debug information) */
-  AbsLineInfo *abslineinfo;  /* idem */
-  LocVar *locvars;  /* information about local variables (debug information) */
-  TString  *source;  /* used for debug information */
-  GCObject *gclist;
-};
+#ifndef _Proto_
+#define _Proto_
+	struct Proto {
+	  CommonHeader;
+	  lu_byte numparams;  /* number of fixed (named) parameters */
+	  lu_byte flag;
+	  lu_byte maxstacksize;  /* number of registers needed by this function */
+	  int sizeupvalues;  /* size of 'upvalues' */
+	  int sizek;  /* size of 'k' */
+	  int sizecode;
+	  int sizelineinfo;
+	  int sizep;  /* size of 'p' */
+	  int sizelocvars;
+	  int sizeabslineinfo;  /* size of 'abslineinfo' */
+	  int linedefined;  /* debug information  */
+	  int lastlinedefined;  /* debug information  */
+	  TValue *k;  /* constants used by the function */
+	  Instruction *code;  /* opcodes */
+	  struct Proto **p;  /* functions defined inside the function */
+	  Upvaldesc *upvalues;  /* upvalue information */
+	  ls_byte *lineinfo;  /* information about source lines (debug information) */
+	  AbsLineInfo *abslineinfo;  /* idem */
+	  LocVar *locvars;  /* information about local variables (debug information) */
+	  TString  *source;  /* used for debug information */
+	  GCObject *gclist;
+	};
+#endif
+
 
 void upvalnameFun(void *p);
 

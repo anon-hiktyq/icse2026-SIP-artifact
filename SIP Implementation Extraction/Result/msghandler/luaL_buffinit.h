@@ -2,14 +2,20 @@
 #define __LUAL_BUFFINIT_H__
 
 #include "common.h"
-#include lua_pushlightuserdata.h
+#include "lua_pushlightuserdata.h"
 
 #ifndef _LUAL_BUFFERSIZE_
+#define _LUAL_BUFFERSIZE_
 	#define LUAL_BUFFERSIZE ((int)(16 * sizeof(void*) * sizeof(lua_Number)))
 #endif
 
-struct lua_State;
-#ifndef _LUAL_BUFFER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

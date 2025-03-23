@@ -6,23 +6,32 @@
 #include "setnodevector.h"
 
 #ifndef _LUA_VTABLE_
+#define _LUA_VTABLE_
 	#define LUA_VTABLE makevariant(LUA_TTABLE, 0)
 #endif
 
-#ifndef _MASKFLAGS_
+#ifndef _maskflags_
+#define _maskflags_
 	#define maskflags cast_byte(~(~0u << (TM_EQ + 1)))
 #endif
 
-#ifndef _GCO2T_
+#ifndef _gco2t_
+#define _gco2t_
 	#define gco2t check_exp((o)->tt == LUA_VTABLE, &((cast_u(o))->h))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -34,23 +43,29 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _LUA_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -90,7 +105,6 @@ typedef struct __luaH_new
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	Table*			t;
 	Table *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

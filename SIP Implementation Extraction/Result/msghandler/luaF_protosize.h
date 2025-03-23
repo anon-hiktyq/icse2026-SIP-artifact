@@ -4,50 +4,59 @@
 #include "common.h"
 
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _PF_FIXED_
+#define _PF_FIXED_
 	#define PF_FIXED 2
 #endif
 
-#ifndef _LU_MEM_
+#ifndef _lu_mem_
+#define _lu_mem_
 	typedef size_t lu_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct Proto {
-  CommonHeader;
-  lu_byte numparams;  /* number of fixed (named) parameters */
-  lu_byte flag;
-  lu_byte maxstacksize;  /* number of registers needed by this function */
-  int sizeupvalues;  /* size of 'upvalues' */
-  int sizek;  /* size of 'k' */
-  int sizecode;
-  int sizelineinfo;
-  int sizep;  /* size of 'p' */
-  int sizelocvars;
-  int sizeabslineinfo;  /* size of 'abslineinfo' */
-  int linedefined;  /* debug information  */
-  int lastlinedefined;  /* debug information  */
-  TValue *k;  /* constants used by the function */
-  Instruction *code;  /* opcodes */
-  struct Proto **p;  /* functions defined inside the function */
-  Upvaldesc *upvalues;  /* upvalue information */
-  ls_byte *lineinfo;  /* information about source lines (debug information) */
-  AbsLineInfo *abslineinfo;  /* idem */
-  LocVar *locvars;  /* information about local variables (debug information) */
-  TString  *source;  /* used for debug information */
-  GCObject *gclist;
-};
+#ifndef _Proto_
+#define _Proto_
+	struct Proto {
+	  CommonHeader;
+	  lu_byte numparams;  /* number of fixed (named) parameters */
+	  lu_byte flag;
+	  lu_byte maxstacksize;  /* number of registers needed by this function */
+	  int sizeupvalues;  /* size of 'upvalues' */
+	  int sizek;  /* size of 'k' */
+	  int sizecode;
+	  int sizelineinfo;
+	  int sizep;  /* size of 'p' */
+	  int sizelocvars;
+	  int sizeabslineinfo;  /* size of 'abslineinfo' */
+	  int linedefined;  /* debug information  */
+	  int lastlinedefined;  /* debug information  */
+	  TValue *k;  /* constants used by the function */
+	  Instruction *code;  /* opcodes */
+	  struct Proto **p;  /* functions defined inside the function */
+	  Upvaldesc *upvalues;  /* upvalue information */
+	  ls_byte *lineinfo;  /* information about source lines (debug information) */
+	  AbsLineInfo *abslineinfo;  /* idem */
+	  LocVar *locvars;  /* information about local variables (debug information) */
+	  TString  *source;  /* used for debug information */
+	  GCObject *gclist;
+	};
+#endif
+
 
 void luaF_protosizeFun(void *p);
 
@@ -58,7 +67,6 @@ typedef struct __luaF_protosize
 	/* Input Variables */
 	Proto*			p;
 	/* Output Variables */
-	lu_mem			sz;
 	lu_mem*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

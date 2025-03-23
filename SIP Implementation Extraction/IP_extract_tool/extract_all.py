@@ -113,8 +113,8 @@ def extract_global_type(node, tu_type_dict, tu_item_dict, file_cache, global_typ
         type_info = global_type_dict[identifier]
     else:
         analyze_type_content(node, type_info)
-        if type_info.include_type_set and identifier.split('@')[0] in type_info.include_type_set:
-            type_info.include_type_set.remove(identifier.split('@')[0]) #去除自身类型
+        if type_info.include_item_set and identifier.split('@')[0] in type_info.include_item_set:
+            type_info.include_item_set.remove(identifier.split('@')[0]) #去除自身类型
 
     # 将TypeInfo添加到全局字典中
     tu_type_dict[identifier] = type_info
@@ -145,7 +145,15 @@ def analyze_type_content(node, type_info):
                                       clang.cindex.CursorKind.ENUM_DECL,
                                       clang.cindex.CursorKind.TYPEDEF_DECL]:
                 type_id = get_type_name(identifier)
-                type_info.include_type_set.add(type_id)
+                type_info.include_item_set.add(type_id)
+            
+            # 检查是否是宏引用
+            elif token.kind == clang.cindex.TokenKind.IDENTIFIER:
+                type_info.include_item_set.add(identifier)
+            
+            # 如果无法确定类型，也将标识符添加到集合中，可能是宏
+            elif token.cursor.kind == clang.cindex.CursorKind.UNEXPOSED_EXPR:
+                type_info.include_item_set.add(identifier)
                 
             # # 检查是否是全局变量
             # elif token.cursor.kind == clang.cindex.CursorKind.VAR_DECL:
@@ -269,7 +277,7 @@ def print_tree(tu_item_dict, tu_macro_dict, tu_type_dict, tu_var_dict, indent=0)
             print(' ' * (indent + 2) + f"File: {info.file_path}")
             print(' ' * (indent + 2) + f"Macro Code: {info.def_code}")
             print(' ' * (indent + 2) + f"Included Macros: {list(info.include_macro_set)}")
-            print(' ' * (indent + 2) + f"Included Types: {list(info.include_type_set)}")
+            print(' ' * (indent + 2) + f"Included Types: {list(info.include_item_set)}")
             print(' ' * (indent + 2) + f"Included Globals: {list(info.include_global_set)}")
 
             # 打印宏表达式信息
@@ -292,7 +300,7 @@ def print_tree(tu_item_dict, tu_macro_dict, tu_type_dict, tu_var_dict, indent=0)
             info = tu_type_dict[identifier]
             print(' ' * (indent + 2) + f"File: {info.file_path}")
             print(' ' * (indent + 2) + f"Content Range: {info.content_range}")
-            print(' ' * (indent + 2) + f"Included Types: {list(info.include_type_set)}")
+            print(' ' * (indent + 2) + f"Included Types: {list(info.include_item_set)}")
 
         elif kind == 'variable':
             print(' ' * (indent + 2) + f"Type: {tu_var_dict[identifier]}")

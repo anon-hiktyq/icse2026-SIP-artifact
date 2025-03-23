@@ -4,22 +4,30 @@
 #include "common.h"
 #include "luaG_typeerror.h"
 
-#ifndef _TTISNUMBER_
+#ifndef _ttisnumber_
+#define _ttisnumber_
 	#define ttisnumber checktype((o), LUA_TNUMBER)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

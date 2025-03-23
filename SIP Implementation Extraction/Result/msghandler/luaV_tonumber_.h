@@ -2,49 +2,64 @@
 #define __LUAV_TONUMBER__H__
 
 #include "common.h"
-#include l_strton.h
+#include "l_strton.h"
 
-#ifndef _CAST_NUM_
+#ifndef _cast_num_
+#define _cast_num_
 	#define cast_num cast(lua_Number, (i))
 #endif
 
-#ifndef _TTISINTEGER_
+#ifndef _ttisinteger_
+#define _ttisinteger_
 	#define ttisinteger checktag((o), LUA_VNUMINT)
 #endif
 
-#ifndef _NVALUE_
+#ifndef _nvalue_
+#define _nvalue_
 	#define nvalue check_exp(ttisnumber(o), \
 		(ttisinteger(o) ? cast_num(ivalue(o)) : fltvalue(o)))
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-union Value {
-  struct GCObject *gc;    /* collectable objects */
-  void *p;         /* light userdata */
-  lua_CFunction f; /* light C functions */
-  lua_Integer i;   /* integer numbers */
-  lua_Number n;    /* float numbers */
-  /* not used, but may avoid warnings for uninitialized value */
-  lu_byte ub;
-};
-struct TValue {
-  TValuefields;
-};
+#ifndef _Value_
+#define _Value_
+	union Value {
+	  struct GCObject *gc;    /* collectable objects */
+	  void *p;         /* light userdata */
+	  lua_CFunction f; /* light C functions */
+	  lua_Integer i;   /* integer numbers */
+	  lua_Number n;    /* float numbers */
+	  /* not used, but may avoid warnings for uninitialized value */
+	  lu_byte ub;
+	};
+#endif
+
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
 
 void luaV_tonumber_Fun(void *p);
 

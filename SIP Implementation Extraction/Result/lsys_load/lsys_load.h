@@ -4,8 +4,21 @@
 #include "common.h"
 
 
-#define lua_pushliteral lua_pushstring(L, "" s)
-#define DLMSG "dynamic libraries not enabled; check your Lua installation"
+#ifndef _lua_pushliteral_
+#define _lua_pushliteral_
+	#define lua_pushliteral lua_pushstring(L, "" s)
+#endif
+
+#ifndef _DLMSG_
+#define _DLMSG_
+	#define DLMSG "dynamic libraries not enabled; check your Lua installation"
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
 
 void lsys_loadFun(void *p);
 
@@ -16,7 +29,6 @@ typedef struct __lsys_load
 	/* Input Variables */
 	int			seeglb;
 	/* Output Variables */
-	Unknown type*			lib;
 	void *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

@@ -5,59 +5,76 @@
 #include "rethook.h"
 #include "moveresults.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _CIST_NRESULTS_
+#define _CIST_NRESULTS_
 	#define CIST_NRESULTS 0xffu
 #endif
 
 #ifndef _CIST_CLSRET_
+#define _CIST_CLSRET_
 	#define CIST_CLSRET (CIST_FRESH << 1)
 #endif
 
 #ifndef _CIST_TBC_
+#define _CIST_TBC_
 	#define CIST_TBC (CIST_CLSRET << 1)
 #endif
 
 #ifndef _CIST_HOOKED_
+#define _CIST_HOOKED_
 	#define CIST_HOOKED (CIST_OAH << 1)
 #endif
 
 #ifndef _CIST_YPCALL_
+#define _CIST_YPCALL_
 	#define CIST_YPCALL (CIST_HOOKED << 1)
 #endif
 
 #ifndef _CIST_FIN_
+#define _CIST_FIN_
 	#define CIST_FIN (CIST_HOOKYIELD << 1)
 #endif
 
-struct lua_State;
-#ifndef _L_UINT32_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

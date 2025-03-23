@@ -5,32 +5,43 @@
 #include "luaS_sizelngstr.h"
 #include "createstrobj.h"
 
-#ifndef _CAST_CHARP_
+#ifndef _cast_charp_
+#define _cast_charp_
 	#define cast_charp cast(char *, (i))
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
 #ifndef _LSTRREG_
+#define _LSTRREG_
 	#define LSTRREG -1
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -46,7 +57,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -77,7 +89,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
@@ -136,7 +149,6 @@ typedef struct __luaS_createlngstrobj
 	/* Input Variables */
 	size_t			l;
 	/* Output Variables */
-	TString*			ts;
 	TString *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

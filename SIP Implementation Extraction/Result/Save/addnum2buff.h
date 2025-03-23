@@ -6,16 +6,19 @@
 #include "addstr2buff.h"
 
 #ifndef _LUA_N2SBUFFSZ_
+#define _LUA_N2SBUFFSZ_
 	#define LUA_N2SBUFFSZ 64
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _BUFFFS_
+#ifndef _BuffFS_
+#define _BuffFS_
 	struct BuffFS {
 	  lua_State *L;
 	  char *b;

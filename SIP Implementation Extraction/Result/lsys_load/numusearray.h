@@ -5,20 +5,26 @@
 #include "arraykeyisempty.h"
 
 #ifndef _MAXABITS_
+#define _MAXABITS_
 	#define MAXABITS cast_int(sizeof(int) * CHAR_BIT - 1)
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _COUNTERS_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _Counters_
+#define _Counters_
 	struct {
 	  unsigned total;
 	  unsigned na;

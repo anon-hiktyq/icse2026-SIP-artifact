@@ -4,32 +4,43 @@
 #include "common.h"
 #include "luaS_newlstr.h"
 
-#ifndef _POINT2UINT_
+#ifndef _point2uint_
+#define _point2uint_
 	#define point2uint cast_uint((L_P2I)(p) & UINT_MAX)
 #endif
 
-#ifndef _GETSTR_
+#ifndef _getstr_
+#define _getstr_
 	#define getstr (strisshr(ts) ? rawgetshrstr(ts) : (ts)->contents)
 #endif
 
 #ifndef _STRCACHE_N_
+#define _STRCACHE_N_
 	#define STRCACHE_N 53
 #endif
 
 #ifndef _STRCACHE_M_
+#define _STRCACHE_M_
 	#define STRCACHE_M 2
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-struct lua_State;
-#ifndef _LS_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -45,7 +56,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -76,7 +88,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

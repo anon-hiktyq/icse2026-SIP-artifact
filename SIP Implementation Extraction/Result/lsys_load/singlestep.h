@@ -11,82 +11,105 @@
 #include "checkSizes.h"
 #include "GCTM.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _GCSPROPAGATE_
+#ifndef _GCSpropagate_
+#define _GCSpropagate_
 	#define GCSpropagate 0
 #endif
 
-#ifndef _GCSENTERATOMIC_
+#ifndef _GCSenteratomic_
+#define _GCSenteratomic_
 	#define GCSenteratomic 1
 #endif
 
-#ifndef _GCSSWPALLGC_
+#ifndef _GCSswpallgc_
+#define _GCSswpallgc_
 	#define GCSswpallgc 3
 #endif
 
-#ifndef _GCSSWPFINOBJ_
+#ifndef _GCSswpfinobj_
+#define _GCSswpfinobj_
 	#define GCSswpfinobj 4
 #endif
 
-#ifndef _GCSSWPTOBEFNZ_
+#ifndef _GCSswptobefnz_
+#define _GCSswptobefnz_
 	#define GCSswptobefnz 5
 #endif
 
-#ifndef _GCSSWPEND_
+#ifndef _GCSswpend_
+#define _GCSswpend_
 	#define GCSswpend 6
 #endif
 
-#ifndef _GCSCALLFIN_
+#ifndef _GCScallfin_
+#define _GCScallfin_
 	#define GCScallfin 7
 #endif
 
-#ifndef _GCSPAUSE_
+#ifndef _GCSpause_
+#define _GCSpause_
 	#define GCSpause 8
 #endif
 
 #ifndef _GCSWEEPMAX_
+#define _GCSWEEPMAX_
 	#define GCSWEEPMAX 20
 #endif
 
 #ifndef _CWUFIN_
+#define _CWUFIN_
 	#define CWUFIN 10
 #endif
 
-#ifndef _STEP2PAUSE_
+#ifndef _step2pause_
+#define _step2pause_
 	#define step2pause -3
 #endif
 
-#ifndef _ATOMICSTEP_
+#ifndef _atomicstep_
+#define _atomicstep_
 	#define atomicstep -2
 #endif
 
-#ifndef _STEP2MINOR_
+#ifndef _step2minor_
+#define _step2minor_
 	#define step2minor -1
 #endif
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -117,7 +140,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

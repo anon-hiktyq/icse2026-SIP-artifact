@@ -2,23 +2,32 @@
 #define __PUSHFUNCNAME_H__
 
 #include "common.h"
-#include pushglobalfuncname.h
-#include lua_pushfstring.h
-#include lua_settop.h
-#include lua_pushfstring.h
-#include lua_pushfstring.h
+#include "pushglobalfuncname.h"
+#include "lua_pushfstring.h"
+#include "lua_settop.h"
 
-#ifndef _LUA_PUSHLITERAL_
+#ifndef _lua_pushliteral_
+#define _lua_pushliteral_
 	#define lua_pushliteral lua_pushstring(L, "" s)
 #endif
 
-#define lua_tostring lua_tolstring(L, (i), NULL)
-#ifndef _LUA_REMOVE_
+#ifndef _lua_tostring_
+#define _lua_tostring_
+	#define lua_tostring lua_tolstring(L, (i), NULL)
+#endif
+
+#ifndef _lua_remove_
+#define _lua_remove_
 	#define lua_remove (lua_rotate(L, (idx), -1), lua_pop(L, 1))
 #endif
 
-struct lua_State;
-#ifndef _LUA_DEBUG_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Debug_
+#define _lua_Debug_
 	struct lua_Debug;
 #endif
 

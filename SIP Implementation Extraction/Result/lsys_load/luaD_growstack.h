@@ -6,56 +6,72 @@
 #include "luaD_reallocstack.h"
 #include "luaG_runerror.h"
 
-#ifndef _L_LIKELY_
+#ifndef _l_likely_
+#define _l_likely_
 	#define l_likely luai_likely(x)
 #endif
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
 #ifndef _LUA_ERRERR_
+#define _LUA_ERRERR_
 	#define LUA_ERRERR 5
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _STACKSIZE_
+#ifndef _stacksize_
+#define _stacksize_
 	#define stacksize cast_int((th)->stack_last.p - (th)->stack.p)
 #endif
 
 #ifndef _MAXSTACK_
+#define _MAXSTACK_
 	#define MAXSTACK cast_int(LUAI_MAXSTACK < MAXSTACK_BYSIZET  \
 				        ? LUAI_MAXSTACK : MAXSTACK_BYSIZET)
 #endif
 
 #ifndef _ERRORSTACKSIZE_
+#define _ERRORSTACKSIZE_
 	#define ERRORSTACKSIZE (MAXSTACK + STACKERRSPACE)
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

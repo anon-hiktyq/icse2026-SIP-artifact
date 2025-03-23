@@ -4,25 +4,30 @@
 #include "common.h"
 
 
-#ifndef _TTYPETAG_
+#ifndef _ttypetag_
+#define _ttypetag_
 	#define ttypetag withvariant(rawtt(o))
 #endif
 
-#ifndef _SETOBJ_
+#ifndef _setobj_
+#define _setobj_
 	#define setobj { TValue *io1=(obj1); const TValue *io2=(obj2); \
 	          io1->value_ = io2->value_; settt_(io1, io2->tt_); \
 		  checkliveness(L,io1); lua_assert(!isnonstrictnil(io1)); }
 #endif
 
-#ifndef _TTISNIL_
+#ifndef _ttisnil_
+#define _ttisnil_
 	#define ttisnil checktype((v), LUA_TNIL)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -34,7 +39,8 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};

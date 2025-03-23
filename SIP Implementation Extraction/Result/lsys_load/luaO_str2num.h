@@ -5,31 +5,38 @@
 #include "l_str2int.h"
 #include "l_str2d.h"
 
-#ifndef _CT_DIFF2SZ_
+#ifndef _ct_diff2sz_
+#define _ct_diff2sz_
 	#define ct_diff2sz ((size_t)(df))
 #endif
 
-#ifndef _SETFLTVALUE_
+#ifndef _setfltvalue_
+#define _setfltvalue_
 	#define setfltvalue { TValue *io=(obj); val_(io).n=(x); settt_(io, LUA_VNUMFLT); }
 #endif
 
-#ifndef _SETIVALUE_
+#ifndef _setivalue_
+#define _setivalue_
 	#define setivalue { TValue *io=(obj); val_(io).i=(x); settt_(io, LUA_VNUMINT); }
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -41,7 +48,8 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};

@@ -4,22 +4,30 @@
 #include "common.h"
 #include "luaC_newobj.h"
 
-#ifndef _GCO2TS_
+#ifndef _gco2ts_
+#define _gco2ts_
 	#define gco2ts check_exp(novariant((o)->tt) == LUA_TSTRING, &((cast_u(o))->ts))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -35,7 +43,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -78,7 +87,6 @@ typedef struct __createstrobj
 	lu_byte			tag;
 	unsigned int			h;
 	/* Output Variables */
-	TString*			ts;
 	TString *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

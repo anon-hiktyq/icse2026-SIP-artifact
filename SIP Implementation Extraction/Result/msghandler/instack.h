@@ -4,22 +4,36 @@
 #include "common.h"
 
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-struct TValue {
-  TValuefields;
-};
-typedef StackValue *StkId;
-union {
-  StkId p;  /* actual pointer */
-  ptrdiff_t offset;  /* used while the stack is being reallocated */
-};
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
+#ifndef _StkId_
+#define _StkId_
+	typedef StackValue *StkId;
+#endif
+
+#ifndef _StkIdRel_
+#define _StkIdRel_
+	union {
+	  StkId p;  /* actual pointer */
+	  ptrdiff_t offset;  /* used while the stack is being reallocated */
+	};
+#endif
+
 
 void instackFun(void *p);
 

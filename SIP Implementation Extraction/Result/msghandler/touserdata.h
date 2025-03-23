@@ -5,49 +5,69 @@
 
 
 #ifndef _LUA_TLIGHTUSERDATA_
+#define _LUA_TLIGHTUSERDATA_
 	#define LUA_TLIGHTUSERDATA 2
 #endif
 
 #ifndef _LUA_TUSERDATA_
+#define _LUA_TUSERDATA_
 	#define LUA_TUSERDATA 7
 #endif
 
-#ifndef _TTYPE_
+#ifndef _ttype_
+#define _ttype_
 	#define ttype (novariant(rawtt(o)))
 #endif
 
-#ifndef _PVALUE_
+#ifndef _pvalue_
+#define _pvalue_
 	#define pvalue check_exp(ttislightuserdata(o), val_(o).p)
 #endif
 
-#ifndef _UVALUE_
+#ifndef _uvalue_
+#define _uvalue_
 	#define uvalue check_exp(ttisfulluserdata(o), gco2u(val_(o).gc))
 #endif
 
-#ifndef _GETUDATAMEM_
+#ifndef _getudatamem_
+#define _getudatamem_
 	#define getudatamem (cast_charp(u) + udatamemoffset((u)->nuvalue))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-union Value {
-  struct GCObject *gc;    /* collectable objects */
-  void *p;         /* light userdata */
-  lua_CFunction f; /* light C functions */
-  lua_Integer i;   /* integer numbers */
-  lua_Number n;    /* float numbers */
-  /* not used, but may avoid warnings for uninitialized value */
-  lu_byte ub;
-};
-struct TValue {
-  TValuefields;
-};
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _UDATA_
+#ifndef _Value_
+#define _Value_
+	union Value {
+	  struct GCObject *gc;    /* collectable objects */
+	  void *p;         /* light userdata */
+	  lua_CFunction f; /* light C functions */
+	  lua_Integer i;   /* integer numbers */
+	  lua_Number n;    /* float numbers */
+	  /* not used, but may avoid warnings for uninitialized value */
+	  lu_byte ub;
+	};
+#endif
+
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _Udata_
+#define _Udata_
 	struct Udata {
 	  CommonHeader;
 	  unsigned short nuvalue;  /* number of user values */

@@ -4,27 +4,40 @@
 #include "common.h"
 
 
-#define LUA_TSTRING 4
-#ifndef _NOVARIANT_
+#ifndef _LUA_TSTRING_
+#define _LUA_TSTRING_
+	#define LUA_TSTRING 4
+#endif
+
+#ifndef _novariant_
+#define _novariant_
 	#define novariant ((t) & 0x0F)
 #endif
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _MARKOBJECT_
+#ifndef _markobject_
+#define _markobject_
 	#define markobject { if (iswhite(t)) reallymarkobject(g, obj2gco(t)); }
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -1,7 +1,7 @@
 import tree_sitter_c as tspython
 from tree_sitter import Language, Parser
 
-from utils import record_range_content
+from IP_extract_tool.utils import record_range_content
 from main_class import MacroExprInfo, SubFunctionInfo, FunMacroExprInfo
 from utils import find_function_cursor, get_type_name, is_from_standard_library, find_c_file_path
 C_LANGUAGE = Language(tspython.language())
@@ -92,7 +92,7 @@ def create_var_mapping(libclang_function_cursor, tree_sitter_function_cursor, ca
     if macro_info:
         param_type = [get_type_name(param.type.spelling) for param in libclang_function_cursor.get_arguments()]
         for type in param_type:
-            macro_info.include_type_set.add(type)
+            macro_info.include_item_set.add(type)
 
     args = extract_arguments_with_types(tree_sitter_function_cursor, caller_code, tu_item_dict)
     print(f'\n函数{tree_sitter_function_cursor.text.decode("utf-8")}的参数列表是{args}\n')
@@ -125,7 +125,7 @@ def create_var_mapping(libclang_function_cursor, tree_sitter_function_cursor, ca
 #                     macro_range = get_node_range(node)
 #                     macro_expr_info_list.append(MacroExprInfo(
 #                         name=identifier,
-#                         content_range=macro_range
+#                         secondary_range=macro_range
 #                     ))
 #
 #         for child in node.children:
@@ -382,11 +382,11 @@ def macro_item_update(tu, root_dir, tu_item_dict, macro_info, tu_var_dict, unpar
                 elif tu_item_dict[identifier]['kind'] == 'global' and identifier == node_name:
                     macro_info.include_global_set.add(identifier)
                     if identifier in tu_var_dict:
-                        macro_info.include_type_set.add(tu_var_dict[identifier]['kind'])
+                        macro_info.include_item_set.add(tu_var_dict[identifier]['kind'])
 
         # 检查是否是类型
         elif cursor.type == 'primitive_type' or cursor.type == 'type_identifier ':
-            macro_info.include_type_set.add(cursor.text.decode('utf-8'))
+            macro_info.include_item_set.add(cursor.text.decode('utf-8'))
             for child in cursor.children:
                 traverse(child)
 

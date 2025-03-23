@@ -4,131 +4,163 @@
 #include "common.h"
 #include "luaS_eqlngstr.h"
 
-#ifndef _LUAI_NUMEQ_
+#ifndef _luai_numeq_
+#define _luai_numeq_
 	#define luai_numeq ((a)==(b))
 #endif
 
-#ifndef _RAWTT_
+#ifndef _rawtt_
+#define _rawtt_
 	#define rawtt ((o)->tt_)
 #endif
 
 #ifndef _LUA_VNIL_
+#define _LUA_VNIL_
 	#define LUA_VNIL makevariant(LUA_TNIL, 0)
 #endif
 
 #ifndef _LUA_VFALSE_
+#define _LUA_VFALSE_
 	#define LUA_VFALSE makevariant(LUA_TBOOLEAN, 0)
 #endif
 
 #ifndef _LUA_VTRUE_
+#define _LUA_VTRUE_
 	#define LUA_VTRUE makevariant(LUA_TBOOLEAN, 1)
 #endif
 
-#ifndef _ISCOLLECTABLE_
+#ifndef _iscollectable_
+#define _iscollectable_
 	#define iscollectable (rawtt(o) & BIT_ISCOLLECTABLE)
 #endif
 
-#ifndef _CTB_
+#ifndef _ctb_
+#define _ctb_
 	#define ctb ((t) | BIT_ISCOLLECTABLE)
 #endif
 
-#ifndef _GCVALUE_
+#ifndef _gcvalue_
+#define _gcvalue_
 	#define gcvalue check_exp(iscollectable(o), val_(o).gc)
 #endif
 
-#ifndef _GCVALUERAW_
+#ifndef _gcvalueraw_
+#define _gcvalueraw_
 	#define gcvalueraw ((v).gc)
 #endif
 
 #ifndef _LUA_VNUMINT_
+#define _LUA_VNUMINT_
 	#define LUA_VNUMINT makevariant(LUA_TNUMBER, 0)
 #endif
 
 #ifndef _LUA_VNUMFLT_
+#define _LUA_VNUMFLT_
 	#define LUA_VNUMFLT makevariant(LUA_TNUMBER, 1)
 #endif
 
-#ifndef _FLTVALUE_
+#ifndef _fltvalue_
+#define _fltvalue_
 	#define fltvalue check_exp(ttisfloat(o), val_(o).n)
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
-#ifndef _FLTVALUERAW_
+#ifndef _fltvalueraw_
+#define _fltvalueraw_
 	#define fltvalueraw ((v).n)
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
 #ifndef _LUA_VLIGHTUSERDATA_
+#define _LUA_VLIGHTUSERDATA_
 	#define LUA_VLIGHTUSERDATA makevariant(LUA_TLIGHTUSERDATA, 0)
 #endif
 
-#ifndef _PVALUE_
+#ifndef _pvalue_
+#define _pvalue_
 	#define pvalue check_exp(ttislightuserdata(o), val_(o).p)
 #endif
 
-#ifndef _PVALUERAW_
+#ifndef _pvalueraw_
+#define _pvalueraw_
 	#define pvalueraw ((v).p)
 #endif
 
 #ifndef _LUA_VLCF_
+#define _LUA_VLCF_
 	#define LUA_VLCF makevariant(LUA_TFUNCTION, 1)
 #endif
 
-#ifndef _FVALUE_
+#ifndef _fvalue_
+#define _fvalue_
 	#define fvalue check_exp(ttislcf(o), val_(o).f)
 #endif
 
-#ifndef _FVALUERAW_
+#ifndef _fvalueraw_
+#define _fvalueraw_
 	#define fvalueraw ((v).f)
 #endif
 
-#ifndef _KEYTT_
+#ifndef _keytt_
+#define _keytt_
 	#define keytt ((node)->u.key_tt)
 #endif
 
-#ifndef _KEYVAL_
+#ifndef _keyval_
+#define _keyval_
 	#define keyval ((node)->u.key_val)
 #endif
 
-#ifndef _KEYIVAL_
+#ifndef _keyival_
+#define _keyival_
 	#define keyival (keyval(node).i)
 #endif
 
-#ifndef _KEYSTRVAL_
+#ifndef _keystrval_
+#define _keystrval_
 	#define keystrval (gco2ts(keyval(node).gc))
 #endif
 
-#ifndef _KEYISDEAD_
+#ifndef _keyisdead_
+#define _keyisdead_
 	#define keyisdead (keytt(node) == LUA_TDEADKEY)
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_CFUNCTION_
+#ifndef _lua_CFunction_
+#define _lua_CFunction_
 	typedef int (*lua_CFunction) (lua_State *L);
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -140,19 +172,22 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -168,7 +203,8 @@
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */

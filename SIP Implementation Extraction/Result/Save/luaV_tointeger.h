@@ -5,17 +5,20 @@
 #include "l_strton.h"
 #include "luaV_tointegerns.h"
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _F2IMOD_
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

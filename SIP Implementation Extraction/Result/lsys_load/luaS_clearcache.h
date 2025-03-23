@@ -5,22 +5,27 @@
 
 
 #ifndef _STRCACHE_N_
+#define _STRCACHE_N_
 	#define STRCACHE_N 53
 #endif
 
 #ifndef _STRCACHE_M_
+#define _STRCACHE_M_
 	#define STRCACHE_M 2
 #endif
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -36,7 +41,8 @@
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

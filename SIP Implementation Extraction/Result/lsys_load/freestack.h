@@ -4,43 +4,56 @@
 #include "common.h"
 #include "freeCI.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_SIZET_
+#ifndef _cast_sizet_
+#define _cast_sizet_
 	#define cast_sizet cast(size_t, (i))
 #endif
 
-#ifndef _LUAM_FREEARRAY_
+#ifndef _luaM_freearray_
+#define _luaM_freearray_
 	#define luaM_freearray luaM_free_(L, (b), (n)*sizeof(*(b)))
 #endif
 
 #ifndef _EXTRA_STACK_
+#define _EXTRA_STACK_
 	#define EXTRA_STACK 5
 #endif
 
-#ifndef _STACKSIZE_
+#ifndef _stacksize_
+#define _stacksize_
 	#define stacksize cast_int((th)->stack_last.p - (th)->stack.p)
 #endif
 
-struct lua_State;
-#ifndef _CALLINFO_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

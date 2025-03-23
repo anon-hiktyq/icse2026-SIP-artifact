@@ -2,151 +2,196 @@
 #define __LUA_GC_H__
 
 #include "common.h"
-#include luaE_setdebt.h
-#include luaC_fullgc.h
-#include luaE_setdebt.h
-#include luaC_changemode.h
-#include luaC_changemode.h
-#include luaO_codeparam.h
+#include "luaE_setdebt.h"
+#include "luaC_fullgc.h"
+#include "luaC_changemode.h"
+#include "luaO_codeparam.h"
 
 #ifndef _LUA_GCSTOP_
+#define _LUA_GCSTOP_
 	#define LUA_GCSTOP 0
 #endif
 
 #ifndef _LUA_GCRESTART_
+#define _LUA_GCRESTART_
 	#define LUA_GCRESTART 1
 #endif
 
 #ifndef _LUA_GCCOLLECT_
+#define _LUA_GCCOLLECT_
 	#define LUA_GCCOLLECT 2
 #endif
 
 #ifndef _LUA_GCCOUNT_
+#define _LUA_GCCOUNT_
 	#define LUA_GCCOUNT 3
 #endif
 
 #ifndef _LUA_GCCOUNTB_
+#define _LUA_GCCOUNTB_
 	#define LUA_GCCOUNTB 4
 #endif
 
 #ifndef _LUA_GCSTEP_
+#define _LUA_GCSTEP_
 	#define LUA_GCSTEP 5
 #endif
 
 #ifndef _LUA_GCISRUNNING_
+#define _LUA_GCISRUNNING_
 	#define LUA_GCISRUNNING 6
 #endif
 
 #ifndef _LUA_GCGEN_
+#define _LUA_GCGEN_
 	#define LUA_GCGEN 7
 #endif
 
 #ifndef _LUA_GCINC_
+#define _LUA_GCINC_
 	#define LUA_GCINC 8
 #endif
 
 #ifndef _LUA_GCPARAM_
+#define _LUA_GCPARAM_
 	#define LUA_GCPARAM 9
 #endif
 
 #ifndef _LUA_GCPN_
+#define _LUA_GCPN_
 	#define LUA_GCPN 6
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _KGC_INC_
+#define _KGC_INC_
 	#define KGC_INC 0
 #endif
 
 #ifndef _KGC_GENMINOR_
+#define _KGC_GENMINOR_
 	#define KGC_GENMINOR 1
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _GETTOTALBYTES_
+#ifndef _gettotalbytes_
+#define _gettotalbytes_
 	#define gettotalbytes ((g)->GCtotalbytes - (g)->GCdebt)
 #endif
 
-#define api_check ((void)(l), lua_assert((e) && msg))
-#define lua_lock ((void) 0)
-#define lua_unlock ((void) 0)
-#ifndef _GCSPAUSE_
+#ifndef _api_check_
+#define _api_check_
+	#define api_check ((void)(l), lua_assert((e) && msg))
+#endif
+
+#ifndef _lua_lock_
+#define _lua_lock_
+	#define lua_lock ((void) 0)
+#endif
+
+#ifndef _lua_unlock_
+#define _lua_unlock_
+	#define lua_unlock ((void) 0)
+#endif
+
+#ifndef _GCSpause_
+#define _GCSpause_
 	#define GCSpause 8
 #endif
 
 #ifndef _GCSTPUSR_
+#define _GCSTPUSR_
 	#define GCSTPUSR 1
 #endif
 
 #ifndef _GCSTPGC_
+#define _GCSTPGC_
 	#define GCSTPGC 2
 #endif
 
 #ifndef _GCSTPCLS_
+#define _GCSTPCLS_
 	#define GCSTPCLS 4
 #endif
 
-#ifndef _GCRUNNING_
+#ifndef _gcrunning_
+#define _gcrunning_
 	#define gcrunning ((g)->gcstp == 0)
 #endif
 
-#ifndef _LUAC_CONDGC_
+#ifndef _luaC_condGC_
+#define _luaC_condGC_
 	#define luaC_condGC { if (G(L)->GCdebt <= 0) { pre; luaC_step(L); pos;}; \
 		  condchangemem(L,pre,pos,0); }
 #endif
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct lua_State {
-  CommonHeader;
-  lu_byte allowhook;
-  TStatus status;
-  StkIdRel top;  /* first free slot in the stack */
-  struct global_State *l_G;
-  CallInfo *ci;  /* call info for current function */
-  StkIdRel stack_last;  /* end of stack (last element + 1) */
-  StkIdRel stack;  /* stack base */
-  UpVal *openupval;  /* list of open upvalues in this stack */
-  StkIdRel tbclist;  /* list of to-be-closed variables */
-  GCObject *gclist;
-  struct lua_State *twups;  /* list of threads with open upvalues */
-  struct lua_longjmp *errorJmp;  /* current error recover point */
-  CallInfo base_ci;  /* CallInfo for first level (C host) */
-  volatile lua_Hook hook;
-  ptrdiff_t errfunc;  /* current error handling function (stack index) */
-  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
-  int oldpc;  /* last pc traced */
-  int nci;  /* number of items in 'ci' list */
-  int basehookcount;
-  int hookcount;
-  volatile l_signalT hookmask;
-  struct {  /* info about transferred values (for call/return hooks) */
-    int ftransfer;  /* offset of first value transferred */
-    int ntransfer;  /* number of values transferred */
-  } transferinfo;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State {
+	  CommonHeader;
+	  lu_byte allowhook;
+	  TStatus status;
+	  StkIdRel top;  /* first free slot in the stack */
+	  struct global_State *l_G;
+	  CallInfo *ci;  /* call info for current function */
+	  StkIdRel stack_last;  /* end of stack (last element + 1) */
+	  StkIdRel stack;  /* stack base */
+	  UpVal *openupval;  /* list of open upvalues in this stack */
+	  StkIdRel tbclist;  /* list of to-be-closed variables */
+	  GCObject *gclist;
+	  struct lua_State *twups;  /* list of threads with open upvalues */
+	  struct lua_longjmp *errorJmp;  /* current error recover point */
+	  CallInfo base_ci;  /* CallInfo for first level (C host) */
+	  volatile lua_Hook hook;
+	  ptrdiff_t errfunc;  /* current error handling function (stack index) */
+	  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
+	  int oldpc;  /* last pc traced */
+	  int nci;  /* number of items in 'ci' list */
+	  int basehookcount;
+	  int hookcount;
+	  volatile l_signalT hookmask;
+	  struct {  /* info about transferred values (for call/return hooks) */
+	    int ftransfer;  /* offset of first value transferred */
+	    int ntransfer;  /* number of values transferred */
+	  } transferinfo;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

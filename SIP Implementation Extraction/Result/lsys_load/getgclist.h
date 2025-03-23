@@ -4,70 +4,90 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _LUA_VTHREAD_
+#define _LUA_VTHREAD_
 	#define LUA_VTHREAD makevariant(LUA_TTHREAD, 0)
 #endif
 
 #ifndef _LUA_VUSERDATA_
+#define _LUA_VUSERDATA_
 	#define LUA_VUSERDATA makevariant(LUA_TUSERDATA, 0)
 #endif
 
 #ifndef _LUA_VPROTO_
+#define _LUA_VPROTO_
 	#define LUA_VPROTO makevariant(LUA_TPROTO, 0)
 #endif
 
 #ifndef _LUA_VLCL_
+#define _LUA_VLCL_
 	#define LUA_VLCL makevariant(LUA_TFUNCTION, 0)
 #endif
 
 #ifndef _LUA_VCCL_
+#define _LUA_VCCL_
 	#define LUA_VCCL makevariant(LUA_TFUNCTION, 2)
 #endif
 
 #ifndef _LUA_VTABLE_
+#define _LUA_VTABLE_
 	#define LUA_VTABLE makevariant(LUA_TTABLE, 0)
 #endif
 
-#ifndef _GCO2U_
+#ifndef _gco2u_
+#define _gco2u_
 	#define gco2u check_exp((o)->tt == LUA_VUSERDATA, &((cast_u(o))->u))
 #endif
 
-#ifndef _GCO2LCL_
+#ifndef _gco2lcl_
+#define _gco2lcl_
 	#define gco2lcl check_exp((o)->tt == LUA_VLCL, &((cast_u(o))->cl.l))
 #endif
 
-#ifndef _GCO2CCL_
+#ifndef _gco2ccl_
+#define _gco2ccl_
 	#define gco2ccl check_exp((o)->tt == LUA_VCCL, &((cast_u(o))->cl.c))
 #endif
 
-#ifndef _GCO2T_
+#ifndef _gco2t_
+#define _gco2t_
 	#define gco2t check_exp((o)->tt == LUA_VTABLE, &((cast_u(o))->h))
 #endif
 
-#ifndef _GCO2P_
+#ifndef _gco2p_
+#define _gco2p_
 	#define gco2p check_exp((o)->tt == LUA_VPROTO, &((cast_u(o))->p))
 #endif
 
-#ifndef _GCO2TH_
+#ifndef _gco2th_
+#define _gco2th_
 	#define gco2th check_exp((o)->tt == LUA_VTHREAD, &((cast_u(o))->th))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _UDATA_
+#ifndef _Udata_
+#define _Udata_
 	struct Udata {
 	  CommonHeader;
 	  unsigned short nuvalue;  /* number of user values */
@@ -78,7 +98,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -105,7 +126,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _CCLOSURE_
+#ifndef _CClosure_
+#define _CClosure_
 	struct CClosure {
 	  ClosureHeader;
 	  lua_CFunction f;
@@ -113,7 +135,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LCLOSURE_
+#ifndef _LClosure_
+#define _LClosure_
 	struct LClosure {
 	  ClosureHeader;
 	  struct Proto *p;
@@ -121,24 +144,30 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _CLOSURE_
+#ifndef _Closure_
+#define _Closure_
 	union Closure {
 	  CClosure c;
 	  LClosure l;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _LUA_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

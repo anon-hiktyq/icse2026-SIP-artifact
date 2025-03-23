@@ -4,19 +4,23 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _LSTRREG_
+#define _LSTRREG_
 	#define LSTRREG -1
 #endif
 
 #ifndef _LSTRFIX_
+#define _LSTRFIX_
 	#define LSTRFIX -2
 #endif
 
 #ifndef _LSTRMEM_
+#define _LSTRMEM_
 	#define LSTRMEM -3
 #endif
 

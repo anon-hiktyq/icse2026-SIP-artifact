@@ -6,15 +6,22 @@
 #include "basicgetobjname.h"
 
 #ifndef _LUA_ENV_
+#define _LUA_ENV_
 	#define LUA_ENV "_ENV"
 #endif
 
 #ifndef _GETARG_B_
+#define _GETARG_B_
 	#define GETARG_B check_exp(checkopm(i, iABC), getarg(i, POS_B, SIZE_B))
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

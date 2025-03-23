@@ -4,32 +4,43 @@
 #include "common.h"
 #include "getobjname.h"
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _GETSHRSTR_
+#ifndef _getshrstr_
+#define _getshrstr_
 	#define getshrstr check_exp(strisshr(ts), rawgetshrstr(ts))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
 #ifndef _GET_OPCODE_
+#define _GET_OPCODE_
 	#define GET_OPCODE (cast(OpCode, ((i)>>POS_OP) & MASK1(SIZE_OP,0)))
 #endif
 
 #ifndef _GETARG_A_
+#define _GETARG_A_
 	#define GETARG_A getarg(i, POS_A, SIZE_A)
 #endif
 
 #ifndef _GETARG_C_
+#define _GETARG_C_
 	#define GETARG_C check_exp(checkopm(i, iABC), getarg(i, POS_C, SIZE_C))
 #endif
 
-struct lua_State;
-#ifndef _TSTRING_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -45,8 +56,13 @@ struct lua_State;
 	};
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -74,6 +90,7 @@ typedef l_uint32 Instruction;
 #endif
 
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -104,7 +121,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -135,7 +153,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -4,47 +4,61 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _CIST_NRESULTS_
+#define _CIST_NRESULTS_
 	#define CIST_NRESULTS 0xffu
 #endif
 
 #ifndef _MAX_CCMT_
+#define _MAX_CCMT_
 	#define MAX_CCMT (0xfu << CIST_CCMT)
 #endif
 
 #ifndef _CIST_C_
+#define _CIST_C_
 	#define CIST_C (1u << (CIST_RECST + 3))
 #endif
 
-#ifndef _NEXT_CI_
+#ifndef _next_ci_
+#define _next_ci_
 	#define next_ci (L->ci->next ? L->ci->next : luaE_extendCI(L))
 #endif
 
-struct lua_State;
-#ifndef _L_UINT32_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -85,7 +99,6 @@ typedef struct __prepCallInfo
 	/* Input Variables */
 	unsigned int			status;
 	/* Output Variables */
-	CallInfo*			ci;
 	CallInfo *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

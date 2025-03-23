@@ -4,43 +4,56 @@
 #include "common.h"
 #include "luaD_rawrunprotected.h"
 
-#ifndef _L_LIKELY_
+#ifndef _l_likely_
+#define _l_likely_
 	#define l_likely luai_likely(x)
 #endif
 
 #ifndef _LUA_OK_
+#define _LUA_OK_
 	#define LUA_OK 0
 #endif
 
-#ifndef _RESTORESTACK_
+#ifndef _restorestack_
+#define _restorestack_
 	#define restorestack cast(StkId, cast_charp(L->stack.p) + (n))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TSTATUS_
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -71,7 +84,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _CLOSEP_
+#ifndef _CloseP_
+#define _CloseP_
 	struct CloseP {
 	  StkId level;
 	  TStatus status;

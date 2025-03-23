@@ -4,43 +4,53 @@
 #include "common.h"
 #include "countint.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _KEYISNIL_
+#ifndef _keyisnil_
+#define _keyisnil_
 	#define keyisnil (keytt(node) == LUA_TNIL)
 #endif
 
-#ifndef _KEYISINTEGER_
+#ifndef _keyisinteger_
+#define _keyisinteger_
 	#define keyisinteger (keytt(node) == LUA_VNUMINT)
 #endif
 
-#ifndef _KEYIVAL_
+#ifndef _keyival_
+#define _keyival_
 	#define keyival (keyval(node).i)
 #endif
 
-#ifndef _SIZENODE_
+#ifndef _sizenode_
+#define _sizenode_
 	#define sizenode (twoto((t)->lsizenode))
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -52,13 +62,15 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -70,17 +82,22 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _COUNTERS_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _Counters_
+#define _Counters_
 	struct {
 	  unsigned total;
 	  unsigned na;

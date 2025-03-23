@@ -53,20 +53,20 @@ class MacroInfo:  #使用@进行唯一标识符标记
 
 
 class MacroExprInfo:
-    def __init__(self, name=None, body=None, origin_content_range=None, var_mapping=None, sub_function_info_list=None):
+    def __init__(self, name=None, body=None, content_range=None, var_mapping=None, sub_function_info_list=None):
         self.name: str = name
         self.body: str = body
-        self.origin_content_range: list = origin_content_range
+        self.content_range: list = content_range
         self.var_mapping: dict = var_mapping if var_mapping else {}
         self.sub_function_info_list: list = sub_function_info_list if sub_function_info_list else []
 
 class TypeInfo: #使用@进行唯一标识符标记
-    def __init__(self, file_path=None, content_range=None, def_code = None, type_cursor=None, include_type_set=None):
+    def __init__(self, file_path=None, content_range=None, def_code = None, type_cursor=None, include_item_set=None):
         self.file_path = file_path
         self.content_range: list = content_range
         self.def_code = def_code
         self.type_cursor = type_cursor
-        self.include_type_set: set = include_type_set if include_type_set is not None else set()
+        self.include_item_set: set = include_item_set if include_item_set is not None else set()
 
 
 

@@ -4,42 +4,55 @@
 #include "common.h"
 
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_CHARP_
+#ifndef _cast_charp_
+#define _cast_charp_
 	#define cast_charp cast(char *, (i))
 #endif
 
-#ifndef _NOVARIANT_
+#ifndef _novariant_
+#define _novariant_
 	#define novariant ((t) & 0x0F)
 #endif
 
-#ifndef _LUAM_NEWOBJECT_
+#ifndef _luaM_newobject_
+#define _luaM_newobject_
 	#define luaM_newobject luaM_malloc_(L, (s), tag)
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _LUAC_WHITE_
+#ifndef _luaC_white_
+#define _luaC_white_
 	#define luaC_white cast_byte((g)->currentwhite & WHITEBITS)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -70,7 +83,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
@@ -131,7 +145,6 @@ typedef struct __luaC_newobjdt
 	size_t			sz;
 	size_t			offset;
 	/* Output Variables */
-	GCObject*			o;
 	GCObject *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

@@ -5,30 +5,37 @@
 
 
 #ifndef _LUA_IDSIZE_
+#define _LUA_IDSIZE_
 	#define LUA_IDSIZE 60
 #endif
 
 #ifndef _LL_
+#define _LL_
 	#define LL (sizeof(x)/sizeof(char) - 1)
 #endif
 
-#ifndef _CT_DIFF2SZ_
+#ifndef _ct_diff2sz_
+#define _ct_diff2sz_
 	#define ct_diff2sz ((size_t)(df))
 #endif
 
 #ifndef _RETS_
+#define _RETS_
 	#define RETS "..."
 #endif
 
 #ifndef _PRE_
+#define _PRE_
 	#define PRE "[string \""
 #endif
 
 #ifndef _POS_
+#define _POS_
 	#define POS "\"]"
 #endif
 
-#ifndef _ADDSTR_
+#ifndef _addstr_
+#define _addstr_
 	#define addstr ( memcpy(a,b,(l) * sizeof(char)), a += (l) )
 #endif
 

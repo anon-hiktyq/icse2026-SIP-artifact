@@ -60,7 +60,7 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
             continue
 
         processed_functions.add(current_function_name)
-
+        print(f'开始创建函数Info: {current_function_name},path:{current_file_path}')
         # 创建翻译单元
         tu = create_tu(current_file_path, tu_dict)
         
@@ -68,7 +68,6 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
         tu_type_dict, tu_macro_dict, tu_var_dict, tu_item_dict = parse_file(root_dir, tu, file_cache, global_type_dict, global_macro_dict, global_var_dict)
         
         # 获取该函数的所有信息
-
         relevant_header_set, content_range, function_code, fun_item_dict, macro_expr_info_list, callee_info_list, function_cursor, func_type, ret_range_list, unparsed_fun_set \
             = parse_function(root_dir, current_file_path, current_function_name, tu, file_cache, tu_dict, tu_item_dict,
                              tu_type_dict,
@@ -77,7 +76,7 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
         subdirs = find_file_path(root_dir)
         # 获取接口信息
         fun_var_dict, IP_var_dict = extract_IP_var(root_dir, bc_file_name, subdirs, current_function_name)
-
+        
         # 处理 fun_var_dict 和 IP_var_dict
         if fun_var_dict and IP_var_dict:
             # 删除那些在 output 类别中但不在 input 类别中的变量
@@ -86,17 +85,17 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
                 for var_name in IP_var_dict['output']:
                     if var_name not in IP_var_dict['input']:
                         output_only_vars.add(var_name)
-
+                
                 # 从 fun_var_dict 中删除这些变量
                 for var_name in output_only_vars:
                     if var_name in fun_var_dict:
                         print(f"从 fun_var_dict 中删除输出变量: {var_name}")
                         del fun_var_dict[var_name]
-
+                
                 # 从 IP_var_dict['output'] 中删除这些变量
                 for var_name in output_only_vars:
                     if var_name in IP_var_dict['output']:
-                        # print(f"从 IP_var_dict['output'] 中删除变量: {var_name}")
+                        print(f"从 IP_var_dict['output'] 中删除变量: {var_name}")
                         del IP_var_dict['output'][var_name]
 
         # 更新全局字典
@@ -118,11 +117,7 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
             ret_range_list=ret_range_list,
         )
 
-        # print(f'function_info_dict')
-        # for function_name in function_info_dict:
-        #     print(f'name:{function_name},\ncode:\n{function_info_dict[function_name].code}')
-
-        # print(f'成功处理函数: {current_function_name}')
+        print(f'成功处理函数: {current_function_name}')
 
         # 将所有被调用的函数添加到待处理队列
         if callee_info_list:
@@ -134,7 +129,6 @@ def global_dict_init(root_dir, file_path, function_name, function_info_dict, tu_
                 if unparsed_fun not in processed_functions and unparsed_fun not in function_info_dict:
                     unparsed_fun_file_path = find_c_file_path(root_dir, unparsed_fun, tu_dict)
                     functions_to_process.append((unparsed_fun_file_path, unparsed_fun))
-
 
     print('全局字典初始化完成')
     print(f'已处理函数:')
@@ -157,7 +151,7 @@ def remove_macro_expr_callee(callee_info_list, fun_macro_expr_info_list:list[Fun
     #     is_in_macro = False
     #     for macro_expr in macro_expr_info_list:
     #         # 检查callee的范围是否在宏表达式的范围内
-    #         if is_range_inside(callee_info.content_range, macro_expr.content_range):
+    #         if is_range_inside(callee_info.secondary_range, macro_expr.secondary_range):
     #             is_in_macro = True
     #             print(f"移除在宏 {macro_expr.name} 内的函数调用: {callee_info.name}")
     #             break
@@ -245,7 +239,7 @@ def global_dict_update(function_info_dict, global_type_dict, global_macro_dict, 
                     if in_degree[func_name] == 0:
                         queue.append(func_name)
     
-    # print(f'全局字典处理完成')
+    print(f'全局字典处理完成')
 
 
 def print_global_dicts(global_type_dict, global_macro_dict, global_var_dict, function_info_dict, item_count_dict):

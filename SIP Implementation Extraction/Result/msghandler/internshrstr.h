@@ -2,70 +2,94 @@
 #define __INTERNSHRSTR_H__
 
 #include "common.h"
-#include luaS_hash.h
-#include growstrtab.h
-#include createstrobj.h
+#include "luaS_hash.h"
+#include "growstrtab.h"
+#include "createstrobj.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
-#ifndef _GETSHRSTR_
+#ifndef _getshrstr_
+#define _getshrstr_
 	#define getshrstr check_exp(strisshr(ts), rawgetshrstr(ts))
 #endif
 
-#ifndef _LMOD_
+#ifndef _lmod_
+#define _lmod_
 	#define lmod (check_exp((size&(size-1))==0, (cast_uint(s) & cast_uint((size)-1))))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _ISDEAD_
+#ifndef _isdead_
+#define _isdead_
 	#define isdead isdeadm(otherwhite(g), (v)->marked)
 #endif
 
-#ifndef _CHANGEWHITE_
+#ifndef _changewhite_
+#define _changewhite_
 	#define changewhite ((x)->marked ^= WHITEBITS)
 #endif
 
-#ifndef _SIZESTRSHR_
+#ifndef _sizestrshr_
+#define _sizestrshr_
 	#define sizestrshr (offsetof(TString, contents) + ((l) + 1) * sizeof(char))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-typedef signed char ls_byte;
-struct TString {
-  CommonHeader;
-  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
-  ls_byte shrlen;  /* length for short strings, negative for long strings */
-  unsigned int hash;
-  union {
-    size_t lnglen;  /* length for long strings */
-    struct TString *hnext;  /* linked list for hash table */
-  } u;
-  char *contents;  /* pointer to content in long strings */
-  lua_Alloc falloc;  /* deallocation function for external strings */
-  void *ud;  /* user data for external strings */
-};
-#ifndef _STRINGTABLE_
+#ifndef _ls_byte_
+#define _ls_byte_
+	typedef signed char ls_byte;
+#endif
+
+#ifndef _TString_
+#define _TString_
+	struct TString {
+	  CommonHeader;
+	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
+	  ls_byte shrlen;  /* length for short strings, negative for long strings */
+	  unsigned int hash;
+	  union {
+	    size_t lnglen;  /* length for long strings */
+	    struct TString *hnext;  /* linked list for hash table */
+	  } u;
+	  char *contents;  /* pointer to content in long strings */
+	  lua_Alloc falloc;  /* deallocation function for external strings */
+	  void *ud;  /* user data for external strings */
+	};
+#endif
+
+#ifndef _stringtable_
+#define _stringtable_
 	struct stringtable {
 	  TString **hash;  /* array of buckets (linked lists of strings) */
 	  int nuse;  /* number of elements */
@@ -73,35 +97,40 @@ struct TString {
 	};
 #endif
 
-struct lua_State {
-  CommonHeader;
-  lu_byte allowhook;
-  TStatus status;
-  StkIdRel top;  /* first free slot in the stack */
-  struct global_State *l_G;
-  CallInfo *ci;  /* call info for current function */
-  StkIdRel stack_last;  /* end of stack (last element + 1) */
-  StkIdRel stack;  /* stack base */
-  UpVal *openupval;  /* list of open upvalues in this stack */
-  StkIdRel tbclist;  /* list of to-be-closed variables */
-  GCObject *gclist;
-  struct lua_State *twups;  /* list of threads with open upvalues */
-  struct lua_longjmp *errorJmp;  /* current error recover point */
-  CallInfo base_ci;  /* CallInfo for first level (C host) */
-  volatile lua_Hook hook;
-  ptrdiff_t errfunc;  /* current error handling function (stack index) */
-  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
-  int oldpc;  /* last pc traced */
-  int nci;  /* number of items in 'ci' list */
-  int basehookcount;
-  int hookcount;
-  volatile l_signalT hookmask;
-  struct {  /* info about transferred values (for call/return hooks) */
-    int ftransfer;  /* offset of first value transferred */
-    int ntransfer;  /* number of values transferred */
-  } transferinfo;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State {
+	  CommonHeader;
+	  lu_byte allowhook;
+	  TStatus status;
+	  StkIdRel top;  /* first free slot in the stack */
+	  struct global_State *l_G;
+	  CallInfo *ci;  /* call info for current function */
+	  StkIdRel stack_last;  /* end of stack (last element + 1) */
+	  StkIdRel stack;  /* stack base */
+	  UpVal *openupval;  /* list of open upvalues in this stack */
+	  StkIdRel tbclist;  /* list of to-be-closed variables */
+	  GCObject *gclist;
+	  struct lua_State *twups;  /* list of threads with open upvalues */
+	  struct lua_longjmp *errorJmp;  /* current error recover point */
+	  CallInfo base_ci;  /* CallInfo for first level (C host) */
+	  volatile lua_Hook hook;
+	  ptrdiff_t errfunc;  /* current error handling function (stack index) */
+	  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
+	  int oldpc;  /* last pc traced */
+	  int nci;  /* number of items in 'ci' list */
+	  int basehookcount;
+	  int hookcount;
+	  volatile l_signalT hookmask;
+	  struct {  /* info about transferred values (for call/return hooks) */
+	    int ftransfer;  /* offset of first value transferred */
+	    int ntransfer;  /* number of values transferred */
+	  } transferinfo;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

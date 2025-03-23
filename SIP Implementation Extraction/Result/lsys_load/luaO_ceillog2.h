@@ -4,11 +4,13 @@
 #include "common.h"
 
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 

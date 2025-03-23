@@ -4,21 +4,29 @@
 #include "common.h"
 
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
 #ifndef _MAX_SIZE_
+#define _MAX_SIZE_
 	#define MAX_SIZE (sizeof(size_t) < sizeof(lua_Integer) ? MAX_SIZET \
 				  : cast_sizet(LUA_MAXINTEGER))
 #endif
 
-#ifndef _CAST_SIZET_
+#ifndef _cast_sizet_
+#define _cast_sizet_
 	#define cast_sizet cast(size_t, (i))
 #endif
 
-struct lua_State;
-#ifndef _LUAL_BUFFER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

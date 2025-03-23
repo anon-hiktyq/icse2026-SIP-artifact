@@ -5,35 +5,46 @@
 #include "luaF_closeupval.h"
 #include "freestack.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _LUAM_FREE_
+#ifndef _luaM_free_
+#define _luaM_free_
 	#define luaM_free luaM_free_(L, (b), sizeof(*(b)))
 #endif
 
-#ifndef _FROMSTATE_
+#ifndef _fromstate_
+#define _fromstate_
 	#define fromstate (cast(LX *, cast(lu_byte *, (L)) - offsetof(LX, l)))
 #endif
 
-#ifndef _LUAI_USERSTATEFREE_
+#ifndef _luai_userstatefree_
+#define _luai_userstatefree_
 	#define luai_userstatefree ((void)L)
 #endif
 
-struct lua_State;
-#ifndef _STKID_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -65,6 +76,7 @@ struct lua_State;
 #endif
 
 #ifndef _LX_
+#define _LX_
 	struct LX {
 	  lu_byte extra_[LUA_EXTRASPACE];
 	  lua_State l;

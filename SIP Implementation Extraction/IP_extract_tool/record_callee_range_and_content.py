@@ -246,7 +246,7 @@ def create_ip_expr(callee_info, fun_var_dict, ip_call_code_list, ret_def_dict, f
         ret_name = f'{callee_info.name}_ret_{ret_count}'
         is_pointer = '*' in func_type
         ret_def = f'{func_type} {ret_name};'
-        ret_def_dict[ret_name] = {'content_range': callee_info.content_range, 'ret_type': func_type}
+        ret_def_dict[ret_name] = {'secondary_range': callee_info.content_range, 'ret_type': func_type}
 
         # 添加到var_mapping
         var_mapping['ret'] = {'arg': f'{"&" if not is_pointer else ""}{ret_name}', 'type': 'variable'}
@@ -270,7 +270,7 @@ def create_ip_expr(callee_info, fun_var_dict, ip_call_code_list, ret_def_dict, f
             for sub_function in callee_info.sub_function_info_list:
                 if sub_function.body in arg_info['arg']:
                     for ret_name in ret_def_dict:
-                        if ret_def_dict[ret_name]['content_range'] == sub_function.content_range:
+                        if ret_def_dict[ret_name]['secondary_range'] == sub_function.content_range:
                             arg_info['arg'] = arg_info['arg'].replace(sub_function.body, ret_name)
                             break
 
@@ -440,7 +440,7 @@ def record_modified_range_and_content(modifications, node_callee_map, function_i
     print(f'现在要处理的node_callee_map:\n    key:{node_callee_map.keys()}')
     # 首先去除所有为None的node_callee_map.items
     new_node_callee_map = {}
-    #会有(node_type, node_range)为None的情况,需要排除这部分键值对
+    #会有(node_type, first_range)为None的情况,需要排除这部分键值对
     
     for (node_type, node_range), callee in node_callee_map.items():
         if node_type in ['CALL_STMT', 'EXPR_STMT', 'DECL_STMT']:
@@ -464,7 +464,7 @@ def record_modified_range_and_content(modifications, node_callee_map, function_i
                 original_content = record_range_content(code, node_range)
 
                 for ret_name in ret_def_dict:
-                    if ret_def_dict[ret_name]['content_range'] == callee.content_range:
+                    if ret_def_dict[ret_name]['secondary_range'] == callee.content_range:
                         original_content = original_content.replace(record_range_content(code, callee.content_range), ret_name)
                         break
 
@@ -479,7 +479,7 @@ def record_modified_range_and_content(modifications, node_callee_map, function_i
 
                 # 替换函数调用为ret_name
                 for ret_name in ret_def_dict:
-                    if ret_def_dict[ret_name]['content_range'] == callee.content_range:
+                    if ret_def_dict[ret_name]['secondary_range'] == callee.content_range:
                         original_content = original_content.replace(record_range_content(code, callee.content_range), ret_name)
                         break
 
@@ -510,7 +510,7 @@ def record_modified_range_and_content(modifications, node_callee_map, function_i
 
             # 替换函数调用为ret_name
             for ret_name in ret_def_dict:   
-                if ret_def_dict[ret_name]['content_range'] == callee.content_range:
+                if ret_def_dict[ret_name]['secondary_range'] == callee.content_range:
                     # 将替换的内容和范围存入 modifications
                     modifications.append((callee.content_range, f'({ret_name})'))
                     break

@@ -6,47 +6,61 @@
 #include "luaD_precall.h"
 #include "luaV_execute.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _GETCCALLS_
+#ifndef _getCcalls_
+#define _getCcalls_
 	#define getCcalls ((L)->nCcalls & 0xffff)
 #endif
 
 #ifndef _CIST_FRESH_
+#define _CIST_FRESH_
 	#define CIST_FRESH cast(l_uint32, CIST_C << 1)
 #endif
 
-#ifndef _CHECKSTACKP_
+#ifndef _checkstackp_
+#define _checkstackp_
 	#define checkstackp None
 #endif
 
 #ifndef _LUAI_MAXCCALLS_
+#define _LUAI_MAXCCALLS_
 	#define LUAI_MAXCCALLS 200
 #endif
 
-struct lua_State;
-#ifndef _L_UINT32_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

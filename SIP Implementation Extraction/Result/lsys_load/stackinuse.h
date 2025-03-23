@@ -5,38 +5,50 @@
 
 
 #ifndef _LUA_MINSTACK_
+#define _LUA_MINSTACK_
 	#define LUA_MINSTACK 20
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
 #ifndef _EXTRA_STACK_
+#define _EXTRA_STACK_
 	#define EXTRA_STACK 5
 #endif
 
-struct lua_State;
-#ifndef _CALLINFO_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -77,7 +89,6 @@ typedef struct __stackinuse
 	/* Input Variables */
 	lua_State*			L;
 	/* Output Variables */
-	int			res;
 	int*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

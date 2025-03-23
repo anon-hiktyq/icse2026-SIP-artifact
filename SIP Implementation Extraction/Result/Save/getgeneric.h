@@ -5,21 +5,25 @@
 #include "mainpositionTV.h"
 #include "equalkey.h"
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _GNEXT_
+#ifndef _gnext_
+#define _gnext_
 	#define gnext ((n)->u.next)
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -31,16 +35,20 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void getgenericFun(void *p);
 

@@ -4,20 +4,28 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _LUAM_NEW_
+#ifndef _luaM_new_
+#define _luaM_new_
 	#define luaM_new cast(t*, luaM_malloc_(L, sizeof(t), 0))
 #endif
 
-struct lua_State;
-#ifndef _CALLINFO_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -57,7 +65,6 @@ typedef struct __luaE_extendCI
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	CallInfo*			ci;
 	CallInfo *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

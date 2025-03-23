@@ -2,18 +2,17 @@
 void prepcallclosemthFun(void *p) 
 {
     prepcallclosemth *pIp = (prepcallclosemth*)p;
-
-  TValue *uv = s2v(pIp -> level);  /* value being closed */
+  TValue uv;{uv = s2v(pIp->level);}  /* value being closed */
   TValue *errobj;
-  switch (pIp -> status) {
+  switch ((pIp->status)) {
     case LUA_OK:
-      pIp -> L->top.p = pIp -> level + 1;  /* call will be at this pIp -> level */
+      (pIp->L)->top.p = (pIp->level) + 1;  /* call will be at this level */
       /* FALLTHROUGH */
     case CLOSEKTOP:  /* don't need to change top */
       errobj = NULL;  /* no error object */
       break;
-    default:  /* 'luaD_seterrorobj' will set top to pIp -> level + 2 */
-      errobj = s2v(pIp -> level + 1);  /* error object goes after 'uv' */
+    default:  /* 'luaD_seterrorobj' will set top to level + 2 */
+      {errobj = s2v(pIp->level + 1);}  /* error object goes after 'uv' */
       {IPCALL(luaD_seterrorobj,ipluaD_seterrorobj_0);}  /* set error object */
       break;
   }

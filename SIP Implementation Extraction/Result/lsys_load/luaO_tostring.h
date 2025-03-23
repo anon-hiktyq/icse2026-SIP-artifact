@@ -5,21 +5,29 @@
 #include "luaO_tostringbuff.h"
 
 #ifndef _LUA_N2SBUFFSZ_
+#define _LUA_N2SBUFFSZ_
 	#define LUA_N2SBUFFSZ 64
 #endif
 
-#ifndef _SETSVALUE_
+#ifndef _setsvalue_
+#define _setsvalue_
 	#define setsvalue { TValue *io = (obj); TString *x_ = (x); \
 	    val_(io).gc = obj2gco(x_); settt_(io, ctb(x_->tt)); \
 	    checkliveness(L,io); }
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -31,19 +39,22 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -59,7 +70,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

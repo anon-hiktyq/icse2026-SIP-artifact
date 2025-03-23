@@ -4,15 +4,18 @@
 #include "common.h"
 
 
-#ifndef _GETSTR_
+#ifndef _getstr_
+#define _getstr_
 	#define getstr (strisshr(ts) ? rawgetshrstr(ts) : (ts)->contents)
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -28,7 +31,8 @@
 	};
 #endif
 
-#ifndef _LOCVAR_
+#ifndef _LocVar_
+#define _LocVar_
 	struct LocVar {
 	  TString *varname;
 	  int startpc;  /* first point where variable is active */
@@ -36,7 +40,8 @@
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

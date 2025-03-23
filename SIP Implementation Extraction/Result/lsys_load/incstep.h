@@ -7,40 +7,53 @@
 #include "setpause.h"
 #include "luaE_setdebt.h"
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _GCSPAUSE_
+#ifndef _GCSpause_
+#define _GCSpause_
 	#define GCSpause 8
 #endif
 
-#ifndef _APPLYGCPARAM_
+#ifndef _applygcparam_
+#define _applygcparam_
 	#define applygcparam luaO_applyparam(g->gcparams[LUA_GCP##p], x)
 #endif
 
-#ifndef _STEP2PAUSE_
+#ifndef _step2pause_
+#define _step2pause_
 	#define step2pause -3
 #endif
 
-#ifndef _ATOMICSTEP_
+#ifndef _atomicstep_
+#define _atomicstep_
 	#define atomicstep -2
 #endif
 
-#ifndef _STEP2MINOR_
+#ifndef _step2minor_
+#define _step2minor_
 	#define step2minor -1
 #endif
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -71,7 +84,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

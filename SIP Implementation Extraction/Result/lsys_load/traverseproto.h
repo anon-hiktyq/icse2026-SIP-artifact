@@ -4,21 +4,29 @@
 #include "common.h"
 #include "reallymarkobject.h"
 
-#ifndef _MARKVALUE_
+#ifndef _markvalue_
+#define _markvalue_
 	#define markvalue { checkliveness(mainthread(g),o); \
 	  if (valiswhite(o)) reallymarkobject(g,gcvalue(o)); }
 #endif
 
-#ifndef _MARKOBJECTN_
+#ifndef _markobjectN_
+#define _markobjectN_
 	#define markobjectN { if (t) markobject(g,t); }
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -30,19 +38,22 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -58,7 +69,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _UPVALDESC_
+#ifndef _Upvaldesc_
+#define _Upvaldesc_
 	struct Upvaldesc {
 	  TString *name;  /* upvalue name (for debug information) */
 	  lu_byte instack;  /* whether it is in stack (register) */
@@ -67,7 +79,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LOCVAR_
+#ifndef _LocVar_
+#define _LocVar_
 	struct LocVar {
 	  TString *varname;
 	  int startpc;  /* first point where variable is active */
@@ -75,7 +88,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -102,7 +116,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -134,13 +149,15 @@ struct lua_State;
 #endif
 
 #ifndef _LX_
+#define _LX_
 	struct LX {
 	  lu_byte extra_[LUA_EXTRASPACE];
 	  lua_State l;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

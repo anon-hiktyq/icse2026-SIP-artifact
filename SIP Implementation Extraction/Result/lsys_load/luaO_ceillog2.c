@@ -13,7 +13,7 @@ void luaO_ceillog2Fun(void *p)
     8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
   };
   int l = 0;
-  pIp -> x--;
-  while (pIp -> x >= 256) { l += 8; pIp -> x >>= 8; }
-  *(pIp -> ret) = cast_byte(l + log_2[x]);
+  (pIp->x)--;
+  while ((pIp->x) >= 256) { l += 8; (pIp->x) >>= 8; }
+  *(pIp->ret) =  cast_byte(l + log_2[x]);
 }

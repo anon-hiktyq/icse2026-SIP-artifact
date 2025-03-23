@@ -4,16 +4,23 @@
 #include "common.h"
 
 
-#ifndef _LMOD_
+#ifndef _lmod_
+#define _lmod_
 	#define lmod (check_exp((size&(size-1))==0, (cast_uint(s) & cast_uint((size)-1))))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-struct lua_State;
-#ifndef _TSTRING_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -29,7 +36,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _STRINGTABLE_
+#ifndef _stringtable_
+#define _stringtable_
 	struct stringtable {
 	  TString **hash;  /* array of buckets (linked lists of strings) */
 	  int nuse;  /* number of elements */
@@ -37,7 +45,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -68,7 +77,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

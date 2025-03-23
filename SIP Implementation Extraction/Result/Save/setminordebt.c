@@ -2,5 +2,5 @@
 void setminordebtFun(void *p) 
 {
     setminordebt *pIp = (setminordebt*)p;
-  {IPCALL(luaE_setdebt,ipluaE_setdebt_0);}
+  {luaE_setdebt(pIp->g, applygcparam(pIp->g, MINORMUL, pIp->g->GCmajorminor));}
 }

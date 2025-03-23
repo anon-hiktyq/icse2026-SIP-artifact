@@ -6,15 +6,22 @@
 #include "luaD_throw.h"
 
 #ifndef _LUA_ERRMEM_
+#define _LUA_ERRMEM_
 	#define LUA_ERRMEM 4
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -54,7 +61,6 @@ typedef struct __luaO_pushfstring
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	const char*			msg;
 	const char *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

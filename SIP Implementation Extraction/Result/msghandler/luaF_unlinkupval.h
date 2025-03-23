@@ -4,15 +4,18 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _UPISOPEN_
+#ifndef _upisopen_
+#define _upisopen_
 	#define upisopen ((up)->v.p != &(up)->u.value)
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {

@@ -2,44 +2,57 @@
 #define __MARKOLD_H__
 
 #include "common.h"
-#include reallymarkobject.h
+#include "reallymarkobject.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _ISBLACK_
+#ifndef _isblack_
+#define _isblack_
 	#define isblack testbit((x)->marked, BLACKBIT)
 #endif
 
 #ifndef _G_OLD1_
+#define _G_OLD1_
 	#define G_OLD1 3
 #endif
 
 #ifndef _G_OLD_
+#define _G_OLD_
 	#define G_OLD 4
 #endif
 
-#ifndef _GETAGE_
+#ifndef _getage_
+#define _getage_
 	#define getage ((o)->marked & AGEBITS)
 #endif
 
-#ifndef _SETAGE_
+#ifndef _setage_
+#define _setage_
 	#define setage ((o)->marked = cast_byte(((o)->marked & (~AGEBITS)) | a))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

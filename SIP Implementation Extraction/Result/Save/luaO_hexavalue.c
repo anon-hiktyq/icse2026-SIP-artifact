@@ -2,7 +2,7 @@
 void luaO_hexavalueFun(void *p) 
 {
     luaO_hexavalue *pIp = (luaO_hexavalue*)p;
-  lua_assert(lisxdigit(pIp -> c));
-  if (lisdigit(pIp -> c)) return cast_byte(pIp -> c - '0');
-  else return cast_byte((ltolower(pIp -> c) - 'a') + 10);
+  {lua_assert(lisxdigit(pIp->c));}
+  {if (lisdigit(pIp->c)) *(pIp->ret) =  cast_byte(c - '0');
+  else *(pIp->ret) =  cast_byte((ltolower(c) - 'a') + 10);}
 }

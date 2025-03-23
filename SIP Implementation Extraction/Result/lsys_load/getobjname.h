@@ -8,15 +8,22 @@
 #include "rname.h"
 
 #ifndef _GET_OPCODE_
+#define _GET_OPCODE_
 	#define GET_OPCODE (cast(OpCode, ((i)>>POS_OP) & MASK1(SIZE_OP,0)))
 #endif
 
 #ifndef _GETARG_C_
+#define _GETARG_C_
 	#define GETARG_C check_exp(checkopm(i, iABC), getarg(i, POS_C, SIZE_C))
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -43,7 +50,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _OPCODE_
+#ifndef _OpCode_
+#define _OpCode_
 	enum {
 	/*----------------------------------------------------------------------
 	  name		args	description

@@ -2,8 +2,8 @@
 void nextlineFun(void *p) 
 {
     nextline *pIp = (nextline*)p;
-  if (pIp -> p->lineinfo[pIp -> pc] != ABSLINEINFO)
-    *(pIp -> ret) = currentline + p->lineinfo[pc];
+  if ((pIp->p)->lineinfo[(pIp->pc)] != ABSLINEINFO)
+    *(pIp->ret) =  (pIp->currentline) + (pIp->p)->lineinfo[(pIp->pc)];
   else
-    *(pIp -{int luaG_getfuncline_ret_0;IPCALL(luaG_getfuncline,ipluaG_getfuncline_0,.f = p,.pc = pIp->pc,.ret = pIp->&luaG_getfuncline_ret_0);}e(p, pc);
+    int luaG_getfuncline_ret_0;IPCALL(luaG_getfuncline,ipluaG_getfuncline_0,.f = pIp->p,.pc = pIp->pc,.ret = &luaG_getfuncline_ret_0);*(pIp->ret) =  luaG_getfuncline_ret_0;
 }

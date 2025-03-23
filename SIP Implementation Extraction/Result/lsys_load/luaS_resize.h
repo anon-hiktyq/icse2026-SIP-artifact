@@ -4,21 +4,29 @@
 #include "common.h"
 #include "tablerehash.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _LUAM_REALLOCVECTOR_
+#ifndef _luaM_reallocvector_
+#define _luaM_reallocvector_
 	#define luaM_reallocvector (cast(t *, luaM_realloc_(L, v, cast_sizet(oldn) * sizeof(t), \
 	                                  cast_sizet(n) * sizeof(t))))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-struct lua_State;
-#ifndef _TSTRING_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -34,7 +42,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _STRINGTABLE_
+#ifndef _stringtable_
+#define _stringtable_
 	struct stringtable {
 	  TString **hash;  /* array of buckets (linked lists of strings) */
 	  int nuse;  /* number of elements */
@@ -42,7 +51,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -73,7 +83,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -6,76 +6,98 @@
 #include "prepCallInfo.h"
 #include "tryfuncTM.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
-#ifndef _TTYPETAG_
+#ifndef _ttypetag_
+#define _ttypetag_
 	#define ttypetag withvariant(rawtt(o))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _SETNILVALUE_
+#ifndef _setnilvalue_
+#define _setnilvalue_
 	#define setnilvalue settt_(obj, LUA_VNIL)
 #endif
 
 #ifndef _LUA_VLCL_
+#define _LUA_VLCL_
 	#define LUA_VLCL makevariant(LUA_TFUNCTION, 0)
 #endif
 
 #ifndef _LUA_VLCF_
+#define _LUA_VLCF_
 	#define LUA_VLCF makevariant(LUA_TFUNCTION, 1)
 #endif
 
 #ifndef _LUA_VCCL_
+#define _LUA_VCCL_
 	#define LUA_VCCL makevariant(LUA_TFUNCTION, 2)
 #endif
 
-#ifndef _CLLVALUE_
+#ifndef _clLvalue_
+#define _clLvalue_
 	#define clLvalue check_exp(ttisLclosure(o), gco2lcl(val_(o).gc))
 #endif
 
-#ifndef _FVALUE_
+#ifndef _fvalue_
+#define _fvalue_
 	#define fvalue check_exp(ttislcf(o), val_(o).f)
 #endif
 
-#ifndef _CLCVALUE_
+#ifndef _clCvalue_
+#define _clCvalue_
 	#define clCvalue check_exp(ttisCclosure(o), gco2ccl(val_(o).gc))
 #endif
 
 #ifndef _MAXRESULTS_
+#define _MAXRESULTS_
 	#define MAXRESULTS 250
 #endif
 
-#ifndef _CHECKSTACKP_
+#ifndef _checkstackp_
+#define _checkstackp_
 	#define checkstackp None
 #endif
 
-struct lua_State;
-#ifndef _LUA_CFUNCTION_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_CFunction_
+#define _lua_CFunction_
 	typedef int (*lua_CFunction) (lua_State *L);
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -87,31 +109,40 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -138,7 +169,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _CCLOSURE_
+#ifndef _CClosure_
+#define _CClosure_
 	struct CClosure {
 	  ClosureHeader;
 	  lua_CFunction f;
@@ -146,7 +178,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _LCLOSURE_
+#ifndef _LClosure_
+#define _LClosure_
 	struct LClosure {
 	  ClosureHeader;
 	  struct Proto *p;
@@ -154,14 +187,16 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _CLOSURE_
+#ifndef _Closure_
+#define _Closure_
 	union Closure {
 	  CClosure c;
 	  LClosure l;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

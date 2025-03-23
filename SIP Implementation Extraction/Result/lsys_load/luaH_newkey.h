@@ -6,29 +6,39 @@
 #include "rehash.h"
 #include "newcheckedkey.h"
 
-#ifndef _TTISNIL_
+#ifndef _ttisnil_
+#define _ttisnil_
 	#define ttisnil checktype((v), LUA_TNIL)
 #endif
 
-#ifndef _OBJ2GCO_
+#ifndef _obj2gco_
+#define _obj2gco_
 	#define obj2gco check_exp((v)->tt >= LUA_TSTRING, &(cast_u(v)->gc))
 #endif
 
-#ifndef _CONDCHANGEMEM_
+#ifndef _condchangemem_
+#define _condchangemem_
 	#define condchangemem { if (gcrunning(G(L))) { pre; luaC_fullgc(L, emg); pos; } }
 #endif
 
-#ifndef _LUAC_BARRIERBACK_
+#ifndef _luaC_barrierback_
+#define _luaC_barrierback_
 	#define luaC_barrierback (  \
 		iscollectable(v) ? luaC_objbarrierback(L, p, gcvalue(v)) : cast_void(0))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -40,29 +50,36 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _LUA_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

@@ -2,62 +2,78 @@
 #define __FINDSETREG_H__
 
 #include "common.h"
-#include filterpc.h
+#include "filterpc.h"
 
 #ifndef _GET_OPCODE_
+#define _GET_OPCODE_
 	#define GET_OPCODE (cast(OpCode, ((i)>>POS_OP) & MASK1(SIZE_OP,0)))
 #endif
 
 #ifndef _GETARG_A_
+#define _GETARG_A_
 	#define GETARG_A getarg(i, POS_A, SIZE_A)
 #endif
 
 #ifndef _GETARG_B_
+#define _GETARG_B_
 	#define GETARG_B check_exp(checkopm(i, iABC), getarg(i, POS_B, SIZE_B))
 #endif
 
-#ifndef _GETARG_SJ_
+#ifndef _GETARG_sJ_
+#define _GETARG_sJ_
 	#define GETARG_sJ check_exp(checkopm(i, isJ), getarg(i, POS_sJ, SIZE_sJ) - OFFSET_sJ)
 #endif
 
-#ifndef _TESTAMODE_
+#ifndef _testAMode_
+#define _testAMode_
 	#define testAMode (luaP_opmodes[m] & (1 << 3))
 #endif
 
-#ifndef _TESTMMMODE_
+#ifndef _testMMMode_
+#define _testMMMode_
 	#define testMMMode (luaP_opmodes[m] & (1 << 7))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-typedef l_uint32 Instruction;
-struct Proto {
-  CommonHeader;
-  lu_byte numparams;  /* number of fixed (named) parameters */
-  lu_byte flag;
-  lu_byte maxstacksize;  /* number of registers needed by this function */
-  int sizeupvalues;  /* size of 'upvalues' */
-  int sizek;  /* size of 'k' */
-  int sizecode;
-  int sizelineinfo;
-  int sizep;  /* size of 'p' */
-  int sizelocvars;
-  int sizeabslineinfo;  /* size of 'abslineinfo' */
-  int linedefined;  /* debug information  */
-  int lastlinedefined;  /* debug information  */
-  TValue *k;  /* constants used by the function */
-  Instruction *code;  /* opcodes */
-  struct Proto **p;  /* functions defined inside the function */
-  Upvaldesc *upvalues;  /* upvalue information */
-  ls_byte *lineinfo;  /* information about source lines (debug information) */
-  AbsLineInfo *abslineinfo;  /* idem */
-  LocVar *locvars;  /* information about local variables (debug information) */
-  TString  *source;  /* used for debug information */
-  GCObject *gclist;
-};
-#ifndef _OPCODE_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
+	struct Proto {
+	  CommonHeader;
+	  lu_byte numparams;  /* number of fixed (named) parameters */
+	  lu_byte flag;
+	  lu_byte maxstacksize;  /* number of registers needed by this function */
+	  int sizeupvalues;  /* size of 'upvalues' */
+	  int sizek;  /* size of 'k' */
+	  int sizecode;
+	  int sizelineinfo;
+	  int sizep;  /* size of 'p' */
+	  int sizelocvars;
+	  int sizeabslineinfo;  /* size of 'abslineinfo' */
+	  int linedefined;  /* debug information  */
+	  int lastlinedefined;  /* debug information  */
+	  TValue *k;  /* constants used by the function */
+	  Instruction *code;  /* opcodes */
+	  struct Proto **p;  /* functions defined inside the function */
+	  Upvaldesc *upvalues;  /* upvalue information */
+	  ls_byte *lineinfo;  /* information about source lines (debug information) */
+	  AbsLineInfo *abslineinfo;  /* idem */
+	  LocVar *locvars;  /* information about local variables (debug information) */
+	  TString  *source;  /* used for debug information */
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _OpCode_
+#define _OpCode_
 	enum {
 	/*----------------------------------------------------------------------
 	  name		args	description
@@ -186,7 +202,6 @@ typedef struct __findsetreg
 	int			lastpc;
 	int			reg;
 	/* Output Variables */
-	int			setreg;
 	int*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

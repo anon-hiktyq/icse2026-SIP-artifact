@@ -5,11 +5,17 @@
 
 
 #ifndef _UNUSED_
+#define _UNUSED_
 	#define UNUSED ((void)(x))
 #endif
 
-struct lua_State;
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

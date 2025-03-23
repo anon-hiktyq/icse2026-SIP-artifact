@@ -4,25 +4,30 @@
 #include "common.h"
 
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
-#ifndef _GETLSTR_
+#ifndef _getlstr_
+#define _getlstr_
 	#define getlstr (strisshr(ts) \
 		? (cast_void((len) = cast_sizet((ts)->shrlen)), rawgetshrstr(ts)) \
 		: (cast_void((len) = (ts)->u.lnglen), (ts)->contents))
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -34,23 +39,27 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */

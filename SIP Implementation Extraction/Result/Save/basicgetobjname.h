@@ -9,27 +9,37 @@
 #include "kname.h"
 
 #ifndef _GET_OPCODE_
+#define _GET_OPCODE_
 	#define GET_OPCODE (cast(OpCode, ((i)>>POS_OP) & MASK1(SIZE_OP,0)))
 #endif
 
 #ifndef _GETARG_A_
+#define _GETARG_A_
 	#define GETARG_A getarg(i, POS_A, SIZE_A)
 #endif
 
 #ifndef _GETARG_B_
+#define _GETARG_B_
 	#define GETARG_B check_exp(checkopm(i, iABC), getarg(i, POS_B, SIZE_B))
 #endif
 
-#ifndef _GETARG_BX_
+#ifndef _GETARG_Bx_
+#define _GETARG_Bx_
 	#define GETARG_Bx check_exp(checkopm(i, iABx), getarg(i, POS_Bx, SIZE_Bx))
 #endif
 
-#ifndef _GETARG_AX_
+#ifndef _GETARG_Ax_
+#define _GETARG_Ax_
 	#define GETARG_Ax check_exp(checkopm(i, iAx), getarg(i, POS_Ax, SIZE_Ax))
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _PROTO_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -56,7 +66,8 @@ typedef l_uint32 Instruction;
 	};
 #endif
 
-#ifndef _OPCODE_
+#ifndef _OpCode_
+#define _OpCode_
 	enum {
 	/*----------------------------------------------------------------------
 	  name		args	description

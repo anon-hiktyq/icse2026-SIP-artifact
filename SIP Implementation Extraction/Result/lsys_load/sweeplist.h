@@ -4,50 +4,65 @@
 #include "common.h"
 #include "freeobj.h"
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _OTHERWHITE_
+#ifndef _otherwhite_
+#define _otherwhite_
 	#define otherwhite ((g)->currentwhite ^ WHITEBITS)
 #endif
 
-#ifndef _ISDEADM_
+#ifndef _isdeadm_
+#define _isdeadm_
 	#define isdeadm ((m) & (ow))
 #endif
 
-#ifndef _LUAC_WHITE_
+#ifndef _luaC_white_
+#define _luaC_white_
 	#define luaC_white cast_byte((g)->currentwhite & WHITEBITS)
 #endif
 
 #ifndef _G_NEW_
+#define _G_NEW_
 	#define G_NEW 0
 #endif
 
-#ifndef _MASKGCBITS_
+#ifndef _maskgcbits_
+#define _maskgcbits_
 	#define maskgcbits (maskcolors | AGEBITS)
 #endif
 
-struct lua_State;
-#ifndef _L_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -78,7 +93,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

@@ -4,12 +4,18 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#define cast_char cast(char, (i))
+#ifndef _cast_char_
+#define _cast_char_
+	#define cast_char cast(char, (i))
+#endif
+
 #ifndef _UTF8BUFFSZ_
+#define _UTF8BUFFSZ_
 	#define UTF8BUFFSZ 8
 #endif
 

@@ -6,68 +6,88 @@
 #include "forlimit.h"
 #include "luaG_forerror.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _L_CASTS2U_
+#ifndef _l_castS2U_
+#define _l_castS2U_
 	#define l_castS2U ((lua_Unsigned)(i))
 #endif
 
-#ifndef _L_CASTU2S_
+#ifndef _l_castU2S_
+#define _l_castU2S_
 	#define l_castU2S ((lua_Integer)(i))
 #endif
 
-#ifndef _LUAI_NUMLT_
+#ifndef _luai_numlt_
+#define _luai_numlt_
 	#define luai_numlt ((a)<(b))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _TTISINTEGER_
+#ifndef _ttisinteger_
+#define _ttisinteger_
 	#define ttisinteger checktag((o), LUA_VNUMINT)
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
-#ifndef _SETFLTVALUE_
+#ifndef _setfltvalue_
+#define _setfltvalue_
 	#define setfltvalue { TValue *io=(obj); val_(io).n=(x); settt_(io, LUA_VNUMFLT); }
 #endif
 
-#ifndef _SETIVALUE_
+#ifndef _setivalue_
+#define _setivalue_
 	#define setivalue { TValue *io=(obj); val_(io).i=(x); settt_(io, LUA_VNUMINT); }
 #endif
 
-#ifndef _CHGIVALUE_
+#ifndef _chgivalue_
+#define _chgivalue_
 	#define chgivalue { TValue *io=(obj); lua_assert(ttisinteger(io)); val_(io).i=(x); }
 #endif
 
-#ifndef _TONUMBER_
+#ifndef _tonumber_
+#define _tonumber_
 	#define tonumber (ttisfloat(o) ? (*(n) = fltvalue(o), 1) : luaV_tonumber_(o,n))
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_UNSIGNED_
+#ifndef _lua_Unsigned_
+#define _lua_Unsigned_
 	typedef LUA_UNSIGNED lua_Unsigned;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -79,17 +99,20 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

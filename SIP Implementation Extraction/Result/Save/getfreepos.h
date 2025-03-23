@@ -4,31 +4,38 @@
 #include "common.h"
 
 
-#ifndef _KEYISNIL_
+#ifndef _keyisnil_
+#define _keyisnil_
 	#define keyisnil (keytt(node) == LUA_TNIL)
 #endif
 
-#ifndef _SIZENODE_
+#ifndef _sizenode_
+#define _sizenode_
 	#define sizenode (twoto((t)->lsizenode))
 #endif
 
-#ifndef _GNODE_
+#ifndef _gnode_
+#define _gnode_
 	#define gnode (&(t)->node[i])
 #endif
 
-#ifndef _HASLASTFREE_
+#ifndef _haslastfree_
+#define _haslastfree_
 	#define haslastfree ((t)->lsizenode >= LIMFORLAST)
 #endif
 
-#ifndef _GETLASTFREE_
+#ifndef _getlastfree_
+#define _getlastfree_
 	#define getlastfree ((cast(Limbox *, (t)->node) - 1)->lastfree)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -40,16 +47,20 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void getfreeposFun(void *p);
 

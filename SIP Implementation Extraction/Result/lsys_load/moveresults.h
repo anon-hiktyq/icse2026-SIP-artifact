@@ -7,63 +7,82 @@
 #include "rethook.h"
 
 #ifndef _LUA_MULTRET_
+#define _LUA_MULTRET_
 	#define LUA_MULTRET (-1)
 #endif
 
-#ifndef _SETOBJS2S_
+#ifndef _setobjs2s_
+#define _setobjs2s_
 	#define setobjs2s setobj(L,s2v(o1),s2v(o2))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _SETNILVALUE_
+#ifndef _setnilvalue_
+#define _setnilvalue_
 	#define setnilvalue settt_(obj, LUA_VNIL)
 #endif
 
 #ifndef _CIST_CLSRET_
+#define _CIST_CLSRET_
 	#define CIST_CLSRET (CIST_FRESH << 1)
 #endif
 
 #ifndef _CIST_TBC_
+#define _CIST_TBC_
 	#define CIST_TBC (CIST_CLSRET << 1)
 #endif
 
-#ifndef _GET_NRESULTS_
+#ifndef _get_nresults_
+#define _get_nresults_
 	#define get_nresults (cast_int((cs) & CIST_NRESULTS) - 1)
 #endif
 
-#ifndef _SAVESTACK_
+#ifndef _savestack_
+#define _savestack_
 	#define savestack (cast_charp(pt) - cast_charp(L->stack.p))
 #endif
 
-#ifndef _RESTORESTACK_
+#ifndef _restorestack_
+#define _restorestack_
 	#define restorestack cast(StkId, cast_charp(L->stack.p) + (n))
 #endif
 
 #ifndef _CLOSEKTOP_
+#define _CLOSEKTOP_
 	#define CLOSEKTOP (LUA_ERRERR + 1)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TSTATUS_
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -75,24 +94,28 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

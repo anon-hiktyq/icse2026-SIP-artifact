@@ -4,11 +4,13 @@
 #include "common.h"
 
 
-#ifndef _ARRAYXHASH_
+#ifndef _arrayXhash_
+#define _arrayXhash_
 	#define arrayXhash (cast_sizet(na) <= cast_sizet(nh) * 3)
 #endif
 
-#ifndef _COUNTERS_
+#ifndef _Counters_
+#define _Counters_
 	struct {
 	  unsigned total;
 	  unsigned na;
@@ -26,7 +28,6 @@ typedef struct __computesizes
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	unsigned int			optimal;
 	unsigned int*			ret;
 	/* In&Output Variables */
 	Counters*			ct;

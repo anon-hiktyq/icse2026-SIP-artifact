@@ -6,24 +6,33 @@
 #include "luaC_runtilstate.h"
 #include "setpause.h"
 
-#ifndef _GCSCALLFIN_
+#ifndef _GCScallfin_
+#define _GCScallfin_
 	#define GCScallfin 7
 #endif
 
-#ifndef _GCSPAUSE_
+#ifndef _GCSpause_
+#define _GCSpause_
 	#define GCSpause 8
 #endif
 
-#ifndef _KEEPINVARIANT_
+#ifndef _keepinvariant_
+#define _keepinvariant_
 	#define keepinvariant ((g)->gcstate <= GCSatomic)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -54,7 +63,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

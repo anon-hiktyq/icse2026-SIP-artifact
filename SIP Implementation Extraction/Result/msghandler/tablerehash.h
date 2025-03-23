@@ -4,23 +4,28 @@
 #include "common.h"
 
 
-#ifndef _LMOD_
+#ifndef _lmod_
+#define _lmod_
 	#define lmod (check_exp((size&(size-1))==0, (cast_uint(s) & cast_uint((size)-1))))
 #endif
 
-struct TString {
-  CommonHeader;
-  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
-  ls_byte shrlen;  /* length for short strings, negative for long strings */
-  unsigned int hash;
-  union {
-    size_t lnglen;  /* length for long strings */
-    struct TString *hnext;  /* linked list for hash table */
-  } u;
-  char *contents;  /* pointer to content in long strings */
-  lua_Alloc falloc;  /* deallocation function for external strings */
-  void *ud;  /* user data for external strings */
-};
+#ifndef _TString_
+#define _TString_
+	struct TString {
+	  CommonHeader;
+	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
+	  ls_byte shrlen;  /* length for short strings, negative for long strings */
+	  unsigned int hash;
+	  union {
+	    size_t lnglen;  /* length for long strings */
+	    struct TString *hnext;  /* linked list for hash table */
+	  } u;
+	  char *contents;  /* pointer to content in long strings */
+	  lua_Alloc falloc;  /* deallocation function for external strings */
+	  void *ud;  /* user data for external strings */
+	};
+#endif
+
 
 void tablerehashFun(void *p);
 

@@ -2,5 +2,5 @@
 void lua_gettopFun(void *p) 
 {
     lua_gettop *pIp = (lua_gettop*)p;
-  *(pIp -> ret) = cast_int(L->top.p - (L->ci->func.p + 1));
+  *(pIp->ret) =  cast_int(L->top.p - (L->ci->func.p + 1));
 }

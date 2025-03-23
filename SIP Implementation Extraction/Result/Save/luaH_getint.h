@@ -4,31 +4,38 @@
 #include "common.h"
 #include "finishnodeget.h"
 
-#ifndef _TAGISEMPTY_
+#ifndef _tagisempty_
+#define _tagisempty_
 	#define tagisempty (novariant(tag) == LUA_TNIL)
 #endif
 
-#ifndef _GETARRTAG_
+#ifndef _getArrTag_
+#define _getArrTag_
 	#define getArrTag (cast(lu_byte*, (t)->array) + sizeof(unsigned) + (k))
 #endif
 
-#ifndef _FARR2VAL_
+#ifndef _farr2val_
+#define _farr2val_
 	#define farr2val ((res)->tt_ = tag, (res)->value_ = *getArrVal(h,(k)))
 #endif
 
-#ifndef _IKEYINARRAY_
+#ifndef _ikeyinarray_
+#define _ikeyinarray_
 	#define ikeyinarray checkrange(k, t->asize)
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -40,22 +47,27 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void luaH_getintFun(void *p);
 

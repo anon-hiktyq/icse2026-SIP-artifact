@@ -4,20 +4,28 @@
 #include "common.h"
 #include "luaG_runerror.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _L_CASTS2U_
+#ifndef _l_castS2U_
+#define _l_castS2U_
 	#define l_castS2U ((lua_Unsigned)(i))
 #endif
 
-struct lua_State;
-#ifndef _LUA_INTEGER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

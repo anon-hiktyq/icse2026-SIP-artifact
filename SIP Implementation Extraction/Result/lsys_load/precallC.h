@@ -6,72 +6,92 @@
 #include "luaD_hook.h"
 #include "luaD_poscall.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
 #ifndef _LUA_MINSTACK_
+#define _LUA_MINSTACK_
 	#define LUA_MINSTACK 20
 #endif
 
 #ifndef _LUA_HOOKCALL_
+#define _LUA_HOOKCALL_
 	#define LUA_HOOKCALL 0
 #endif
 
 #ifndef _LUA_MASKCALL_
+#define _LUA_MASKCALL_
 	#define LUA_MASKCALL (1 << LUA_HOOKCALL)
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
 #ifndef _CIST_C_
+#define _CIST_C_
 	#define CIST_C (1u << (CIST_RECST + 3))
 #endif
 
-#ifndef _LUA_LOCK_
+#ifndef _lua_lock_
+#define _lua_lock_
 	#define lua_lock ((void) 0)
 #endif
 
-#ifndef _LUA_UNLOCK_
+#ifndef _lua_unlock_
+#define _lua_unlock_
 	#define lua_unlock ((void) 0)
 #endif
 
-#ifndef _API_CHECKNELEMS_
+#ifndef _api_checknelems_
+#define _api_checknelems_
 	#define api_checknelems api_check(L, (n) < (L->top.p - L->ci->func.p), \
 	                         "not enough elements in the stack")
 #endif
 
-#ifndef _CHECKSTACKP_
+#ifndef _checkstackp_
+#define _checkstackp_
 	#define checkstackp None
 #endif
 
-struct lua_State;
-#ifndef _LUA_CFUNCTION_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_CFunction_
+#define _lua_CFunction_
 	typedef int (*lua_CFunction) (lua_State *L);
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -112,7 +132,6 @@ typedef struct __precallC
 	/* Input Variables */
 	unsigned int			status;
 	/* Output Variables */
-	int			n;
 	int*			ret;
 	/* In&Output Variables */
 	lua_State*			L;

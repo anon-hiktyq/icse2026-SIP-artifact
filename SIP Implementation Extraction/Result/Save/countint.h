@@ -4,15 +4,18 @@
 #include "common.h"
 #include "luaO_ceillog2.h"
 
-#ifndef _ARRAYINDEX_
+#ifndef _arrayindex_
+#define _arrayindex_
 	#define arrayindex checkrange(k, MAXASIZE)
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _COUNTERS_
+#ifndef _Counters_
+#define _Counters_
 	struct {
 	  unsigned total;
 	  unsigned na;

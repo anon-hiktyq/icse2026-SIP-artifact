@@ -4,19 +4,23 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
-#ifndef _GETLNGSTR_
+#ifndef _getlngstr_
+#define _getlngstr_
 	#define getlngstr check_exp(!strisshr(ts), (ts)->contents)
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */

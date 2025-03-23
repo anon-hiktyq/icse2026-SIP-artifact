@@ -6,31 +6,41 @@
 #include "poptbclist.h"
 #include "prepcallclosemth.h"
 
-#ifndef _SAVESTACK_
+#ifndef _savestack_
+#define _savestack_
 	#define savestack (cast_charp(pt) - cast_charp(L->stack.p))
 #endif
 
-#ifndef _RESTORESTACK_
+#ifndef _restorestack_
+#define _restorestack_
 	#define restorestack cast(StkId, cast_charp(L->stack.p) + (n))
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

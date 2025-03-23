@@ -2,13 +2,15 @@
 #define __LUAL_ADDLSTRING_H__
 
 #include "common.h"
-#include prepbuffsize.h
+#include "prepbuffsize.h"
 
-#ifndef _LUAL_ADDSIZE_
+#ifndef _luaL_addsize_
+#define _luaL_addsize_
 	#define luaL_addsize ((B)->n += (s))
 #endif
 
-#ifndef _LUAL_BUFFER_
+#ifndef _luaL_Buffer_
+#define _luaL_Buffer_
 	struct luaL_Buffer;
 #endif
 

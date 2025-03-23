@@ -7,72 +7,93 @@
 #include "luaG_typeerror.h"
 #include "luaT_callTMres.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _L_CASTU2S_
+#ifndef _l_castU2S_
+#define _l_castU2S_
 	#define l_castU2S ((lua_Integer)(i))
 #endif
 
-#ifndef _CAST_ST2S_
+#ifndef _cast_st2S_
+#define _cast_st2S_
 	#define cast_st2S ((lua_Integer)(sz))
 #endif
 
-#ifndef _TTYPETAG_
+#ifndef _ttypetag_
+#define _ttypetag_
 	#define ttypetag withvariant(rawtt(o))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _SETIVALUE_
+#ifndef _setivalue_
+#define _setivalue_
 	#define setivalue { TValue *io=(obj); val_(io).i=(x); settt_(io, LUA_VNUMINT); }
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
 #ifndef _LUA_VTABLE_
+#define _LUA_VTABLE_
 	#define LUA_VTABLE makevariant(LUA_TTABLE, 0)
 #endif
 
-#ifndef _HVALUE_
+#ifndef _hvalue_
+#define _hvalue_
 	#define hvalue check_exp(ttistable(o), gco2t(val_(o).gc))
 #endif
 
-#ifndef _NOTM_
+#ifndef _notm_
+#define _notm_
 	#define notm ttisnil(tm)
 #endif
 
-#ifndef _FASTTM_
+#ifndef _fasttm_
+#define _fasttm_
 	#define fasttm gfasttm(G(l), mt, e)
 #endif
 
-struct lua_State;
-#ifndef _LUA_INTEGER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -84,23 +105,27 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -116,17 +141,22 @@ struct lua_State;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -157,35 +187,40 @@ struct Table {
 	};
 #endif
 
-struct lua_State {
-  CommonHeader;
-  lu_byte allowhook;
-  TStatus status;
-  StkIdRel top;  /* first free slot in the stack */
-  struct global_State *l_G;
-  CallInfo *ci;  /* call info for current function */
-  StkIdRel stack_last;  /* end of stack (last element + 1) */
-  StkIdRel stack;  /* stack base */
-  UpVal *openupval;  /* list of open upvalues in this stack */
-  StkIdRel tbclist;  /* list of to-be-closed variables */
-  GCObject *gclist;
-  struct lua_State *twups;  /* list of threads with open upvalues */
-  struct lua_longjmp *errorJmp;  /* current error recover point */
-  CallInfo base_ci;  /* CallInfo for first level (C host) */
-  volatile lua_Hook hook;
-  ptrdiff_t errfunc;  /* current error handling function (stack index) */
-  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
-  int oldpc;  /* last pc traced */
-  int nci;  /* number of items in 'ci' list */
-  int basehookcount;
-  int hookcount;
-  volatile l_signalT hookmask;
-  struct {  /* info about transferred values (for call/return hooks) */
-    int ftransfer;  /* offset of first value transferred */
-    int ntransfer;  /* number of values transferred */
-  } transferinfo;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State {
+	  CommonHeader;
+	  lu_byte allowhook;
+	  TStatus status;
+	  StkIdRel top;  /* first free slot in the stack */
+	  struct global_State *l_G;
+	  CallInfo *ci;  /* call info for current function */
+	  StkIdRel stack_last;  /* end of stack (last element + 1) */
+	  StkIdRel stack;  /* stack base */
+	  UpVal *openupval;  /* list of open upvalues in this stack */
+	  StkIdRel tbclist;  /* list of to-be-closed variables */
+	  GCObject *gclist;
+	  struct lua_State *twups;  /* list of threads with open upvalues */
+	  struct lua_longjmp *errorJmp;  /* current error recover point */
+	  CallInfo base_ci;  /* CallInfo for first level (C host) */
+	  volatile lua_Hook hook;
+	  ptrdiff_t errfunc;  /* current error handling function (stack index) */
+	  l_uint32 nCcalls;  /* number of nested non-yieldable or C calls */
+	  int oldpc;  /* last pc traced */
+	  int nci;  /* number of items in 'ci' list */
+	  int basehookcount;
+	  int hookcount;
+	  volatile l_signalT hookmask;
+	  struct {  /* info about transferred values (for call/return hooks) */
+	    int ftransfer;  /* offset of first value transferred */
+	    int ntransfer;  /* number of values transferred */
+	  } transferinfo;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

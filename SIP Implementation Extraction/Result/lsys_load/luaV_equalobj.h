@@ -8,127 +8,162 @@
 #include "luaT_callTMres.h"
 
 #ifndef _LUA_TNUMBER_
+#define _LUA_TNUMBER_
 	#define LUA_TNUMBER 3
 #endif
 
-#ifndef _LUAI_NUMEQ_
+#ifndef _luai_numeq_
+#define _luai_numeq_
 	#define luai_numeq ((a)==(b))
 #endif
 
-#ifndef _TTYPETAG_
+#ifndef _ttypetag_
+#define _ttypetag_
 	#define ttypetag withvariant(rawtt(o))
 #endif
 
-#ifndef _TTYPE_
+#ifndef _ttype_
+#define _ttype_
 	#define ttype (novariant(rawtt(o)))
 #endif
 
 #ifndef _LUA_VNIL_
+#define _LUA_VNIL_
 	#define LUA_VNIL makevariant(LUA_TNIL, 0)
 #endif
 
 #ifndef _LUA_VFALSE_
+#define _LUA_VFALSE_
 	#define LUA_VFALSE makevariant(LUA_TBOOLEAN, 0)
 #endif
 
 #ifndef _LUA_VTRUE_
+#define _LUA_VTRUE_
 	#define LUA_VTRUE makevariant(LUA_TBOOLEAN, 1)
 #endif
 
-#ifndef _TAGISFALSE_
+#ifndef _tagisfalse_
+#define _tagisfalse_
 	#define tagisfalse ((t) == LUA_VFALSE || novariant(t) == LUA_TNIL)
 #endif
 
-#ifndef _GCVALUE_
+#ifndef _gcvalue_
+#define _gcvalue_
 	#define gcvalue check_exp(iscollectable(o), val_(o).gc)
 #endif
 
 #ifndef _LUA_VNUMINT_
+#define _LUA_VNUMINT_
 	#define LUA_VNUMINT makevariant(LUA_TNUMBER, 0)
 #endif
 
 #ifndef _LUA_VNUMFLT_
+#define _LUA_VNUMFLT_
 	#define LUA_VNUMFLT makevariant(LUA_TNUMBER, 1)
 #endif
 
-#ifndef _FLTVALUE_
+#ifndef _fltvalue_
+#define _fltvalue_
 	#define fltvalue check_exp(ttisfloat(o), val_(o).n)
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
 #ifndef _LUA_VLNGSTR_
+#define _LUA_VLNGSTR_
 	#define LUA_VLNGSTR makevariant(LUA_TSTRING, 1)
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
 #ifndef _LUA_VLIGHTUSERDATA_
+#define _LUA_VLIGHTUSERDATA_
 	#define LUA_VLIGHTUSERDATA makevariant(LUA_TLIGHTUSERDATA, 0)
 #endif
 
 #ifndef _LUA_VUSERDATA_
+#define _LUA_VUSERDATA_
 	#define LUA_VUSERDATA makevariant(LUA_TUSERDATA, 0)
 #endif
 
-#ifndef _PVALUE_
+#ifndef _pvalue_
+#define _pvalue_
 	#define pvalue check_exp(ttislightuserdata(o), val_(o).p)
 #endif
 
-#ifndef _UVALUE_
+#ifndef _uvalue_
+#define _uvalue_
 	#define uvalue check_exp(ttisfulluserdata(o), gco2u(val_(o).gc))
 #endif
 
 #ifndef _LUA_VLCF_
+#define _LUA_VLCF_
 	#define LUA_VLCF makevariant(LUA_TFUNCTION, 1)
 #endif
 
-#ifndef _FVALUE_
+#ifndef _fvalue_
+#define _fvalue_
 	#define fvalue check_exp(ttislcf(o), val_(o).f)
 #endif
 
 #ifndef _LUA_VTABLE_
+#define _LUA_VTABLE_
 	#define LUA_VTABLE makevariant(LUA_TTABLE, 0)
 #endif
 
-#ifndef _HVALUE_
+#ifndef _hvalue_
+#define _hvalue_
 	#define hvalue check_exp(ttistable(o), gco2t(val_(o).gc))
 #endif
 
-#ifndef _FASTTM_
+#ifndef _fasttm_
+#define _fasttm_
 	#define fasttm gfasttm(G(l), mt, e)
 #endif
 
-#ifndef _EQSHRSTR_
+#ifndef _eqshrstr_
+#define _eqshrstr_
 	#define eqshrstr check_exp((a)->tt == LUA_VSHRSTR, (a) == (b))
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_CFUNCTION_
+#ifndef _lua_CFunction_
+#define _lua_CFunction_
 	typedef int (*lua_CFunction) (lua_State *L);
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -140,30 +175,35 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -179,7 +219,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _UDATA_
+#ifndef _Udata_
+#define _Udata_
 	struct Udata {
 	  CommonHeader;
 	  unsigned short nuvalue;  /* number of user values */
@@ -190,17 +231,22 @@ struct lua_State;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -231,7 +277,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -262,7 +309,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
@@ -311,7 +359,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _F2IMOD_
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

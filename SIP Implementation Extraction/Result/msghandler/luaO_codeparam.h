@@ -2,13 +2,15 @@
 #define __LUAO_CODEPARAM_H__
 
 #include "common.h"
-#include luaO_ceillog2.h
+#include "luaO_ceillog2.h"
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 

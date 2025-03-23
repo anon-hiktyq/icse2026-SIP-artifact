@@ -5,71 +5,95 @@
 
 
 #ifndef _LUA_MINSTACK_
+#define _LUA_MINSTACK_
 	#define LUA_MINSTACK 20
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _CIST_HOOKED_
+#define _CIST_HOOKED_
 	#define CIST_HOOKED (CIST_OAH << 1)
 #endif
 
-#define isLua (!((ci)->callstatus & CIST_C))
-#ifndef _LUA_LOCK_
+#ifndef _isLua_
+#define _isLua_
+	#define isLua (!((ci)->callstatus & CIST_C))
+#endif
+
+#ifndef _lua_lock_
+#define _lua_lock_
 	#define lua_lock ((void) 0)
 #endif
 
-#ifndef _LUA_UNLOCK_
+#ifndef _lua_unlock_
+#define _lua_unlock_
 	#define lua_unlock ((void) 0)
 #endif
 
-#ifndef _LUAD_CHECKSTACK_
+#ifndef _luaD_checkstack_
+#define _luaD_checkstack_
 	#define luaD_checkstack luaD_checkstackaux(L,n,(void)0,(void)0)
 #endif
 
-#ifndef _SAVESTACK_
+#ifndef _savestack_
+#define _savestack_
 	#define savestack (cast_charp(pt) - cast_charp(L->stack.p))
 #endif
 
-#ifndef _RESTORESTACK_
+#ifndef _restorestack_
+#define _restorestack_
 	#define restorestack cast(StkId, cast_charp(L->stack.p) + (n))
 #endif
 
-struct lua_State;
-#ifndef _LUA_DEBUG_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Debug_
+#define _lua_Debug_
 	struct lua_Debug;
 #endif
 
-#ifndef _LUA_HOOK_
+#ifndef _lua_Hook_
+#define _lua_Hook_
 	typedef void (*lua_Hook) (lua_State *L, lua_Debug *ar);
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

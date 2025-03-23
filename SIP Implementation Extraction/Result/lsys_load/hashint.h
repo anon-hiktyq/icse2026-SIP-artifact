@@ -4,43 +4,53 @@
 #include "common.h"
 
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
-#ifndef _L_CASTS2U_
+#ifndef _l_castS2U_
+#define _l_castS2U_
 	#define l_castS2U ((lua_Unsigned)(i))
 #endif
 
-#ifndef _SIZENODE_
+#ifndef _sizenode_
+#define _sizenode_
 	#define sizenode (twoto((t)->lsizenode))
 #endif
 
-#ifndef _GNODE_
+#ifndef _gnode_
+#define _gnode_
 	#define gnode (&(t)->node[i])
 #endif
 
-#ifndef _HASHMOD_
+#ifndef _hashmod_
+#define _hashmod_
 	#define hashmod (gnode(t, ((n) % ((sizenode(t)-1u)|1u))))
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_UNSIGNED_
+#ifndef _lua_Unsigned_
+#define _lua_Unsigned_
 	typedef LUA_UNSIGNED lua_Unsigned;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -52,16 +62,20 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void hashintFun(void *p);
 

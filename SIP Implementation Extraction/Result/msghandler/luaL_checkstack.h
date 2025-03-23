@@ -2,14 +2,18 @@
 #define __LUAL_CHECKSTACK_H__
 
 #include "common.h"
-#include luaL_error.h
-#include luaL_error.h
+#include "luaL_error.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-struct lua_State;
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
 
 void luaL_checkstackFun(void *p);
 

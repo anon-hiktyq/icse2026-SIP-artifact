@@ -4,39 +4,51 @@
 #include "common.h"
 
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _EXTRA_STACK_
+#define _EXTRA_STACK_
 	#define EXTRA_STACK 5
 #endif
 
-#ifndef _STACKSIZE_
+#ifndef _stacksize_
+#define _stacksize_
 	#define stacksize cast_int((th)->stack_last.p - (th)->stack.p)
 #endif
 
-struct lua_State;
-#ifndef _LU_MEM_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_mem_
+#define _lu_mem_
 	typedef size_t lu_mem;
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -77,7 +89,6 @@ typedef struct __luaE_threadsize
 	/* Input Variables */
 	lua_State*			L;
 	/* Output Variables */
-	lu_mem			sz;
 	lu_mem*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

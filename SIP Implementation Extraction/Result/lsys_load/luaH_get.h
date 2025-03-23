@@ -8,51 +8,63 @@
 #include "getgeneric.h"
 #include "finishnodeget.h"
 
-#ifndef _TTYPETAG_
+#ifndef _ttypetag_
+#define _ttypetag_
 	#define ttypetag withvariant(rawtt(o))
 #endif
 
 #ifndef _LUA_VNIL_
+#define _LUA_VNIL_
 	#define LUA_VNIL makevariant(LUA_TNIL, 0)
 #endif
 
 #ifndef _LUA_VNUMINT_
+#define _LUA_VNUMINT_
 	#define LUA_VNUMINT makevariant(LUA_TNUMBER, 0)
 #endif
 
 #ifndef _LUA_VNUMFLT_
+#define _LUA_VNUMFLT_
 	#define LUA_VNUMFLT makevariant(LUA_TNUMBER, 1)
 #endif
 
-#ifndef _FLTVALUE_
+#ifndef _fltvalue_
+#define _fltvalue_
 	#define fltvalue check_exp(ttisfloat(o), val_(o).n)
 #endif
 
-#ifndef _IVALUE_
+#ifndef _ivalue_
+#define _ivalue_
 	#define ivalue check_exp(ttisinteger(o), val_(o).i)
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -64,19 +76,22 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -92,17 +107,22 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _F2IMOD_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

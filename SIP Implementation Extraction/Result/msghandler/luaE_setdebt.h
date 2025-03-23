@@ -5,22 +5,27 @@
 
 
 #ifndef _MAX_LMEM_
+#define _MAX_LMEM_
 	#define MAX_LMEM cast(l_mem, (cast(lu_mem, 1) << (sizeof(l_mem) * 8 - 1)) - 1)
 #endif
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _GETTOTALBYTES_
+#ifndef _gettotalbytes_
+#define _gettotalbytes_
 	#define gettotalbytes ((g)->GCtotalbytes - (g)->GCdebt)
 #endif
 
-#ifndef _L_MEM_
+#ifndef _l_mem_
+#define _l_mem_
 	typedef ptrdiff_t l_mem;
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

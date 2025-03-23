@@ -6,52 +6,64 @@
 #include "getfreepos.h"
 #include "mainpositionfromnode.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _ISABSTKEY_
+#ifndef _isabstkey_
+#define _isabstkey_
 	#define isabstkey checktag((v), LUA_VABSTKEY)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _SETEMPTY_
+#ifndef _setempty_
+#define _setempty_
 	#define setempty settt_(v, LUA_VEMPTY)
 #endif
 
-#ifndef _SETNODEKEY_
+#ifndef _setnodekey_
+#define _setnodekey_
 	#define setnodekey { Node *n_=(node); const TValue *io_=(obj); \
 		  n_->u.key_val = io_->value_; n_->u.key_tt = io_->tt_; }
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _GNEXT_
+#ifndef _gnext_
+#define _gnext_
 	#define gnext ((n)->u.next)
 #endif
 
-#ifndef _ISDUMMY_
+#ifndef _isdummy_
+#define _isdummy_
 	#define isdummy ((t)->flags & BITDUMMY)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -63,13 +75,15 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -81,16 +95,20 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void insertkeyFun(void *p);
 

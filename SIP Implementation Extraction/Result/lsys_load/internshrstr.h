@@ -6,56 +6,73 @@
 #include "growstrtab.h"
 #include "createstrobj.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_
+#ifndef _cast_
+#define _cast_
 	#define cast ((t)(exp))
 #endif
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
 #ifndef _LUA_VSHRSTR_
+#define _LUA_VSHRSTR_
 	#define LUA_VSHRSTR makevariant(LUA_TSTRING, 0)
 #endif
 
-#ifndef _GETSHRSTR_
+#ifndef _getshrstr_
+#define _getshrstr_
 	#define getshrstr check_exp(strisshr(ts), rawgetshrstr(ts))
 #endif
 
-#ifndef _LMOD_
+#ifndef _lmod_
+#define _lmod_
 	#define lmod (check_exp((size&(size-1))==0, (cast_uint(s) & cast_uint((size)-1))))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _ISDEAD_
+#ifndef _isdead_
+#define _isdead_
 	#define isdead isdeadm(otherwhite(g), (v)->marked)
 #endif
 
-#ifndef _CHANGEWHITE_
+#ifndef _changewhite_
+#define _changewhite_
 	#define changewhite ((x)->marked ^= WHITEBITS)
 #endif
 
-#ifndef _SIZESTRSHR_
+#ifndef _sizestrshr_
+#define _sizestrshr_
 	#define sizestrshr (offsetof(TString, contents) + ((l) + 1) * sizeof(char))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -71,7 +88,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _STRINGTABLE_
+#ifndef _stringtable_
+#define _stringtable_
 	struct stringtable {
 	  TString **hash;  /* array of buckets (linked lists of strings) */
 	  int nuse;  /* number of elements */
@@ -79,7 +97,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -110,7 +129,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

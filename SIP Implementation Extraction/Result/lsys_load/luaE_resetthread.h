@@ -7,68 +7,87 @@
 #include "luaD_reallocstack.h"
 
 #ifndef _LUA_OK_
+#define _LUA_OK_
 	#define LUA_OK 0
 #endif
 
 #ifndef _LUA_YIELD_
+#define _LUA_YIELD_
 	#define LUA_YIELD 1
 #endif
 
 #ifndef _LUA_MINSTACK_
+#define _LUA_MINSTACK_
 	#define LUA_MINSTACK 20
 #endif
 
-#ifndef _CAST_INT_
+#ifndef _cast_int_
+#define _cast_int_
 	#define cast_int cast(int, (i))
 #endif
 
-#ifndef _S2V_
+#ifndef _s2v_
+#define _s2v_
 	#define s2v (&(o)->val)
 #endif
 
-#ifndef _SETNILVALUE_
+#ifndef _setnilvalue_
+#define _setnilvalue_
 	#define setnilvalue settt_(obj, LUA_VNIL)
 #endif
 
 #ifndef _CIST_C_
+#define _CIST_C_
 	#define CIST_C (1u << (CIST_RECST + 3))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TSTATUS_
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _CALLINFO_
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

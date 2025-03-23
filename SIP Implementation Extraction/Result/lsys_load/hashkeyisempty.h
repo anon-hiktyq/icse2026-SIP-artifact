@@ -4,42 +4,52 @@
 #include "common.h"
 #include "getintfromhash.h"
 
-#ifndef _L_CASTU2S_
+#ifndef _l_castU2S_
+#define _l_castU2S_
 	#define l_castU2S ((lua_Integer)(i))
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _LUA_UNSIGNED_
+#ifndef _lua_Unsigned_
+#define _lua_Unsigned_
 	typedef LUA_UNSIGNED lua_Unsigned;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 
 void hashkeyisemptyFun(void *p);
 

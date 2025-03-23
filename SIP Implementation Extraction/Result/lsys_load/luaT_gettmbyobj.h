@@ -5,35 +5,47 @@
 #include "luaH_Hgetshortstr.h"
 
 #ifndef _LUA_TTABLE_
+#define _LUA_TTABLE_
 	#define LUA_TTABLE 5
 #endif
 
 #ifndef _LUA_TUSERDATA_
+#define _LUA_TUSERDATA_
 	#define LUA_TUSERDATA 7
 #endif
 
-#ifndef _TTYPE_
+#ifndef _ttype_
+#define _ttype_
 	#define ttype (novariant(rawtt(o)))
 #endif
 
-#ifndef _UVALUE_
+#ifndef _uvalue_
+#define _uvalue_
 	#define uvalue check_exp(ttisfulluserdata(o), gco2u(val_(o).gc))
 #endif
 
-#ifndef _HVALUE_
+#ifndef _hvalue_
+#define _hvalue_
 	#define hvalue check_exp(ttistable(o), gco2t(val_(o).gc))
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -45,19 +57,22 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -73,7 +88,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _UDATA_
+#ifndef _Udata_
+#define _Udata_
 	struct Udata {
 	  CommonHeader;
 	  unsigned short nuvalue;  /* number of user values */
@@ -84,17 +100,22 @@ struct lua_State;
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -125,7 +146,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -156,7 +178,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

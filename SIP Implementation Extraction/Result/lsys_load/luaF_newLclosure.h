@@ -4,34 +4,45 @@
 #include "common.h"
 #include "luaC_newobj.h"
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 
 #ifndef _LUA_VLCL_
+#define _LUA_VLCL_
 	#define LUA_VLCL makevariant(LUA_TFUNCTION, 0)
 #endif
 
-#ifndef _GCO2LCL_
+#ifndef _gco2lcl_
+#define _gco2lcl_
 	#define gco2lcl check_exp((o)->tt == LUA_VLCL, &((cast_u(o))->cl.l))
 #endif
 
-#ifndef _SIZELCLOSURE_
+#ifndef _sizeLclosure_
+#define _sizeLclosure_
 	#define sizeLclosure (offsetof(LClosure, upvals) + sizeof(UpVal *) * cast_uint(n))
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -58,7 +69,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -75,7 +87,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LCLOSURE_
+#ifndef _LClosure_
+#define _LClosure_
 	struct LClosure {
 	  ClosureHeader;
 	  struct Proto *p;
@@ -83,14 +96,16 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _CLOSURE_
+#ifndef _Closure_
+#define _Closure_
 	union Closure {
 	  CClosure c;
 	  LClosure l;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -131,7 +146,6 @@ typedef struct __luaF_newLclosure
 	/* Input Variables */
 	int			nupvals;
 	/* Output Variables */
-	LClosure*			c;
 	LClosure *			ret;
 	/* In&Output Variables */
 	lua_State*			L;

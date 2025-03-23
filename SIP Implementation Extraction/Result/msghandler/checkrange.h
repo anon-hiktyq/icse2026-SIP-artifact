@@ -4,15 +4,18 @@
 #include "common.h"
 
 
-#ifndef _CAST_UINT_
+#ifndef _cast_uint_
+#define _cast_uint_
 	#define cast_uint cast(unsigned int, (i))
 #endif
 
-#ifndef _L_CASTS2U_
+#ifndef _l_castS2U_
+#define _l_castS2U_
 	#define l_castS2U ((lua_Unsigned)(i))
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 

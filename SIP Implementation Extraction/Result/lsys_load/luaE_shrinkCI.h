@@ -4,16 +4,23 @@
 #include "common.h"
 
 
-#ifndef _LUAM_FREE_
+#ifndef _luaM_free_
+#define _luaM_free_
 	#define luaM_free luaM_free_(L, (b), sizeof(*(b)))
 #endif
 
-struct lua_State;
-#ifndef _CALLINFO_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _CallInfo_
+#define _CallInfo_
 	typedef struct CallInfo CallInfo;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

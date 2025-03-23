@@ -4,27 +4,33 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _CAST_BYTE_
+#ifndef _cast_byte_
+#define _cast_byte_
 	#define cast_byte cast(lu_byte, (i))
 #endif
 
-#ifndef _LISDIGIT_
+#ifndef _lisdigit_
+#define _lisdigit_
 	#define lisdigit (isdigit(c))
 #endif
 
-#ifndef _LISXDIGIT_
+#ifndef _lisxdigit_
+#define _lisxdigit_
 	#define lisxdigit (isxdigit(c))
 #endif
 
-#ifndef _LTOLOWER_
+#ifndef _ltolower_
+#define _ltolower_
 	#define ltolower (tolower(c))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 

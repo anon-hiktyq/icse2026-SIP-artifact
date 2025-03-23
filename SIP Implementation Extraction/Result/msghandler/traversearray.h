@@ -2,43 +2,59 @@
 #define __TRAVERSEARRAY_H__
 
 #include "common.h"
-#include reallymarkobject.h
+#include "reallymarkobject.h"
 
-#ifndef _ISWHITE_
+#ifndef _iswhite_
+#define _iswhite_
 	#define iswhite testbits((x)->marked, WHITEBITS)
 #endif
 
-#ifndef _GCVALARR_
+#ifndef _gcvalarr_
+#define _gcvalarr_
 	#define gcvalarr ((*getArrTag(t,i) & BIT_ISCOLLECTABLE) ? getArrVal(t,i)->gc : NULL)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-union Value {
-  struct GCObject *gc;    /* collectable objects */
-  void *p;         /* light userdata */
-  lua_CFunction f; /* light C functions */
-  lua_Integer i;   /* integer numbers */
-  lua_Number n;    /* float numbers */
-  /* not used, but may avoid warnings for uninitialized value */
-  lu_byte ub;
-};
-struct GCObject {
-  CommonHeader;
-};
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _Value_
+#define _Value_
+	union Value {
+	  struct GCObject *gc;    /* collectable objects */
+	  void *p;         /* light userdata */
+	  lua_CFunction f; /* light C functions */
+	  lua_Integer i;   /* integer numbers */
+	  lua_Number n;    /* float numbers */
+	  /* not used, but may avoid warnings for uninitialized value */
+	  lu_byte ub;
+	};
+#endif
+
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
@@ -96,7 +112,6 @@ typedef struct __traversearray
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	int			marked;
 	int*			ret;
 	/* In&Output Variables */
 	global_State*			g;

@@ -4,31 +4,38 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _KEYISCOLLECTABLE_
+#ifndef _keyiscollectable_
+#define _keyiscollectable_
 	#define keyiscollectable (keytt(n) & BIT_ISCOLLECTABLE)
 #endif
 
-#ifndef _SETDEADKEY_
+#ifndef _setdeadkey_
+#define _setdeadkey_
 	#define setdeadkey (keytt(node) = LUA_TDEADKEY)
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _NODE_
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */

@@ -5,27 +5,37 @@
 
 
 #ifndef _GET_OPCODE_
+#define _GET_OPCODE_
 	#define GET_OPCODE (cast(OpCode, ((i)>>POS_OP) & MASK1(SIZE_OP,0)))
 #endif
 
 #ifndef _GETARG_B_
+#define _GETARG_B_
 	#define GETARG_B check_exp(checkopm(i, iABC), getarg(i, POS_B, SIZE_B))
 #endif
 
-#ifndef _GETARG_VB_
+#ifndef _GETARG_vB_
+#define _GETARG_vB_
 	#define GETARG_vB check_exp(checkopm(i, ivABC), getarg(i, POS_vB, SIZE_vB))
 #endif
 
-#ifndef _TESTITMODE_
+#ifndef _testITMode_
+#define _testITMode_
 	#define testITMode (luaP_opmodes[m] & (1 << 5))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-typedef l_uint32 Instruction;
-#ifndef _OPCODE_
+#ifndef _Inion_
+#define _Inion_
+	typedef l_uint32 Instruction;
+#endif
+
+#ifndef _OpCode_
+#define _OpCode_
 	enum {
 	/*----------------------------------------------------------------------
 	  name		args	description

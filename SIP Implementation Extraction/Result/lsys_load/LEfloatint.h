@@ -4,27 +4,33 @@
 #include "common.h"
 #include "luaV_flttointeger.h"
 
-#ifndef _CAST_NUM_
+#ifndef _cast_num_
+#define _cast_num_
 	#define cast_num cast(lua_Number, (i))
 #endif
 
-#ifndef _LUAI_NUMLE_
+#ifndef _luai_numle_
+#define _luai_numle_
 	#define luai_numle ((a)<=(b))
 #endif
 
-#ifndef _L_INTFITSF_
+#ifndef _l_intfitsf_
+#define _l_intfitsf_
 	#define l_intfitsf 1
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _F2IMOD_
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

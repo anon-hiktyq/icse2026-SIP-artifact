@@ -6,32 +6,42 @@
 #include "luaD_reallocstack.h"
 #include "luaE_shrinkCI.h"
 
-#ifndef _STACKSIZE_
+#ifndef _stacksize_
+#define _stacksize_
 	#define stacksize cast_int((th)->stack_last.p - (th)->stack.p)
 #endif
 
-#ifndef _CONDMOVESTACK_
+#ifndef _condmovestack_
+#define _condmovestack_
 	#define condmovestack { int sz_ = stacksize(L); pre; luaD_reallocstack((L), sz_, 0); pos; }
 #endif
 
 #ifndef _MAXSTACK_
+#define _MAXSTACK_
 	#define MAXSTACK cast_int(LUAI_MAXSTACK < MAXSTACK_BYSIZET  \
 				        ? LUAI_MAXSTACK : MAXSTACK_BYSIZET)
 #endif
 
-struct lua_State;
-#ifndef _STKID_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _STKIDREL_
+#ifndef _StkIdRel_
+#define _StkIdRel_
 	union {
 	  StkId p;  /* actual pointer */
 	  ptrdiff_t offset;  /* used while the stack is being reallocated */
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

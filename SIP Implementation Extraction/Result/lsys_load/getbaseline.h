@@ -4,22 +4,26 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _MAXIWTHABS_
+#define _MAXIWTHABS_
 	#define MAXIWTHABS 128
 #endif
 
-#ifndef _ABSLINEINFO_
+#ifndef _AbsLineInfo_
+#define _AbsLineInfo_
 	struct AbsLineInfo {
 	  int pc;
 	  int line;
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

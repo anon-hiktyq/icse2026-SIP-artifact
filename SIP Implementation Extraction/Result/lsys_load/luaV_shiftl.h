@@ -4,15 +4,18 @@
 #include "common.h"
 
 
-#ifndef _INTOP_
+#ifndef _intop_
+#define _intop_
 	#define intop l_castU2S(l_castS2U(v1) op l_castS2U(v2))
 #endif
 
 #ifndef _NBITS_
+#define _NBITS_
 	#define NBITS cast_int(sizeof(lua_Integer) * CHAR_BIT)
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 

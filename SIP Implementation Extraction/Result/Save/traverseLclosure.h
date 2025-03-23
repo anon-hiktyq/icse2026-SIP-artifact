@@ -4,21 +4,25 @@
 #include "common.h"
 #include "reallymarkobject.h"
 
-#ifndef _MARKOBJECTN_
+#ifndef _markobjectN_
+#define _markobjectN_
 	#define markobjectN { if (t) markobject(g,t); }
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */
@@ -45,7 +49,8 @@
 	};
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -62,7 +67,8 @@
 	};
 #endif
 
-#ifndef _LCLOSURE_
+#ifndef _LClosure_
+#define _LClosure_
 	struct LClosure {
 	  ClosureHeader;
 	  struct Proto *p;
@@ -70,7 +76,8 @@
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

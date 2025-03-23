@@ -11,16 +11,16 @@ void rehashFun(void *p)
   ct.na = 0;
   ct.deleted = 0;
   ct.total = 1;  /* count extra key */
-  if (ttisinteger(pIp -> ek))
-    {IPCALL(countint,ipcountint_0,.key = ivalue(pIp->ek),.ct = &ct);}  /* extra key may go to array */
+  {if (ttisinteger(pIp->ek))
+    {countint(ivalue(pIp->ek), &ct);}}  /* extra key may go to array */
   {IPCALL(numusehash,ipnumusehash_0,.t = pIp->t,.ct = &ct);}  /* count keys in hash part */
   if (ct.na == 0) {
     /* no new keys to enter array part; keep it with the same size */
-    asize = pIp -> t->asize;
+    asize = (pIp->t)->asize;
   }
   else {  /* compute best size for array part */
-    numusearray(pIp -> t, &ct);  /* count keys in array part */
-    asize = computesizes(&ct);  /* compute new size for array part */
+    {IPCALL(numusearray,ipnumusearray_0,.t = pIp->t,.ct = &ct);}  /* count keys in array part */
+    {unsigned int computesizes_ret_0;IPCALL(computesizes,ipcomputesizes_0,.ct = &ct,.ret = &computesizes_ret_0);asize = computesizes_ret_0;}  /* compute new size for array part */
   }
   /* all keys not in the array part go to the hash part */
   nsize = ct.total - ct.na;

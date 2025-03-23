@@ -2,70 +2,94 @@
 #define __TRAVERSEWEAKVALUE_H__
 
 #include "common.h"
-#include clearkey.h
-#include iscleared.h
-#include linkgclist_.h
+#include "clearkey.h"
+#include "iscleared.h"
+#include "linkgclist_.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISEMPTY_
+#ifndef _isempty_
+#define _isempty_
 	#define isempty ttisnil(v)
 #endif
 
-#ifndef _KEYISNIL_
+#ifndef _keyisnil_
+#define _keyisnil_
 	#define keyisnil (keytt(node) == LUA_TNIL)
 #endif
 
-#ifndef _GCSATOMIC_
+#ifndef _GCSatomic_
+#define _GCSatomic_
 	#define GCSatomic 2
 #endif
 
-#ifndef _GNODE_
+#ifndef _gnode_
+#define _gnode_
 	#define gnode (&(t)->node[i])
 #endif
 
-#ifndef _GVAL_
+#ifndef _gval_
+#define _gval_
 	#define gval (&(n)->i_val)
 #endif
 
-#ifndef _GCVALUEN_
+#ifndef _gcvalueN_
+#define _gcvalueN_
 	#define gcvalueN (iscollectable(o) ? gcvalue(o) : NULL)
 #endif
 
-#ifndef _MARKKEY_
+#ifndef _markkey_
+#define _markkey_
 	#define markkey { if keyiswhite(n) reallymarkobject(g,gckey(n)); }
 #endif
 
-#ifndef _GNODELAST_
+#ifndef _gnodelast_
+#define _gnodelast_
 	#define gnodelast gnode(h, cast_sizet(sizenode(h)))
 #endif
 
-#ifndef _LINKGCLIST_
+#ifndef _linkgclist_
+#define _linkgclist_
 	#define linkgclist linkgclist_(obj2gco(o), &(o)->gclist, &(p))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-union Value {
-  struct GCObject *gc;    /* collectable objects */
-  void *p;         /* light userdata */
-  lua_CFunction f; /* light C functions */
-  lua_Integer i;   /* integer numbers */
-  lua_Number n;    /* float numbers */
-  /* not used, but may avoid warnings for uninitialized value */
-  lu_byte ub;
-};
-struct TValue {
-  TValuefields;
-};
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _NODE_
+#ifndef _Value_
+#define _Value_
+	union Value {
+	  struct GCObject *gc;    /* collectable objects */
+	  void *p;         /* light userdata */
+	  lua_CFunction f; /* light C functions */
+	  lua_Integer i;   /* integer numbers */
+	  lua_Number n;    /* float numbers */
+	  /* not used, but may avoid warnings for uninitialized value */
+	  lu_byte ub;
+	};
+#endif
+
+#ifndef _TValue_
+#define _TValue_
+	struct TValue {
+	  TValuefields;
+	};
+#endif
+
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _Node_
+#define _Node_
 	union Node {
 	  struct NodeKey {
 	    TValuefields;  /* fields for value */
@@ -77,17 +101,22 @@ struct GCObject {
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

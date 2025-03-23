@@ -4,17 +4,24 @@
 #include "common.h"
 
 
-#ifndef _LUAI_NUMMOD_
+#ifndef _luai_nummod_
+#define _luai_nummod_
 	#define luai_nummod { (void)L; (m) = l_mathop(fmod)(a,b); \
 	    if (((m) > 0) ? (b) < 0 : ((m) < 0 && (b) > 0)) (m) += (b); }
 #endif
 
-struct lua_State;
-#ifndef _LUA_NUMBER_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -57,7 +64,6 @@ typedef struct __luaV_modf
 	lua_Number			m;
 	lua_Number			n;
 	/* Output Variables */
-	lua_Number			r;
 	lua_Number*			ret;
 	/* In&Output Variables */
 	/* Statement Variables*/

@@ -7,16 +7,23 @@
 #include "atomic2gen.h"
 #include "setminordebt.h"
 
-#ifndef _GCSPROPAGATE_
+#ifndef _GCSpropagate_
+#define _GCSpropagate_
 	#define GCSpropagate 0
 #endif
 
-#ifndef _GCSPAUSE_
+#ifndef _GCSpause_
+#define _GCSpause_
 	#define GCSpause 8
 #endif
 
-struct lua_State;
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -47,7 +54,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

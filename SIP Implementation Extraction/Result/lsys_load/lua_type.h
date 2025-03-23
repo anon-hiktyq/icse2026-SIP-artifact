@@ -5,29 +5,39 @@
 #include "index2value.h"
 
 #ifndef _LUA_TNONE_
+#define _LUA_TNONE_
 	#define LUA_TNONE (-1)
 #endif
 
-#ifndef _TTYPE_
+#ifndef _ttype_
+#define _ttype_
 	#define ttype (novariant(rawtt(o)))
 #endif
 
-#ifndef _ISVALID_
+#ifndef _isvalid_
+#define _isvalid_
 	#define isvalid ((o) != &G(L)->nilvalue)
 #endif
 
-struct lua_State;
-#ifndef _LU_BYTE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -58,7 +68,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

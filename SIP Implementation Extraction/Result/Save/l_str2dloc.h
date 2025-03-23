@@ -4,27 +4,33 @@
 #include "common.h"
 
 
-#ifndef _LUA_STR2NUMBER_
+#ifndef _lua_str2number_
+#define _lua_str2number_
 	#define lua_str2number ((lua_Number)strtod((s), (p)))
 #endif
 
-#ifndef _LUA_STRX2NUMBER_
+#ifndef _lua_strx2number_
+#define _lua_strx2number_
 	#define lua_strx2number lua_str2number(s,p)
 #endif
 
-#ifndef _CAST_UCHAR_
+#ifndef _cast_uchar_
+#define _cast_uchar_
 	#define cast_uchar cast(unsigned char, (i))
 #endif
 
-#ifndef _LISSPACE_
+#ifndef _lisspace_
+#define _lisspace_
 	#define lisspace (isspace(c))
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 

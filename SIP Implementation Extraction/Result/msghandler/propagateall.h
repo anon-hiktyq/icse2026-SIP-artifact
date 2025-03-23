@@ -2,12 +2,17 @@
 #define __PROPAGATEALL_H__
 
 #include "common.h"
-#include propagatemark.h
+#include "propagatemark.h"
 
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */

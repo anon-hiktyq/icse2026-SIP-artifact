@@ -4,46 +4,60 @@
 #include "common.h"
 
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
-#ifndef _ISSWEEPPHASE_
+#ifndef _issweepphase_
+#define _issweepphase_
 	#define issweepphase (GCSswpallgc <= (g)->gcstate && (g)->gcstate <= GCSswpend)
 #endif
 
-#ifndef _RESETBIT_
+#ifndef _resetbit_
+#define _resetbit_
 	#define resetbit resetbits(x, bitmask(b))
 #endif
 
 #ifndef _FINALIZEDBIT_
+#define _FINALIZEDBIT_
 	#define FINALIZEDBIT 6
 #endif
 
-#ifndef _TOFINALIZE_
+#ifndef _tofinalize_
+#define _tofinalize_
 	#define tofinalize testbit((x)->marked, FINALIZEDBIT)
 #endif
 
 #ifndef _G_OLD1_
+#define _G_OLD1_
 	#define G_OLD1 3
 #endif
 
-#ifndef _GETAGE_
+#ifndef _getage_
+#define _getage_
 	#define getage ((o)->marked & AGEBITS)
 #endif
 
-#ifndef _MAKEWHITE_
+#ifndef _makewhite_
+#define _makewhite_
 	#define makewhite (x->marked = cast_byte((x->marked & ~maskcolors) | luaC_white(g)))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-struct GCObject {
-  CommonHeader;
-};
-#ifndef _GLOBAL_STATE_
+#ifndef _GCObject_
+#define _GCObject_
+	struct GCObject {
+	  CommonHeader;
+	};
+#endif
+
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
@@ -101,7 +115,6 @@ typedef struct __udata2finalize
 	Fun			fun;
 	/* Input Variables */
 	/* Output Variables */
-	GCObject*			o;
 	GCObject *			ret;
 	/* In&Output Variables */
 	global_State*			g;

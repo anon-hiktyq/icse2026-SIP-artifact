@@ -4,19 +4,23 @@
 #include "common.h"
 
 
-#ifndef _CHECK_EXP_
+#ifndef _check_exp_
+#define _check_exp_
 	#define check_exp (lua_assert(c), (e))
 #endif
 
-#ifndef _GETSTR_
+#ifndef _getstr_
+#define _getstr_
 	#define getstr (strisshr(ts) ? rawgetshrstr(ts) : (ts)->contents)
 #endif
 
-#ifndef _LS_BYTE_
+#ifndef _ls_byte_
+#define _ls_byte_
 	typedef signed char ls_byte;
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -32,7 +36,8 @@
 	};
 #endif
 
-#ifndef _UPVALDESC_
+#ifndef _Upvaldesc_
+#define _Upvaldesc_
 	struct Upvaldesc {
 	  TString *name;  /* upvalue name (for debug information) */
 	  lu_byte instack;  /* whether it is in stack (register) */
@@ -41,7 +46,8 @@
 	};
 #endif
 
-#ifndef _PROTO_
+#ifndef _Proto_
+#define _Proto_
 	struct Proto {
 	  CommonHeader;
 	  lu_byte numparams;  /* number of fixed (named) parameters */

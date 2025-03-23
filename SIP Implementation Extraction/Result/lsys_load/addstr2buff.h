@@ -5,17 +5,24 @@
 #include "luaM_realloc_.h"
 
 #ifndef _MAX_SIZE_
+#define _MAX_SIZE_
 	#define MAX_SIZE (sizeof(size_t) < sizeof(lua_Integer) ? MAX_SIZET \
 				  : cast_sizet(LUA_MAXINTEGER))
 #endif
 
-#ifndef _LUAM_REALLOCVECTOR_
+#ifndef _luaM_reallocvector_
+#define _luaM_reallocvector_
 	#define luaM_reallocvector (cast(t *, luaM_realloc_(L, v, cast_sizet(oldn) * sizeof(t), \
 	                                  cast_sizet(n) * sizeof(t))))
 #endif
 
-struct lua_State;
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;
@@ -46,7 +53,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _BUFFFS_
+#ifndef _BuffFS_
+#define _BuffFS_
 	struct BuffFS {
 	  lua_State *L;
 	  char *b;

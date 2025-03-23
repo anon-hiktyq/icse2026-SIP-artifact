@@ -2,24 +2,32 @@
 #define __RESIZEBOX_H__
 
 #include "common.h"
-#include lua_touserdata.h
-#include lua_getallocf.h
-#include lua_error.h
+#include "lua_touserdata.h"
+#include "lua_getallocf.h"
+#include "lua_error.h"
 
-#ifndef _L_UNLIKELY_
+#ifndef _l_unlikely_
+#define _l_unlikely_
 	#define l_unlikely luai_unlikely(x)
 #endif
 
-#ifndef _LUA_PUSHLITERAL_
+#ifndef _lua_pushliteral_
+#define _lua_pushliteral_
 	#define lua_pushliteral lua_pushstring(L, "" s)
 #endif
 
-struct lua_State;
-#ifndef _LUA_ALLOC_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _lua_Alloc_
+#define _lua_Alloc_
 	typedef void * (*lua_Alloc) (void *ud, void *ptr, size_t osize, size_t nsize);
 #endif
 
-#ifndef _UBOX_
+#ifndef _UBox_
+#define _UBox_
 	struct UBox {
 	  void *box;
 	  size_t bsize;

@@ -4,38 +4,50 @@
 #include "common.h"
 #include "newupval.h"
 
-#ifndef _LUA_ASSERT_
+#ifndef _lua_assert_
+#define _lua_assert_
 	#define lua_assert ((void)0)
 #endif
 
 #ifndef _G_
+#define _G_
 	#define G (L->l_G)
 #endif
 
-#ifndef _ISINTWUPS_
+#ifndef _isintwups_
+#define _isintwups_
 	#define isintwups (L->twups != L)
 #endif
 
-#ifndef _UPLEVEL_
+#ifndef _uplevel_
+#define _uplevel_
 	#define uplevel check_exp(upisopen(up), cast(StkId, (up)->v.p))
 #endif
 
-#ifndef _ISDEAD_
+#ifndef _isdead_
+#define _isdead_
 	#define isdead isdeadm(otherwhite(g), (v)->marked)
 #endif
 
-struct lua_State;
-#ifndef _TVALUE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _STKID_
+#ifndef _StkId_
+#define _StkId_
 	typedef StackValue *StkId;
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -52,7 +64,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

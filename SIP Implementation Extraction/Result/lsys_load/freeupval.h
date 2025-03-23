@@ -4,22 +4,30 @@
 #include "common.h"
 #include "luaF_unlinkupval.h"
 
-#ifndef _LUAM_FREE_
+#ifndef _luaM_free_
+#define _luaM_free_
 	#define luaM_free luaM_free_(L, (b), sizeof(*(b)))
 #endif
 
-#ifndef _UPISOPEN_
+#ifndef _upisopen_
+#define _upisopen_
 	#define upisopen ((up)->v.p != &(up)->u.value)
 #endif
 
-struct lua_State;
-#ifndef _TVALUE_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _UPVAL_
+#ifndef _UpVal_
+#define _UpVal_
 	struct UpVal {
 	  CommonHeader;
 	  union {
@@ -36,7 +44,8 @@ struct lua_State;
 	};
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

@@ -6,27 +6,37 @@
 #include "luaD_throw.h"
 
 #ifndef _LUA_ERRERR_
+#define _LUA_ERRERR_
 	#define LUA_ERRERR 5
 #endif
 
-#ifndef _GETCCALLS_
+#ifndef _getCcalls_
+#define _getCcalls_
 	#define getCcalls ((L)->nCcalls & 0xffff)
 #endif
 
 #ifndef _LUAI_MAXCCALLS_
+#define _LUAI_MAXCCALLS_
 	#define LUAI_MAXCCALLS 200
 #endif
 
-struct lua_State;
-#ifndef _TSTATUS_
+#ifndef _lua_State_
+#define _lua_State_
+	struct lua_State;
+#endif
+
+#ifndef _TStatus_
+#define _TStatus_
 	typedef lu_byte TStatus;
 #endif
 
-#ifndef _L_UINT32_
+#ifndef _l_uint32_
+#define _l_uint32_
 	typedef unsigned int l_uint32;
 #endif
 
-#ifndef _LUA_STATE_
+#ifndef _lua_State_
+#define _lua_State_
 	struct lua_State {
 	  CommonHeader;
 	  lu_byte allowhook;

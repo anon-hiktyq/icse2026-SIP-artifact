@@ -2,12 +2,12 @@
 void luaV_shiftlFun(void *p) 
 {
     luaV_shiftl *pIp = (luaV_shiftl*)p;
-  if (pIp -> y < 0) {  /* shift right? */
-    if (pIp -> y <= -NBITS) return 0;
-    else return intop(>>, pIp -> x, -pIp -> y);
+  if ((pIp->y) < 0) {  /* shift right? */
+    if ((pIp->y) <= -NBITS) *(pIp->ret) =  0;
+    else *(pIp->ret) =  intop(>>, x, -y);
   }
   else {  /* shift left */
-    if (pIp -> y >= NBITS) return 0;
-    else return intop(<<, pIp -> x, pIp -> y);
+    if ((pIp->y) >= NBITS) *(pIp->ret) =  0;
+    else *(pIp->ret) =  intop(<<, x, y);
   }
 }

@@ -2,17 +2,17 @@
 void getgclistFun(void *p) 
 {
     getgclist *pIp = (getgclist*)p;
-  switch (pIp -> o->tt) {
-    case LUA_VTABLE: return &gco2t(pIp -> o)->gclist;
-    case LUA_VLCL: return &gco2lcl(pIp -> o)->gclist;
-    case LUA_VCCL: return &gco2ccl(pIp -> o)->gclist;
-    case LUA_VTHREAD: return &gco2th(pIp -> o)->gclist;
-    case LUA_VPROTO: return &gco2p(pIp -> o)->gclist;
+  switch ((pIp->o)->tt) {
+    case LUA_VTABLE: pIp->ret =  &gco2t(o)->gclist;
+    case LUA_VLCL: pIp->ret =  &gco2lcl(o)->gclist;
+    case LUA_VCCL: pIp->ret =  &gco2ccl(o)->gclist;
+    case LUA_VTHREAD: pIp->ret =  &gco2th(o)->gclist;
+    case LUA_VPROTO: pIp->ret =  &gco2p(o)->gclist;
     case LUA_VUSERDATA: {
-      Udata *u = gco2u(pIp -> o);
-      lua_assert(u->nuvalue > 0);
-      pIp -> ret = &u->gclist;
+      Udata u;{u = gco2u(pIp->o);}
+      {lua_assert(u->nuvalue > 0);}
+      pIp->ret =  &u->gclist;
     }
-    default: lua_assert(0); return 0;
+    default: {lua_assert(0);} pIp->ret =  0;
   }
 }

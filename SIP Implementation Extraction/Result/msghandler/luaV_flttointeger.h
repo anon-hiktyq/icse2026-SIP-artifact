@@ -4,25 +4,30 @@
 #include "common.h"
 
 
-#ifndef _L_FLOOR_
+#ifndef _l_floor_
+#define _l_floor_
 	#define l_floor (l_mathop(floor)(x))
 #endif
 
-#ifndef _LUA_NUMBERTOINTEGER_
+#ifndef _lua_numbertointeger_
+#define _lua_numbertointeger_
 	#define lua_numbertointeger ((n) >= (LUA_NUMBER)(LUA_MININTEGER) && \
 	   (n) < -(LUA_NUMBER)(LUA_MININTEGER) && \
 	      (*(p) = (LUA_INTEGER)(n), 1))
 #endif
 
-#ifndef _LUA_NUMBER_
+#ifndef _lua_Number_
+#define _lua_Number_
 	typedef LUA_NUMBER lua_Number;
 #endif
 
-#ifndef _LUA_INTEGER_
+#ifndef _lua_Integer_
+#define _lua_Integer_
 	typedef LUA_INTEGER lua_Integer;
 #endif
 
-#ifndef _F2IMOD_
+#ifndef _F2Imod_
+#define _F2Imod_
 	enum {
 	  F2Ieq,     /* no rounding; accepts only integral values */
 	  F2Ifloor,  /* takes the floor of the number */

@@ -2,9 +2,9 @@
 void singlestepFun(void *p) 
 {
     singlestep *pIp = (singlestep*)p;
-  global_State *g = G(pIp -> L);
+  global_State g;{g = G(pIp->L);}
   l_mem stepresult;
-  lua_assert(!g->gcstopem);  /* collector is not reentrant */
+  {lua_assert(!g->gcstopem);}  /* collector is not reentrant */
   g->gcstopem = 1;  /* no emergency collections while collecting */
   switch (g->gcstate) {
     case GCSpause: {
@@ -14,17 +14,17 @@ void singlestepFun(void *p)
       break;
     }
     case GCSpropagate: {
-      if (pIp -> fast || g->gray == NULL) {
+      if ((pIp->fast) || g->gray == NULL) {
         g->gcstate = GCSenteratomic;  /* finish propagate phase */
         stepresult = 1;
       }
       else
-        stepresult = propagatemark(g);  /* traverse one gray object */
+        {l_mem propagatemark_ret_0;IPCALL(propagatemark,ippropagatemark_0,.g = g,.ret = &propagatemark_ret_0);stepresult = propagatemark_ret_0;}  /* traverse one gray object */
       break;
     }
     case GCSenteratomic: {
       {IPCALL(atomic,ipatomic_0,.L = pIp->L);}
-      {int checkmajorminor_ret_0;IPCALL(checkmajorminor,ipcheckmajorminor_0,.L = pIp->L,.g = g,.ret = pIp->&checkmajorminor_ret_0);if ((checkmajorminor_ret_0)
+      {int checkmajorminor_ret_0;IPCALL(checkmajorminor,ipcheckmajorminor_0,.L = pIp->L,.g = g,.ret = &checkmajorminor_ret_0);if (checkmajorminor_ret_0)
         stepresult = step2minor;
       else {
         {IPCALL(entersweep,ipentersweep_0,.L = pIp->L);}
@@ -33,7 +33,7 @@ void singlestepFun(void *p)
       break;
     }
     case GCSswpallgc: {  /* sweep "regular" objects */
-      {IPCALL(sweepstep,ipsweepstep_2,.L = pIp->L,.g = g,.nextstate = GCSswpfinobj,.nextlist = &g->finobj,.fast = pIp->fast);}
+      {IPCALL(sweepstep,ipsweepstep_0,.L = pIp->L,.g = g,.nextstate = GCSswpfinobj,.nextlist = &g->finobj,.fast = pIp->fast);}
       stepresult = GCSWEEPMAX;
       break;
     }
@@ -43,7 +43,7 @@ void singlestepFun(void *p)
       break;
     }
     case GCSswptobefnz: {  /* sweep objects to be finalized */
-      {IPCALL(sweepstep,ipsweepstep_0,.L = pIp->L,.g = g,.nextstate = GCSswpend,.nextlist = NULL,.fast = pIp->fast);}
+      {IPCALL(sweepstep,ipsweepstep_2,.L = pIp->L,.g = g,.nextstate = GCSswpend,.nextlist = NULL,.fast = pIp->fast);}
       stepresult = GCSWEEPMAX;
       break;
     }
@@ -65,8 +65,8 @@ void singlestepFun(void *p)
       }
       break;
     }
-    default: lua_assert(0); return 0;
+    default: {lua_assert(0);} *(pIp->ret) =  0;
   }
   g->gcstopem = 0;
-  *(pIp -> ret) = stepresult;
+  *(pIp->ret) =  stepresult;
 }

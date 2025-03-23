@@ -7,43 +7,53 @@
 #include "traverseephemeron.h"
 #include "traversestrongtable.h"
 
-#ifndef _CAST_VOID_
+#ifndef _cast_void_
+#define _cast_void_
 	#define cast_void cast(void, (i))
 #endif
 
-#ifndef _TTISSHRSTRING_
+#ifndef _ttisshrstring_
+#define _ttisshrstring_
 	#define ttisshrstring checktag((o), ctb(LUA_VSHRSTR))
 #endif
 
-#ifndef _TSVALUE_
+#ifndef _tsvalue_
+#define _tsvalue_
 	#define tsvalue check_exp(ttisstring(o), gco2ts(val_(o).gc))
 #endif
 
-#ifndef _GETSHRSTR_
+#ifndef _getshrstr_
+#define _getshrstr_
 	#define getshrstr check_exp(strisshr(ts), rawgetshrstr(ts))
 #endif
 
-#ifndef _SIZENODE_
+#ifndef _sizenode_
+#define _sizenode_
 	#define sizenode (twoto((t)->lsizenode))
 #endif
 
-#ifndef _GFASTTM_
+#ifndef _gfasttm_
+#define _gfasttm_
 	#define gfasttm (checknoTM(mt, e) ? NULL : luaT_gettm(mt, e, (g)->tmname[e]))
 #endif
 
-#ifndef _MARKOBJECTN_
+#ifndef _markobjectN_
+#define _markobjectN_
 	#define markobjectN { if (t) markobject(g,t); }
 #endif
 
-#ifndef _LINKGCLIST_
+#ifndef _linkgclist_
+#define _linkgclist_
 	#define linkgclist linkgclist_(obj2gco(o), &(o)->gclist, &(p))
 #endif
 
-#ifndef _LU_BYTE_
+#ifndef _lu_byte_
+#define _lu_byte_
 	typedef unsigned char lu_byte;
 #endif
 
-#ifndef _VALUE_
+#ifndef _Value_
+#define _Value_
 	union Value {
 	  struct GCObject *gc;    /* collectable objects */
 	  void *p;         /* light userdata */
@@ -55,19 +65,22 @@
 	};
 #endif
 
-#ifndef _TVALUE_
+#ifndef _TValue_
+#define _TValue_
 	struct TValue {
 	  TValuefields;
 	};
 #endif
 
-#ifndef _GCOBJECT_
+#ifndef _GCObject_
+#define _GCObject_
 	struct GCObject {
 	  CommonHeader;
 	};
 #endif
 
-#ifndef _TSTRING_
+#ifndef _TString_
+#define _TString_
 	struct TString {
 	  CommonHeader;
 	  lu_byte extra;  /* reserved words for short strings; "has hash" for longs */
@@ -83,17 +96,22 @@
 	};
 #endif
 
-struct Table {
-  CommonHeader;
-  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
-  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
-  unsigned int asize;  /* number of slots in 'array' array */
-  Value *array;  /* array part */
-  Node *node;
-  struct Table *metatable;
-  GCObject *gclist;
-};
+#ifndef _Table_
+#define _Table_
+	struct Table {
+	  CommonHeader;
+	  lu_byte flags;  /* 1<<p means tagmethod(p) is not present */
+	  lu_byte lsizenode;  /* log2 of number of slots of 'node' array */
+	  unsigned int asize;  /* number of slots in 'array' array */
+	  Value *array;  /* array part */
+	  Node *node;
+	  struct Table *metatable;
+	  GCObject *gclist;
+	};
+#endif
+
 #ifndef _TMS_
+#define _TMS_
 	enum {
 	  TM_INDEX,
 	  TM_NEWINDEX,
@@ -124,7 +142,8 @@ struct Table {
 	};
 #endif
 
-#ifndef _GLOBAL_STATE_
+#ifndef _global_State_
+#define _global_State_
 	struct global_State {
 	  lua_Alloc frealloc;  /* function to reallocate memory */
 	  void *ud;         /* auxiliary data to 'frealloc' */
