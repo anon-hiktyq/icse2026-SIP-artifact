@@ -1,0 +1,9 @@
+/home/dimpling/SIP/SIP/build/CMakeFiles/intrinsics_gen.dir
+/home/dimpling/SIP/SIP/build/CMakeFiles/omp_gen.dir
+/home/dimpling/SIP/SIP/build/CMakeFiles/acc_gen.dir
+/home/dimpling/SIP/SIP/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/home/dimpling/SIP/SIP/build/CMakeFiles/edit_cache.dir
+/home/dimpling/SIP/SIP/build/CMakeFiles/rebuild_cache.dir
+/home/dimpling/SIP/SIP/build/src/CMakeFiles/sip.dir
+/home/dimpling/SIP/SIP/build/src/CMakeFiles/edit_cache.dir
+/home/dimpling/SIP/SIP/build/src/CMakeFiles/rebuild_cache.dir
